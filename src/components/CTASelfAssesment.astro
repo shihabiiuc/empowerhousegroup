@@ -1,0 +1,475 @@
+---
+import drJillTwo from "../assets/dr-jill-two.jpg";
+import { Image } from "astro:assets";
+---
+
+<section class="cta-section">
+  <!-- Decorative background elements -->
+  <div class="bg-noise"></div>
+  <div class="bg-line bg-line--1"></div>
+  <div class="bg-line bg-line--2"></div>
+  <div class="accent-dot accent-dot--1"></div>
+  <div class="accent-dot accent-dot--2"></div>
+
+  <div class="cta-inner">
+    <!-- LEFT — Image column -->
+    <div class="image-col">
+      <div class="image-frame">
+        <div class="image-border"></div>
+        <Image
+          src={drJillTwo}
+          alt="Dr. Jill Kahn — Founder of The BioCode System®"
+          class="dr-photo"
+          widths={[480, 720, 960]}
+          sizes="(max-width: 768px) 100vw, 50vw"
+        />
+        <div class="image-overlay"></div>
+        <div class="image-badge">
+          <span class="badge-line">The BioCode System®</span>
+          <span class="badge-name">Dr. Jill Kahn</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT — Content column -->
+    <div class="content-col">
+      <div class="content-inner">
+        <span class="label-pill">Self-Assessment</span>
+
+        <h2 class="cta-heading">
+          You have a unique<br />
+          opportunity to<br />
+          <em>strengthen yourself.</em>
+        </h2>
+
+        <div class="divider"></div>
+
+        <p class="cta-body">
+          And we're not talking about the fun ones. You know — those
+          <strong>stressful moments.</strong> It doesn't have to be only big things.
+          It's anything that annoys or disturbs you, including you.
+        </p>
+
+        <p class="cta-body cta-body--accent">
+          Those are the moments that are holding you back from leading your life
+          with <strong>personal power and freedom.</strong>
+        </p>
+
+        <p class="cta-body">
+          Take this short <strong>2-minute assessment</strong> to identify your greatest
+          opportunity to grow.
+        </p>
+
+        <div class="email-note">
+          <svg
+            class="email-icon"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              x="2"
+              y="4"
+              width="16"
+              height="12"
+              rx="2"
+              stroke="currentColor"
+              stroke-width="1.5"></rect>
+            <path
+              d="M2 7l8 5 8-5"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"></path>
+          </svg>
+          Results will be sent to your email address.
+        </div>
+
+        <a href="/self-assessment" class="cta-btn">
+          <span class="btn-text">Take the Quiz</span>
+          <span class="btn-arrow">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M5 12h14M13 6l6 6-6 6"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            </svg>
+          </span>
+        </a>
+
+        <p class="cta-footer-note">Free · 2 minutes · No commitment</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-section {
+    position: relative;
+    background: var(--cream);
+    overflow: hidden;
+  }
+
+  /* ── Backgrounds ── */
+  .bg-noise {
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+    pointer-events: none;
+  }
+
+  .bg-line {
+    position: absolute;
+    background: var(--sand);
+    pointer-events: none;
+  }
+  .bg-line--1 {
+    width: 1px;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    opacity: 0.6;
+  }
+  .bg-line--2 {
+    height: 1px;
+    left: 0;
+    right: 0;
+    top: 50%;
+    opacity: 0.4;
+  }
+
+  .accent-dot {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .accent-dot--1 {
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(
+      circle,
+      rgba(201, 151, 58, 0.12) 0%,
+      transparent 70%
+    );
+    top: -80px;
+    right: 10%;
+  }
+  .accent-dot--2 {
+    width: 240px;
+    height: 240px;
+    background: radial-gradient(
+      circle,
+      rgba(139, 58, 30, 0.08) 0%,
+      transparent 70%
+    );
+    bottom: -60px;
+    left: 5%;
+  }
+
+  /* ── Layout ── */
+  .cta-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 700px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ── Image Column ── */
+  .image-col {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .image-frame {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 600px;
+  }
+
+  .dr-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+
+  .image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, transparent 60%, var(--cream) 100%);
+    pointer-events: none;
+  }
+
+  /* Decorative border frame on image */
+  .image-border {
+    position: absolute;
+    inset: 24px;
+    border: 1px solid rgba(201, 151, 58, 0.3);
+    z-index: 3;
+    pointer-events: none;
+  }
+  .image-border::before,
+  .image-border::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-color: var(--gold);
+    border-style: solid;
+  }
+  .image-border::before {
+    top: -1px;
+    left: -1px;
+    border-width: 2px 0 0 2px;
+  }
+  .image-border::after {
+    bottom: -1px;
+    right: -1px;
+    border-width: 0 2px 2px 0;
+  }
+
+  .image-badge {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    z-index: 4;
+    background: rgba(26, 18, 8, 0.82);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(201, 151, 58, 0.3);
+    padding: 14px 20px;
+    border-radius: 4px;
+  }
+
+  .badge-line {
+    display: block;
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 4px;
+  }
+  .badge-name {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--warm-white);
+    font-weight: 700;
+  }
+
+  /* ── Content Column ── */
+  .content-col {
+    display: flex;
+    align-items: center;
+    padding: 80px 72px 80px 64px;
+    background: var(--warm-white);
+  }
+
+  .content-inner {
+    max-width: 480px;
+  }
+
+  .label-pill {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--rust);
+    border: 1px solid rgba(139, 58, 30, 0.25);
+    background: rgba(139, 58, 30, 0.06);
+    padding: 6px 16px;
+    border-radius: 2px;
+    margin-bottom: 28px;
+  }
+
+  .cta-heading {
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--ink);
+    margin: 0 0 28px;
+    letter-spacing: -0.01em;
+  }
+
+  .cta-heading em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .divider {
+    width: 56px;
+    height: 2px;
+    background: linear-gradient(to right, var(--gold), transparent);
+    margin-bottom: 28px;
+  }
+
+  .cta-body {
+    font-size: 0.97rem;
+    line-height: 1.78;
+    color: var(--text-body);
+    margin: 0 0 16px;
+    font-weight: 300;
+  }
+
+  .cta-body--accent {
+    padding: 16px 20px;
+    border-left: 2px solid var(--gold);
+    background: rgba(201, 151, 58, 0.06);
+    border-radius: 0 4px 4px 0;
+    margin: 20px 0;
+  }
+
+  .cta-body strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .email-note {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin: 24px 0 36px;
+    padding: 10px 14px;
+    background: rgba(232, 221, 208, 0.4);
+    border-radius: 4px;
+    border: 1px solid var(--sand);
+  }
+
+  .email-icon {
+    width: 16px;
+    height: 16px;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  /* ── CTA Button ── */
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--ink);
+    color: var(--warm-white);
+    text-decoration: none;
+    padding: 16px 32px 16px 36px;
+    border-radius: 3px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .cta-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--rust) 100%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
+
+  .cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 48px rgba(26, 18, 8, 0.25);
+  }
+
+  .cta-btn:hover::before {
+    opacity: 1;
+  }
+
+  .btn-text,
+  .btn-arrow {
+    position: relative;
+    z-index: 1;
+  }
+
+  .btn-arrow {
+    display: flex;
+    align-items: center;
+  }
+
+  .btn-arrow svg {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.3s ease;
+  }
+
+  .cta-btn:hover .btn-arrow svg {
+    transform: translateX(4px);
+  }
+
+  .cta-footer-note {
+    margin: 16px 0 0;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 960px) {
+    .cta-inner {
+      grid-template-columns: 1fr;
+    }
+
+    .image-col {
+      height: 520px;
+    }
+
+    .image-frame {
+      min-height: 520px;
+    }
+
+    .image-overlay {
+      background: linear-gradient(
+        to bottom,
+        transparent 50%,
+        var(--cream) 100%
+      );
+    }
+
+    .content-col {
+      padding: 56px 40px 72px;
+    }
+
+    .content-inner {
+      max-width: 100%;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .image-col {
+      height: 420px;
+    }
+    .image-frame {
+      min-height: 420px;
+    }
+    .image-border {
+      inset: 14px;
+    }
+    .image-badge {
+      bottom: 20px;
+      left: 20px;
+    }
+    .content-col {
+      padding: 40px 24px 56px;
+    }
+    .cta-heading {
+      font-size: 1.9rem;
+    }
+  }
+</style>

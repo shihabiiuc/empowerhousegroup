@@ -3,6 +3,15 @@
 @import "./BiocodeResilience.css";
 
 :root {
+  --cream: #faf6f0;
+  --warm-white: #fff9f3;
+  --ink: #1a1208;
+  --gold: #c9973a;
+  --gold-light: #e8c47a;
+  --sand: #e8ddd0;
+  --rust: #8b3a1e;
+  --text-body: #3d3228;
+
   --teal: #00f5c4;
   --blue: #0099ff;
   --warm: #ff6b6b;
