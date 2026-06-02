@@ -1,7 +1,19 @@
 @import "tailwindcss";
 @import "./two-column.css";
+@import "./BiocodeResilience.css";
 
 :root {
+  --teal: #00f5c4;
+  --blue: #0099ff;
+  --warm: #ff6b6b;
+  --amber: #ffa94d;
+  --violet: #a78bfa;
+  --sky: #38bdf8;
+  --dark: #080c14;
+  --card: rgba(255, 255, 255, 0.04);
+  --border: rgba(255, 255, 255, 0.08);
+  --text: #e2e8f0;
+  --muted: #7a8fa6;
   --bg-header: #080d18;
   --bg-primary: #0b1120;
   --border: rgba(255, 255, 255, 0.07);

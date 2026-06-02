@@ -1,0 +1,328 @@
+.biocode-section {
+  position: relative;
+  background: var(--dark);
+  overflow: hidden;
+  padding: 120px 0 140px;
+}
+
+/* ── Backgrounds ── */
+.bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(
+    ellipse 80% 80% at 50% 50%,
+    black 0%,
+    transparent 75%
+  );
+}
+
+.bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+}
+.orb-1 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(
+    circle,
+    rgba(0, 245, 196, 0.12) 0%,
+    transparent 70%
+  );
+  top: -200px;
+  left: -150px;
+}
+.orb-2 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 107, 107, 0.1) 0%,
+    transparent 70%
+  );
+  bottom: -180px;
+  right: -120px;
+}
+.orb-3 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(
+    circle,
+    rgba(167, 139, 250, 0.1) 0%,
+    transparent 70%
+  );
+  top: 40%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+}
+
+/* ── Container ── */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  z-index: 2;
+}
+
+/* ── Header ── */
+.header-block {
+  max-width: 780px;
+  margin: 0 auto 96px;
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--teal);
+  border: 1px solid rgba(0, 245, 196, 0.25);
+  padding: 6px 18px;
+  border-radius: 100px;
+  margin-bottom: 32px;
+  background: rgba(0, 245, 196, 0.05);
+}
+
+.heading {
+  font-family: var(--font-body);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 300;
+  line-height: 1.12;
+  color: #fff;
+  margin: 0 0 28px;
+  letter-spacing: -0.02em;
+}
+
+.heading em {
+  font-style: italic;
+  background: linear-gradient(135deg, var(--teal), var(--blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtext {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--muted);
+  margin: 0;
+  font-weight: 300;
+}
+
+.subtext strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* ── Stats Grid ── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  align-items: stretch;
+}
+
+/* ── Stat Card ── */
+.stat-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 52px 36px 44px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 32px;
+  backdrop-filter: blur(20px);
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.stat-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stat-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 245, 196, 0.04) 0%,
+    transparent 60%
+  );
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.stat-card--mid::before {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 107, 107, 0.05) 0%,
+    transparent 60%
+  );
+}
+
+.stat-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.5);
+}
+
+/* ── Ring ── */
+.ring-wrap {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  flex-shrink: 0;
+}
+
+.ring-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.ring-track {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.06);
+  stroke-width: 10;
+}
+
+.ring-fill {
+  fill: none;
+  stroke: url(#grad1);
+  stroke-width: 10;
+  stroke-linecap: round;
+  stroke-dasharray: var(--dash);
+  stroke-dashoffset: calc(var(--dash) * (1 - var(--pct)));
+  transition: stroke-dashoffset 2s cubic-bezier(0.16, 1, 0.3, 1);
+  /* Start from full offset (hidden) */
+  --animated-offset: var(--dash);
+}
+
+.ring-fill--warm {
+  stroke: url(#grad2);
+}
+.ring-fill--violet {
+  stroke: url(#grad3);
+}
+
+/* Animated state: offset starts at --dash, animates to final */
+.ring-fill.animate {
+  stroke-dashoffset: calc(var(--dash) * (1 - var(--pct)));
+}
+
+/* Before animation */
+.ring-fill:not(.animate) {
+  stroke-dashoffset: var(--dash);
+}
+
+.ring-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+.pct-num {
+  font-size: 3rem;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.pct-sym {
+  font-size: 1.4rem;
+  color: var(--teal);
+  font-weight: 600;
+  line-height: 1;
+  align-self: center;
+}
+
+.stat-card--mid .pct-sym {
+  color: var(--warm);
+}
+.stat-card:last-child .pct-sym {
+  color: var(--violet);
+}
+
+/* ── Label & Tag ── */
+.stat-label {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--muted);
+  font-weight: 300;
+  flex: 1;
+}
+
+.stat-label strong {
+  color: var(--text);
+  font-weight: 500;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.stat-tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teal);
+  background: rgba(0, 245, 196, 0.08);
+  border: 1px solid rgba(0, 245, 196, 0.2);
+  padding: 5px 14px;
+  border-radius: 100px;
+}
+
+.stat-tag--warm {
+  color: var(--warm);
+  background: rgba(255, 107, 107, 0.08);
+  border-color: rgba(255, 107, 107, 0.2);
+}
+
+.stat-tag--violet {
+  color: var(--violet);
+  background: rgba(167, 139, 250, 0.08);
+  border-color: rgba(167, 139, 250, 0.2);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .biocode-section {
+    padding: 80px 0 100px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 0 24px;
+  }
+  .header-block {
+    margin-bottom: 60px;
+  }
+}
