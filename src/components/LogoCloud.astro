@@ -1,0 +1,303 @@
+---
+import aia1 from "../assets/logo-cloud/aia-1.png";
+import experientTiny1 from "../assets/logo-cloud/Experient_tiny-1.png";
+import northHighlandMin from "../assets/logo-cloud/North-Highland-min.jpg";
+import assurant1 from "../assets/logo-cloud/assurant-1.png";
+import frb from "../assets/logo-cloud/FRB.jpg";
+import packers1 from "../assets/logo-cloud/Packers-1.jpg";
+import boom1 from "../assets/logo-cloud/boom-1.png";
+import gajuniorAchievement1 from "../assets/logo-cloud/GaJuniorAchievement-1.jpg";
+import pathbuilders1 from "../assets/logo-cloud/Pathbuilders-1.jpg";
+import caninecellmates1 from "../assets/logo-cloud/caninecellmates-1.png";
+import gt1 from "../assets/logo-cloud/GT-1.jpg";
+import sapientnitro from "../assets/logo-cloud/SapientNitro.jpg";
+import chickFilA1 from "../assets/logo-cloud/chick-fil-a-1.png";
+import homedepot1 from "../assets/logo-cloud/HomeDepot-1.png";
+import thunders1 from "../assets/logo-cloud/Thunder-1.png";
+import cityOfRefuge1 from "../assets/logo-cloud/city-of-refuge-1.png";
+import huddleTickets1 from "../assets/logo-cloud/HuddleTickets-1.png";
+import unaLogoHorizontal from "../assets/logo-cloud/UNA-Logo_Horizontal_Digital-RGB_640_Compressed-1.png";
+import emerge1 from "../assets/logo-cloud/Emerge-1.jpg";
+import mercycare1 from "../assets/logo-cloud/mercycare-1.png";
+import wpo from "../assets/logo-cloud/WPO.png";
+
+const logos = [
+  { src: aia1, alt: "aia1" },
+  { src: experientTiny1, alt: "experientTiny1" },
+  { src: northHighlandMin, alt: "northHighlandMin" },
+  { src: assurant1, alt: "assurant1" },
+  { src: frb, alt: "frb" },
+  { src: packers1, alt: "packers1" },
+  { src: boom1, alt: "boom1" },
+  { src: gajuniorAchievement1, alt: "gajuniorAchievement1" },
+  { src: pathbuilders1, alt: "pathbuilders1" },
+  { src: caninecellmates1, alt: "caninecellmates1" },
+  { src: gt1, alt: "gt1" },
+  { src: sapientnitro, alt: "sapientnitro" },
+  { src: chickFilA1, alt: "chickFilA1" },
+  { src: homedepot1, alt: "homedepot1" },
+  { src: thunders1, alt: "thunders1" },
+  { src: cityOfRefuge1, alt: "cityOfRefuge1" },
+  { src: huddleTickets1, alt: "huddleTickets1" },
+  { src: unaLogoHorizontal, alt: "unaLogoHorizontal" },
+  { src: emerge1, alt: "emerge1" },
+  { src: mercycare1, alt: "mercycare1" },
+  { src: wpo, alt: "wpo" },
+];
+
+// Duplicate for seamless infinite loop
+const track = [...logos, ...logos];
+---
+
+<section class="logo-cloud-section">
+  <div class="logo-cloud-inner">
+    <div class="eyebrow">
+      <span class="eyebrow-line"></span>
+      <span class="eyebrow-text"
+        >Trusted by organizations across every sector</span
+      >
+      <span class="eyebrow-line"></span>
+    </div>
+
+    <div class="marquee-wrapper" aria-label="Client logos">
+      <!-- Row 1 — left to right -->
+      <div class="marquee-track track-fwd">
+        {
+          track.map((logo) => (
+            <div class="logo-pill">
+              <img
+                src={logo.src.src}
+                alt={logo.alt}
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Row 2 — right to left, offset -->
+      <div class="marquee-track track-rev">
+        {
+          [...track].reverse().map((logo) => (
+            <div class="logo-pill">
+              <img
+                src={logo.src.src}
+                alt={logo.alt}
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ─── Section shell ──────────────────────────────────────────── */
+  .logo-cloud-section {
+    position: relative;
+    overflow: hidden;
+    padding: 5rem 0 5.5rem;
+    background: #0a0a0f;
+  }
+
+  /* Subtle noise-grain overlay for depth */
+  .logo-cloud-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: 0.35;
+  }
+
+  /* Ambient glow blob */
+  .logo-cloud-section::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 70vw;
+    height: 300px;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(99, 102, 241, 0.08) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+  }
+
+  .logo-cloud-inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ─── Eyebrow label ──────────────────────────────────────────── */
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+    padding: 0 1.5rem;
+  }
+
+  .eyebrow-line {
+    flex: 1;
+    max-width: 120px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15));
+  }
+
+  .eyebrow-line:last-child {
+    background: linear-gradient(270deg, transparent, rgba(255, 255, 255, 0.15));
+  }
+
+  .eyebrow-text {
+    font-family: "DM Mono", "Fira Mono", ui-monospace, monospace;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.35);
+    white-space: nowrap;
+  }
+
+  /* ─── Marquee wrapper with edge fade masks ───────────────────── */
+  .marquee-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow: hidden;
+
+    /* Edge-fade mask */
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      black 12%,
+      black 88%,
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      black 12%,
+      black 88%,
+      transparent 100%
+    );
+  }
+
+  /* Pause on hover for the whole wrapper */
+  .marquee-wrapper:hover .marquee-track {
+    animation-play-state: paused;
+  }
+
+  /* ─── Scrolling track ────────────────────────────────────────── */
+  .marquee-track {
+    display: flex;
+    gap: 1rem;
+    width: max-content;
+    will-change: transform;
+  }
+
+  .track-fwd {
+    animation: scroll-fwd 55s linear infinite;
+  }
+
+  .track-rev {
+    animation: scroll-rev 65s linear infinite;
+  }
+
+  @keyframes scroll-fwd {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes scroll-rev {
+    from {
+      transform: translateX(-50%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  /* ─── Individual logo pill ───────────────────────────────────── */
+  .logo-pill {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 148px;
+    height: 72px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    padding: 0.75rem 1.25rem;
+    cursor: default;
+    transition:
+      border-color 0.3s ease,
+      background 0.3s ease,
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .logo-pill:hover {
+    border-color: rgba(99, 102, 241, 0.45);
+    background: rgba(99, 102, 241, 0.07);
+    transform: translateY(-3px) scale(1.04);
+    box-shadow:
+      0 8px 24px rgba(0, 0, 0, 0.4),
+      0 0 0 1px rgba(99, 102, 241, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    animation-play-state: paused;
+  }
+
+  .logo-pill img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    /* Greyscale by default, reveal color on hover */
+    filter: grayscale(100%) brightness(0.85) contrast(1.1);
+    opacity: 0.65;
+    transition:
+      filter 0.35s ease,
+      opacity 0.35s ease;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+
+  .logo-pill:hover img {
+    filter: grayscale(0%) brightness(1) contrast(1);
+    opacity: 1;
+  }
+
+  /* ─── Reduced-motion accessibility ──────────────────────────── */
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+      animation: none !important;
+    }
+
+    .marquee-track {
+      flex-wrap: wrap;
+      width: 100%;
+      justify-content: center;
+      padding: 0 1.5rem;
+    }
+
+    .marquee-wrapper {
+      -webkit-mask-image: none;
+      mask-image: none;
+    }
+  }
+</style>

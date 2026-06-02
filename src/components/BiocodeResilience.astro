@@ -136,7 +136,7 @@
   </div><!-- /container -->
 </section>
 
-<script>
+<!-- <script>
   // Intersection Observer — cards slide in + rings animate + numbers count up
   const cards = document.querySelectorAll<HTMLElement>(".stat-card");
 
@@ -185,4 +185,64 @@
     };
     requestAnimationFrame(update);
   }
+</script> -->
+
+<script>
+  function initBioCodeStats() {
+    const cards = document.querySelectorAll(".stat-card");
+
+    if (!cards.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          const card = entry.target;
+          const delay = Number(card.dataset.delay || 0);
+
+          setTimeout(() => {
+            card.classList.add("visible");
+
+            const fill = card.querySelector(".ring-fill");
+            if (fill) fill.classList.add("animate");
+
+            const numEl = card.querySelector(".pct-num");
+            const target = Number(numEl?.dataset.target || 0);
+
+            if (numEl) countUp(numEl, target, 2000);
+          }, delay);
+
+          observer.unobserve(card);
+        });
+      },
+      { threshold: 0.25 },
+    );
+
+    cards.forEach((card, i) => {
+      card.dataset.delay = String(i * 180);
+      observer.observe(card);
+    });
+
+    function countUp(el, target, duration) {
+      const start = performance.now();
+
+      const update = (now) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+
+        el.textContent = Math.round(ease * target);
+
+        if (progress < 1) requestAnimationFrame(update);
+      };
+
+      requestAnimationFrame(update);
+    }
+  }
+
+  // IMPORTANT: run on first load
+  initBioCodeStats();
+
+  // IMPORTANT: re-run on Astro navigation (view transitions)
+  document.addEventListener("astro:page-load", initBioCodeStats);
 </script>
