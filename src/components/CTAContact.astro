@@ -1,0 +1,163 @@
+---
+// BioCodeCTA.astro
+---
+
+<section class="bc-cta">
+  <div class="bc-cta-glow"></div>
+  <div class="bc-cta-inner">
+    <div class="bc-cta-tag">Your Journey Starts Here</div>
+    <h2 class="bc-cta-heading">
+      Do You Know Your<br />
+      <em>Biocodes®</em> Yet?
+    </h2>
+    <p class="bc-cta-sub">
+      Relentless inner-strength and optimism aren't born — they're built.<br />
+      It's time to discover the code that makes you unshakable.
+    </p>
+    <a href="/contact-us" class="bc-cta-btn">
+      Make it Happen
+      <span class="bc-cta-btn-arrow">→</span>
+    </a>
+    <p class="bc-cta-note">No fluff. No excuses. Just results.</p>
+  </div>
+</section>
+
+<style>
+  .bc-cta {
+    background: var(--bg-primary);
+    padding: 100px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bc-cta-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(
+      ellipse,
+      rgba(201, 151, 58, 0.07) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+  }
+
+  .bc-cta::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(201, 151, 58, 0.4),
+      transparent
+    );
+  }
+
+  .bc-cta-inner {
+    position: relative;
+    text-align: center;
+    max-width: 720px;
+  }
+
+  .bc-cta-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 28px;
+  }
+  .bc-cta-tag::before,
+  .bc-cta-tag::after {
+    content: "";
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--accent);
+    opacity: 0.5;
+  }
+
+  .bc-cta-heading {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 300;
+    font-size: clamp(32px, 5.5vw, 58px);
+    line-height: 1.1;
+    color: var(--cream);
+    margin: 0 0 14px;
+    letter-spacing: -0.01em;
+  }
+  .bc-cta-heading em {
+    font-style: italic;
+    font-weight: 600;
+    color: var(--gold-light);
+  }
+
+  .bc-cta-sub {
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    margin: 0 0 48px;
+    line-height: 1.6;
+  }
+
+  .bc-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--ink);
+    background: var(--gold);
+    padding: 16px 40px;
+    position: relative;
+    cursor: pointer;
+    transition:
+      background 0.2s,
+      transform 0.15s;
+    clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+  }
+  .bc-cta-btn:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+  }
+  .bc-cta-btn:active {
+    transform: translateY(0);
+  }
+  .bc-cta-btn-arrow {
+    transition: transform 0.2s;
+  }
+  .bc-cta-btn:hover .bc-cta-btn-arrow {
+    transform: translateX(4px);
+  }
+
+  .bc-cta-note {
+    margin-top: 22px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    opacity: 0.6;
+    text-transform: uppercase;
+  }
+</style>
