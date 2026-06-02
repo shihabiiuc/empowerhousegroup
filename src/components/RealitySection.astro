@@ -1,0 +1,480 @@
+---
+// RealitySection.astro
+// "This can be your new reality" section with testimonial
+import JillPeck from "../assets/customers/Jill-Peck.png";
+---
+
+<section class="reality-section" aria-label="Your new reality">
+  <!-- ── Background atmosphere ── -->
+  <div class="rs-bg-base"></div>
+  <div class="rs-bg-glow-left"></div>
+  <div class="rs-bg-glow-right"></div>
+  <div class="rs-noise"></div>
+
+  <div class="rs-inner">
+    <!-- ══ LEFT COLUMN — Heading + Body ══ -->
+    <div class="rs-text-col">
+      <div class="rs-label" aria-hidden="true">
+        <span class="rs-label-bar"></span>
+        <span>Inner strength in action</span>
+      </div>
+
+      <h2 class="rs-heading">
+        This can be<br />
+        <span class="rs-heading-accent">your new reality.</span>
+      </h2>
+
+      <div class="rs-scenarios" aria-label="Everyday scenarios">
+        <div class="rs-scenario">
+          <span class="rs-scenario-icon" aria-hidden="true">◆</span>
+          <p><strong>Stressful meeting?</strong> Still calm.</p>
+        </div>
+        <div class="rs-scenario">
+          <span class="rs-scenario-icon" aria-hidden="true">◆</span>
+          <p><strong>Stuck in traffic?</strong> No problem.</p>
+        </div>
+        <div class="rs-scenario">
+          <span class="rs-scenario-icon" aria-hidden="true">◆</span>
+          <p>
+            <strong>Kid failed math again?</strong> You can still remain in your power.
+          </p>
+        </div>
+      </div>
+
+      <p class="rs-body-close">
+        Not by <em>"living in the moment"</em> — but by
+        <strong>working those moments.</strong>
+      </p>
+    </div>
+
+    <!-- ══ RIGHT COLUMN — Testimonial card ══ -->
+    <div class="rs-testimonial-col">
+      <figure
+        class="rs-card"
+        role="figure"
+        aria-label="Testimonial from Jill Peck"
+      >
+        <!-- Decorative quote mark -->
+        <div class="rs-quote-mark" aria-hidden="true">&ldquo;</div>
+
+        <blockquote class="rs-quote-text">
+          The BioCode System<sup>®</sup> is practical, easily applied with effort
+          and most importantly, sustainable. I enjoyed my sessions even when the work
+          was tough. I practiced often and the work worked. Relationships blossomed
+          in my professional and personal life. Possibilities presented themselves.
+        </blockquote>
+
+        <figcaption class="rs-attribution">
+          <div class="rs-avatar-wrapper">
+            <img
+              src={JillPeck.src}
+              alt="Jill Peck"
+              class="rs-avatar"
+              loading="lazy"
+              decoding="async"
+              width="56"
+              height="56"
+            />
+            <div class="rs-avatar-ring"></div>
+          </div>
+          <div class="rs-person">
+            <span class="rs-name">Jill Peck</span>
+            <span class="rs-role">President, HSP Marketing Firm</span>
+          </div>
+        </figcaption>
+
+        <!-- Card corner accent -->
+        <div class="rs-card-corner rs-card-corner--tl" aria-hidden="true"></div>
+        <div class="rs-card-corner rs-card-corner--br" aria-hidden="true"></div>
+      </figure>
+    </div>
+  </div>
+
+  <!-- Bottom separator into next section -->
+  <div class="rs-bottom-fade" aria-hidden="true"></div>
+</section>
+
+<style>
+  /* ══════════════════════════════════════════
+     Shell
+  ══════════════════════════════════════════ */
+  .reality-section {
+    position: relative;
+    overflow: hidden;
+    padding: 7rem 0 8rem;
+    isolation: isolate;
+  }
+
+  /* ══════════════════════════════════════════
+     Background
+  ══════════════════════════════════════════ */
+  .rs-bg-base {
+    position: absolute;
+    inset: 0;
+    background: var(--bg-primary);
+    z-index: 0;
+  }
+
+  /* Warm-green glow behind text column */
+  .rs-bg-glow-left {
+    position: absolute;
+    top: 10%;
+    left: -10%;
+    width: 55%;
+    height: 80%;
+    background: radial-gradient(
+      ellipse at 30% 50%,
+      rgba(62, 232, 164, 0.07) 0%,
+      transparent 65%
+    );
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  /* Cool-blue glow behind card */
+  .rs-bg-glow-right {
+    position: absolute;
+    bottom: 0%;
+    right: -5%;
+    width: 50%;
+    height: 80%;
+    background: radial-gradient(
+      ellipse at 70% 60%,
+      rgba(0, 153, 255, 0.07) 0%,
+      transparent 65%
+    );
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  /* Noise grain for texture */
+  .rs-noise {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  /* ══════════════════════════════════════════
+     Layout
+  ══════════════════════════════════════════ */
+  .rs-inner {
+    position: relative;
+    z-index: 10;
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  @media (max-width: 820px) {
+    .rs-inner {
+      grid-template-columns: 1fr;
+      gap: 3.5rem;
+    }
+  }
+
+  /* ══════════════════════════════════════════
+     Left column — text
+  ══════════════════════════════════════════ */
+  .rs-text-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  /* Eyebrow label */
+  .rs-label {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-family: "DM Mono", "Fira Mono", ui-monospace, monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .rs-label-bar {
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background: var(--accent);
+    opacity: 0.6;
+  }
+
+  /* Heading */
+  .rs-heading {
+    font-family: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+    font-size: clamp(2.6rem, 5vw, 4.2rem);
+    font-weight: 300;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    color: var(--footer-head);
+    margin: 0;
+  }
+
+  .rs-heading-accent {
+    display: inline-block;
+    font-style: italic;
+    font-weight: 400;
+    background: linear-gradient(
+      120deg,
+      var(--footer-head) 0%,
+      var(--accent) 60%,
+      #38bdf8 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 18px rgba(62, 232, 164, 0.18));
+  }
+
+  /* Scenario list */
+  .rs-scenarios {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    border-left: 1px solid rgba(62, 232, 164, 0.18);
+    padding-left: 1.4rem;
+  }
+
+  .rs-scenario {
+    display: flex;
+    align-items: baseline;
+    gap: 0.65rem;
+    font-family: "Lora", Georgia, serif;
+    font-size: clamp(0.95rem, 1.8vw, 1.08rem);
+    color: var(--text-muted-light);
+    line-height: 1.6;
+  }
+
+  .rs-scenario-icon {
+    font-size: 0.35rem;
+    color: var(--accent);
+    flex-shrink: 0;
+    position: relative;
+    top: -3px;
+    opacity: 0.75;
+  }
+
+  .rs-scenario strong {
+    color: var(--footer-head);
+    font-weight: 600;
+    font-family: inherit;
+  }
+
+  /* Closing paragraph */
+  .rs-body-close {
+    font-family: "Lora", Georgia, serif;
+    font-size: clamp(0.95rem, 1.8vw, 1.08rem);
+    line-height: 1.8;
+    color: var(--text-muted-light);
+    margin: 0;
+  }
+
+  .rs-body-close em {
+    font-style: italic;
+    color: var(--muted);
+  }
+
+  .rs-body-close strong {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  /* ══════════════════════════════════════════
+     Right column — testimonial card
+  ══════════════════════════════════════════ */
+  .rs-testimonial-col {
+    display: flex;
+    align-items: stretch;
+  }
+
+  .rs-card {
+    position: relative;
+    margin: 0;
+    padding: 2.8rem 2.6rem 2.4rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+    box-shadow:
+      0 24px 64px rgba(0, 0, 0, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    transition:
+      transform 0.4s ease,
+      box-shadow 0.4s ease;
+  }
+
+  .rs-card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 36px 80px rgba(0, 0, 0, 0.45),
+      0 0 0 1px rgba(62, 232, 164, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+
+  /* Decorative corner L-shapes */
+  .rs-card-corner {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-color: rgba(62, 232, 164, 0.35);
+    border-style: solid;
+    border-radius: 2px;
+  }
+  .rs-card-corner--tl {
+    top: 14px;
+    left: 14px;
+    border-width: 1px 0 0 1px;
+  }
+  .rs-card-corner--br {
+    bottom: 14px;
+    right: 14px;
+    border-width: 0 1px 1px 0;
+  }
+
+  /* Big decorative quote mark */
+  .rs-quote-mark {
+    position: absolute;
+    top: -0.5rem;
+    left: 2rem;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 6rem;
+    line-height: 1;
+    color: var(--accent);
+    opacity: 0.18;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  /* Quote text */
+  .rs-quote-text {
+    font-family: "Lora", Georgia, serif;
+    font-size: clamp(0.95rem, 1.7vw, 1.05rem);
+    line-height: 1.9;
+    color: var(--text-muted-light);
+    font-style: italic;
+    margin: 0;
+    padding-top: 1.2rem;
+  }
+
+  .rs-quote-text sup {
+    font-size: 0.6em;
+    top: -0.4em;
+    color: var(--accent);
+    font-style: normal;
+  }
+
+  /* Attribution row */
+  .rs-attribution {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 0.4rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    font-style: normal;
+  }
+
+  /* Avatar */
+  .rs-avatar-wrapper {
+    position: relative;
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+  }
+
+  .rs-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    position: relative;
+    z-index: 1;
+  }
+
+  .rs-avatar-ring {
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    background: conic-gradient(
+      from 180deg,
+      var(--accent) 0deg,
+      #38bdf8 120deg,
+      transparent 200deg,
+      transparent 360deg
+    );
+    z-index: 0;
+    animation: avatar-spin 8s linear infinite;
+    opacity: 0.75;
+  }
+
+  @keyframes avatar-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Name + role */
+  .rs-person {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .rs-name {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--footer-head);
+    letter-spacing: 0.01em;
+  }
+
+  .rs-role {
+    font-family: "DM Mono", ui-monospace, monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ══════════════════════════════════════════
+     Bottom fade into next section
+  ══════════════════════════════════════════ */
+  .rs-bottom-fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: linear-gradient(to bottom, transparent, rgba(8, 17, 32, 0.6));
+    pointer-events: none;
+    z-index: 5;
+  }
+
+  /* ══════════════════════════════════════════
+     Reduced motion
+  ══════════════════════════════════════════ */
+  @media (prefers-reduced-motion: reduce) {
+    .rs-avatar-ring {
+      animation: none;
+    }
+    .rs-card:hover {
+      transform: none;
+    }
+  }
+</style>

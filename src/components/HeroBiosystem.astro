@@ -1,0 +1,427 @@
+---
+// HeroBiosystem.astro
+// Hero banner for "The Biocode System" page
+---
+
+<section class="hero-biosystem" aria-label="The Biocode System introduction">
+  <!-- ── Layered background atmosphere ── -->
+  <div class="bg-base"></div>
+  <div class="bg-glow-core"></div>
+  <div class="bg-glow-ring"></div>
+  <div class="bg-grid"></div>
+  <div class="bg-vignette"></div>
+
+  <!-- ── Floating orb particles ── -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <!-- ── Animated signal rings ── -->
+  <div class="rings" aria-hidden="true">
+    <div class="ring ring-1"></div>
+    <div class="ring ring-2"></div>
+    <div class="ring ring-3"></div>
+  </div>
+
+  <!-- ── Content ── -->
+  <div class="hero-content">
+    <div class="kicker">
+      <span class="kicker-dot"></span>
+      The Biocode System
+      <span class="kicker-dot"></span>
+    </div>
+
+    <h1 class="hero-heading">
+      <span class="word-imagine">Imagine</span><span class="ellipsis">…</span>
+    </h1>
+
+    <p class="hero-body">
+      … waking up in the morning and going about the business of your day, not
+      having to be dragged down by life's everyday stressors or disturbances
+      that zap your energy. Instead, you <em>flow</em> through these annoyances no
+      matter how big or small…
+    </p>
+
+    <div class="divider-line" aria-hidden="true">
+      <span></span>
+      <svg
+        width="14"
+        height="14"
+        viewBox="0 0 14 14"
+        fill="none"
+        aria-hidden="true"
+      >
+        <circle cx="7" cy="7" r="3" fill="var(--accent)"></circle>
+        <circle
+          cx="7"
+          cy="7"
+          r="6"
+          stroke="var(--accent)"
+          stroke-opacity="0.35"
+          stroke-width="1"></circle>
+      </svg>
+      <span></span>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ══════════════════════════════════════════
+     Shell
+  ══════════════════════════════════════════ */
+  .hero-biosystem {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  /* ══════════════════════════════════════════
+     Background layers
+  ══════════════════════════════════════════ */
+  .bg-base {
+    position: absolute;
+    inset: 0;
+    background: var(--bg-primary); /* #0b1120 */
+    z-index: 0;
+  }
+
+  /* Central radial glow — the "biocode pulse" */
+  .bg-glow-core {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: radial-gradient(
+      ellipse 65% 50% at 50% 52%,
+      rgba(62, 232, 164, 0.1) 0%,
+      rgba(0, 153, 255, 0.06) 38%,
+      transparent 70%
+    );
+  }
+
+  /* Wider, deeper atmospheric halo */
+  .bg-glow-ring {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: radial-gradient(
+      ellipse 90% 70% at 50% 55%,
+      rgba(0, 153, 255, 0.04) 0%,
+      transparent 65%
+    );
+  }
+
+  /* Subtle dot-grid overlay */
+  .bg-grid {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background-image: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.055) 1px,
+      transparent 1px
+    );
+    background-size: 36px 36px;
+    -webkit-mask-image: radial-gradient(
+      ellipse 80% 80% at 50% 50%,
+      black 30%,
+      transparent 100%
+    );
+    mask-image: radial-gradient(
+      ellipse 80% 80% at 50% 50%,
+      black 30%,
+      transparent 100%
+    );
+  }
+
+  /* Edge vignette to deepen the frame */
+  .bg-vignette {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    background: radial-gradient(
+      ellipse 100% 100% at 50% 50%,
+      transparent 45%,
+      rgba(8, 12, 20, 0.65) 100%
+    );
+    pointer-events: none;
+  }
+
+  /* ══════════════════════════════════════════
+     Floating orb particles
+  ══════════════════════════════════════════ */
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0;
+    animation: orb-drift 18s ease-in-out infinite;
+  }
+
+  .orb-1 {
+    width: 340px;
+    height: 340px;
+    top: 8%;
+    left: 5%;
+    background: radial-gradient(
+      circle,
+      rgba(62, 232, 164, 0.12),
+      transparent 70%
+    );
+    animation-delay: 0s;
+    animation-duration: 22s;
+  }
+  .orb-2 {
+    width: 260px;
+    height: 260px;
+    bottom: 12%;
+    right: 8%;
+    background: radial-gradient(
+      circle,
+      rgba(0, 153, 255, 0.12),
+      transparent 70%
+    );
+    animation-delay: -8s;
+    animation-duration: 26s;
+  }
+  .orb-3 {
+    width: 180px;
+    height: 180px;
+    top: 55%;
+    left: 60%;
+    background: radial-gradient(
+      circle,
+      rgba(167, 139, 250, 0.09),
+      transparent 70%
+    );
+    animation-delay: -14s;
+    animation-duration: 20s;
+  }
+
+  @keyframes orb-drift {
+    0% {
+      opacity: 0;
+      transform: translate(0, 0) scale(1);
+    }
+    15% {
+      opacity: 1;
+    }
+    50% {
+      transform: translate(30px, -25px) scale(1.08);
+    }
+    85% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translate(0, 0) scale(1);
+    }
+  }
+
+  /* ══════════════════════════════════════════
+     Signal rings — concentric pulse from center
+  ══════════════════════════════════════════ */
+  .rings {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(62, 232, 164, 0.18);
+    animation: ring-expand 7s ease-out infinite;
+    opacity: 0;
+  }
+
+  .ring-1 {
+    width: 320px;
+    height: 320px;
+    animation-delay: 0s;
+  }
+  .ring-2 {
+    width: 320px;
+    height: 320px;
+    animation-delay: 2.3s;
+  }
+  .ring-3 {
+    width: 320px;
+    height: 320px;
+    animation-delay: 4.6s;
+  }
+
+  @keyframes ring-expand {
+    0% {
+      transform: scale(0.4);
+      opacity: 0.6;
+      border-color: rgba(62, 232, 164, 0.25);
+    }
+    100% {
+      transform: scale(3.2);
+      opacity: 0;
+      border-color: rgba(62, 232, 164, 0);
+    }
+  }
+
+  /* ══════════════════════════════════════════
+     Content
+  ══════════════════════════════════════════ */
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 760px;
+    padding: 6rem 2rem 5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  /* ── Kicker ── */
+  .kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: "DM Mono", "Fira Mono", ui-monospace, monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    opacity: 0;
+    animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
+  }
+
+  .kicker-dot {
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.6;
+  }
+
+  /* ── Main heading ── */
+  .hero-heading {
+    font-family:
+      "Cormorant Garamond", "Playfair Display", "Palatino Linotype", Georgia,
+      serif;
+    font-size: clamp(5rem, 14vw, 11rem);
+    font-weight: 300;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: var(--footer-head); /* #e8edf5 */
+    margin: 0;
+    opacity: 0;
+    animation: fade-up 1s cubic-bezier(0.22, 1, 0.36, 1) 0.45s forwards;
+  }
+
+  .word-imagine {
+    display: inline-block;
+    background: linear-gradient(
+      135deg,
+      var(--footer-head) 0%,
+      var(--accent) 55%,
+      #38bdf8 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* Subtle text glow for the gradient text */
+    filter: drop-shadow(0 0 28px rgba(62, 232, 164, 0.22));
+  }
+
+  .ellipsis {
+    color: var(--accent);
+    opacity: 0.55;
+    font-weight: 300;
+    -webkit-text-fill-color: unset;
+  }
+
+  /* ── Body text ── */
+  .hero-body {
+    font-family: "Lora", "Palatino Linotype", Georgia, serif;
+    font-size: clamp(1.05rem, 2.2vw, 1.28rem);
+    line-height: 1.85;
+    font-weight: 400;
+    color: var(--text-muted-light); /* #dae1ed */
+    max-width: 600px;
+    opacity: 0;
+    animation: fade-up 1s cubic-bezier(0.22, 1, 0.36, 1) 0.75s forwards;
+  }
+
+  .hero-body em {
+    font-style: italic;
+    color: var(--accent);
+    -webkit-text-fill-color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* ── Decorative divider ── */
+  .divider-line {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    opacity: 0;
+    animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) 1.05s forwards;
+  }
+
+  .divider-line span {
+    display: block;
+    width: 72px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(62, 232, 164, 0.35));
+  }
+
+  .divider-line span:last-of-type {
+    background: linear-gradient(270deg, transparent, rgba(62, 232, 164, 0.35));
+  }
+
+  /* ══════════════════════════════════════════
+     Shared entrance animation
+  ══════════════════════════════════════════ */
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(22px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ══════════════════════════════════════════
+     Reduced motion
+  ══════════════════════════════════════════ */
+  @media (prefers-reduced-motion: reduce) {
+    .orb,
+    .ring,
+    .kicker,
+    .hero-heading,
+    .hero-body,
+    .divider-line {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+</style>
+
+<!-- Google Fonts: load Cormorant Garamond + Lora for the serif richness -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Lora:ital,wght@0,400;1,400;1,500&display=swap"
+  rel="stylesheet"
+/>
