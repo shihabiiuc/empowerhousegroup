@@ -1,0 +1,715 @@
+---
+// BiocodeWhy.astro
+// "Why it feels difficult" section with Jack Buehler testimonial
+import JackBuehler from "../assets/customers/Jack.png";
+---
+
+<section class="bcw2-section" aria-label="Why the BioCode System matters">
+  <!-- ── Background layers ── -->
+  <div class="bcw2-bg-base"></div>
+  <div class="bcw2-bg-glow-left"></div>
+  <div class="bcw2-bg-glow-right"></div>
+  <div class="bcw2-noise"></div>
+
+  <div class="bcw2-inner">
+    <!-- ══ TOP — Full-width intro text ══ -->
+    <div class="bcw2-intro-wrap">
+      <div class="bcw2-eyebrow">
+        <span class="bcw2-eyebrow-bar"></span>
+        <span>Strength from within</span>
+        <span class="bcw2-eyebrow-bar bcw2-eyebrow-bar--rev"></span>
+      </div>
+
+      <div class="bcw2-intro-grid">
+        <!-- Left: big pull-quote -->
+        <div class="bcw2-pull-col">
+          <p class="bcw2-pull-quote">
+            You want a great life, right?<br />
+            <span class="bcw2-pull-sub">So why does it feel so difficult?</span>
+          </p>
+          <!-- Decorative vertical rule -->
+          <div class="bcw2-vert-rule" aria-hidden="true">
+            <span class="bcw2-vert-dot bcw2-vert-dot--top"></span>
+            <span class="bcw2-vert-line"></span>
+            <span class="bcw2-vert-dot bcw2-vert-dot--bot"></span>
+          </div>
+        </div>
+
+        <!-- Right: body paragraphs -->
+        <div class="bcw2-body-col">
+          <p class="bcw2-body">
+            The most common issue we have is our <em>"in the moment"</em> inability
+            to navigate difficult situations from a place of
+            <strong>strength, clarity and stability</strong>. Everyone
+            experiences stress differently, and it's easy to miss the mark with
+            ourselves and others when it comes to showing up healthy.
+          </p>
+          <p class="bcw2-body">
+            With the help of <strong>The 5 BioCodes<sup>®</sup></strong> you will
+            discover the root of your conflicts — to help you stress less, enjoy more,
+            and lead a life you love.
+          </p>
+          <p class="bcw2-body">
+            <a href="/self-assessment" class="bcw2-inline-link"
+              >Take this quiz</a
+            > to discover which of the 5 BioCodes<sup>®</sup> is your greatest opportunity
+            to grow, have better interactions with others, and start to live a more
+            <strong>Empowered Life.</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Horizontal rule ── -->
+    <div class="bcw2-divider" aria-hidden="true">
+      <span class="bcw2-divider-line"></span>
+      <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+        <circle cx="5" cy="5" r="2.5" fill="var(--accent)" opacity="0.7"
+        ></circle>
+        <circle
+          cx="5"
+          cy="5"
+          r="4.5"
+          stroke="var(--accent)"
+          stroke-opacity="0.25"
+          stroke-width="1"></circle>
+      </svg>
+      <span class="bcw2-divider-line"></span>
+    </div>
+
+    <!-- ══ BOTTOM — Testimonial ══ -->
+    <div class="bcw2-testimonial-grid">
+      <!-- Avatar + identity side -->
+      <div class="bcw2-person-col">
+        <div class="bcw2-avatar-stage">
+          <div class="bcw2-avatar-bg-ring"></div>
+          <div class="bcw2-avatar-bg-ring bcw2-avatar-bg-ring--2"></div>
+          <div class="bcw2-avatar-wrap">
+            <img
+              src={JackBuehler.src}
+              alt="Jack Buehler"
+              class="bcw2-avatar"
+              loading="lazy"
+              decoding="async"
+              width="110"
+              height="110"
+            />
+            <div class="bcw2-avatar-spin-ring"></div>
+          </div>
+        </div>
+
+        <div class="bcw2-person-info">
+          <span class="bcw2-person-name">Jack Buehler</span>
+          <span class="bcw2-person-role">VP, Human Resources</span>
+          <span class="bcw2-person-company">Assurant</span>
+        </div>
+
+        <!-- Stars -->
+        <div class="bcw2-stars" aria-label="5 star testimonial">
+          {
+            Array.from({ length: 5 }).map(() => (
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 14 14"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M7 1l1.545 3.13L12 4.635l-2.5 2.435.59 3.44L7 8.885l-3.09 1.625.59-3.44L2 4.635l3.455-.505L7 1z"
+                  fill="var(--accent)"
+                  opacity="0.85"
+                />
+              </svg>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Quote side -->
+      <div class="bcw2-quote-col">
+        <div class="bcw2-quote-card">
+          <!-- Corner accents matching previous sections -->
+          <div class="bcw2-corner bcw2-corner--tl"></div>
+          <div class="bcw2-corner bcw2-corner--br"></div>
+
+          <div class="bcw2-quote-glyph" aria-hidden="true">&ldquo;</div>
+
+          <blockquote class="bcw2-quote-text">
+            I began my work with Dr. Jill with the expectation of becoming a
+            more effective leader. What I found is that her focus on
+            <em>Behavioral Intelligence</em> is different and has had a significant
+            impact on me. It indeed has helped increase my leadership effectiveness.
+          </blockquote>
+
+          <blockquote class="bcw2-quote-text bcw2-quote-text--accent">
+            At the same time, focusing on my own behaviors first has helped me
+            become a better person — husband, father and friend. I was not
+            expecting this and as a result am even more committed to perfecting
+            the practice.
+          </blockquote>
+
+          <!-- Attribution tag -->
+          <div class="bcw2-quote-tag">
+            <span class="bcw2-quote-tag-bar"></span>
+            <span>Jack Buehler — Assurant</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom fade -->
+  <div class="bcw2-bottom-fade" aria-hidden="true"></div>
+</section>
+
+<style>
+  /* ══════════════════════════════════════════
+     Shell
+  ══════════════════════════════════════════ */
+  .bcw2-section {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    padding-bottom: 2rem;
+  }
+
+  /* ══════════════════════════════════════════
+     Background
+  ══════════════════════════════════════════ */
+  .bcw2-bg-base {
+    position: absolute;
+    inset: 0;
+    background: var(--bg-primary);
+    z-index: 0;
+  }
+
+  .bcw2-bg-glow-left {
+    position: absolute;
+    top: 0;
+    left: -15%;
+    width: 55%;
+    height: 60%;
+    background: radial-gradient(
+      ellipse at 25% 30%,
+      rgba(0, 153, 255, 0.065) 0%,
+      transparent 65%
+    );
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .bcw2-bg-glow-right {
+    position: absolute;
+    bottom: 5%;
+    right: -10%;
+    width: 55%;
+    height: 60%;
+    background: radial-gradient(
+      ellipse at 75% 70%,
+      rgba(62, 232, 164, 0.06) 0%,
+      transparent 65%
+    );
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .bcw2-noise {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  /* ══════════════════════════════════════════
+     Inner wrapper
+  ══════════════════════════════════════════ */
+  .bcw2-inner {
+    position: relative;
+    z-index: 10;
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 7rem 2rem 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  /* ══════════════════════════════════════════
+     Eyebrow
+  ══════════════════════════════════════════ */
+  .bcw2-eyebrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    font-family: "DM Mono", "Fira Mono", ui-monospace, monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 2.5rem;
+  }
+
+  .bcw2-eyebrow-bar {
+    display: inline-block;
+    width: 36px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent));
+    opacity: 0.55;
+  }
+
+  .bcw2-eyebrow-bar--rev {
+    background: linear-gradient(270deg, transparent, var(--accent));
+  }
+
+  /* ══════════════════════════════════════════
+     Intro grid
+  ══════════════════════════════════════════ */
+  .bcw2-intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  @media (max-width: 820px) {
+    .bcw2-intro-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+  }
+
+  /* Pull quote column */
+  .bcw2-pull-col {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .bcw2-pull-quote {
+    font-family: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+    font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--footer-head);
+    margin: 0;
+  }
+
+  .bcw2-pull-sub {
+    display: block;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+    margin-top: 0.25rem;
+    background: linear-gradient(120deg, var(--accent) 0%, #38bdf8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 14px rgba(62, 232, 164, 0.18));
+  }
+
+  /* Decorative vertical rule */
+  .bcw2-vert-rule {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding-left: 2px;
+  }
+
+  .bcw2-vert-dot {
+    display: block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.55;
+  }
+
+  .bcw2-vert-line {
+    display: block;
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+    margin-left: 2px;
+    opacity: 0.35;
+  }
+
+  .bcw2-vert-dot--bot {
+    opacity: 0.2;
+  }
+
+  /* Body column */
+  .bcw2-body-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    padding-top: 0.3rem;
+  }
+
+  .bcw2-body {
+    font-family: "Lora", Georgia, serif;
+    font-size: clamp(0.95rem, 1.8vw, 1.06rem);
+    line-height: 1.88;
+    color: var(--text-muted-light);
+    margin: 0;
+  }
+
+  .bcw2-body em {
+    font-style: italic;
+    color: var(--footer-head);
+  }
+  .bcw2-body strong {
+    font-weight: 600;
+    color: var(--footer-head);
+  }
+  .bcw2-body sup {
+    font-size: 0.6em;
+    color: var(--accent);
+  }
+
+  /* Inline CTA link */
+  .bcw2-inline-link {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(62, 232, 164, 0.35);
+    font-weight: 600;
+    transition:
+      border-color 0.2s ease,
+      color 0.2s ease;
+  }
+
+  .bcw2-inline-link:hover {
+    color: #38bdf8;
+    border-bottom-color: rgba(56, 189, 248, 0.5);
+  }
+
+  /* ══════════════════════════════════════════
+     Section divider
+  ══════════════════════════════════════════ */
+  .bcw2-divider {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .bcw2-divider-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08));
+  }
+
+  .bcw2-divider-line:last-child {
+    background: linear-gradient(270deg, transparent, rgba(255, 255, 255, 0.08));
+  }
+
+  /* ══════════════════════════════════════════
+     Testimonial grid
+  ══════════════════════════════════════════ */
+  .bcw2-testimonial-grid {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 3.5rem;
+    align-items: start;
+  }
+
+  @media (max-width: 760px) {
+    .bcw2-testimonial-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    .bcw2-person-col {
+      align-items: flex-start;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+    }
+    .bcw2-avatar-stage {
+      flex-shrink: 0;
+    }
+  }
+
+  /* ── Person column ── */
+  .bcw2-person-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    text-align: center;
+    padding-top: 0.5rem;
+  }
+
+  /* Avatar stage with concentric soft rings */
+  .bcw2-avatar-stage {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .bcw2-avatar-bg-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(62, 232, 164, 0.12);
+    animation: ring-pulse 4s ease-in-out infinite;
+  }
+
+  .bcw2-avatar-bg-ring:first-child {
+    inset: -14px;
+  }
+  .bcw2-avatar-bg-ring--2 {
+    inset: -28px;
+    animation-delay: 2s;
+    opacity: 0.6;
+  }
+
+  @keyframes ring-pulse {
+    0%,
+    100% {
+      opacity: 0.5;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.15;
+      transform: scale(1.03);
+    }
+  }
+
+  .bcw2-avatar-wrap {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    z-index: 1;
+  }
+
+  .bcw2-avatar {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    position: relative;
+    z-index: 1;
+    border: 2px solid rgba(255, 255, 255, 0.07);
+  }
+
+  /* Spinning conic ring — matching Jill's avatar treatment */
+  .bcw2-avatar-spin-ring {
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: conic-gradient(
+      from 90deg,
+      #38bdf8 0deg,
+      var(--accent) 110deg,
+      transparent 180deg,
+      transparent 360deg
+    );
+    z-index: 0;
+    animation: avatar-spin 10s linear infinite;
+    opacity: 0.65;
+  }
+
+  @keyframes avatar-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Person identity text */
+  .bcw2-person-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .bcw2-person-name {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--footer-head);
+    letter-spacing: 0.01em;
+  }
+
+  .bcw2-person-role {
+    font-family: "DM Mono", ui-monospace, monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .bcw2-person-company {
+    font-family: "DM Mono", ui-monospace, monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    opacity: 0.8;
+  }
+
+  /* Stars */
+  .bcw2-stars {
+    display: flex;
+    gap: 0.2rem;
+    align-items: center;
+  }
+
+  /* ── Quote column ── */
+  .bcw2-quote-col {
+    display: flex;
+    align-items: stretch;
+  }
+
+  .bcw2-quote-card {
+    position: relative;
+    width: 100%;
+    padding: 2.6rem 2.4rem 2.2rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    box-shadow:
+      0 20px 60px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    transition:
+      transform 0.35s ease,
+      box-shadow 0.35s ease;
+  }
+
+  .bcw2-quote-card:hover {
+    transform: translateY(-3px);
+    box-shadow:
+      0 30px 75px rgba(0, 0, 0, 0.4),
+      0 0 0 1px rgba(62, 232, 164, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  /* Corner L-brackets — same as previous sections */
+  .bcw2-corner {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-color: rgba(62, 232, 164, 0.3);
+    border-style: solid;
+    border-radius: 2px;
+  }
+  .bcw2-corner--tl {
+    top: 12px;
+    left: 12px;
+    border-width: 1px 0 0 1px;
+  }
+  .bcw2-corner--br {
+    bottom: 12px;
+    right: 12px;
+    border-width: 0 1px 1px 0;
+  }
+
+  /* Big decorative quote glyph */
+  .bcw2-quote-glyph {
+    position: absolute;
+    top: -0.6rem;
+    left: 1.8rem;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 5.5rem;
+    line-height: 1;
+    color: var(--accent);
+    opacity: 0.15;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  /* Quote paragraphs */
+  .bcw2-quote-text {
+    font-family: "Lora", Georgia, serif;
+    font-size: clamp(0.93rem, 1.65vw, 1.03rem);
+    line-height: 1.9;
+    color: var(--text-muted-light);
+    font-style: italic;
+    margin: 0;
+    padding-top: 1rem;
+  }
+
+  .bcw2-quote-text:first-of-type {
+    padding-top: 1.4rem;
+  }
+
+  /* Second paragraph slightly brighter — the emotional kicker */
+  .bcw2-quote-text--accent {
+    color: var(--footer-head);
+    border-left: 2px solid rgba(62, 232, 164, 0.3);
+    padding-left: 1rem;
+    padding-top: 0;
+  }
+
+  .bcw2-quote-text em {
+    color: var(--accent);
+    font-style: italic;
+  }
+
+  /* Attribution tag */
+  .bcw2-quote-tag {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding-top: 0.6rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    font-family: "DM Mono", ui-monospace, monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .bcw2-quote-tag-bar {
+    display: inline-block;
+    width: 18px;
+    height: 1px;
+    background: var(--accent);
+    opacity: 0.45;
+  }
+
+  /* ══════════════════════════════════════════
+     Bottom fade
+  ══════════════════════════════════════════ */
+  .bcw2-bottom-fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: linear-gradient(to bottom, transparent, rgba(8, 17, 32, 0.5));
+    pointer-events: none;
+    z-index: 5;
+  }
+
+  /* ══════════════════════════════════════════
+     Reduced motion
+  ══════════════════════════════════════════ */
+  @media (prefers-reduced-motion: reduce) {
+    .bcw2-avatar-spin-ring {
+      animation: none;
+    }
+    .bcw2-avatar-bg-ring {
+      animation: none;
+      opacity: 0.2;
+    }
+    .bcw2-quote-card:hover {
+      transform: none;
+    }
+  }
+</style>
