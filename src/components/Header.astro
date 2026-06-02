@@ -58,15 +58,9 @@ const currentPath = Astro.url.pathname;
 </header>
 
 <style>
-  /* ── Header shell ── */
   #site-header {
     position: relative;
-    /* position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100; */
-    background: var(--header-bg);
+    background: var(--bg-header);
     border-bottom: 1px solid var(--border);
     font-family: var(--font);
   }
@@ -118,7 +112,7 @@ const currentPath = Astro.url.pathname;
   }
 
   .nav-link:hover {
-    color: var(--text);
+    color: var(--text-muted-light);
     background: rgba(255, 255, 255, 0.06);
   }
 
@@ -147,7 +141,7 @@ const currentPath = Astro.url.pathname;
     display: block;
     width: 100%;
     height: 2px;
-    background: var(--text);
+    background: var(--text-muted);
     border-radius: 2px;
     transition:
       transform 0.25s,
@@ -171,7 +165,7 @@ const currentPath = Astro.url.pathname;
     flex-direction: column;
     padding: 0.75rem 1.5rem 1rem;
     border-top: 1px solid var(--border);
-    background: var(--header-bg);
+    background: var(--bg-primary);
 
     position: absolute;
     top: 100%;
@@ -213,25 +207,4 @@ const currentPath = Astro.url.pathname;
     }
   }
 </style>
-
-<script>
-  const hamburger = document.getElementById("hamburger");
-  const mobileNav = document.getElementById("mobile-nav");
-
-  hamburger?.addEventListener("click", () => {
-    const isOpen = hamburger.classList.toggle("open");
-    mobileNav?.classList.toggle("open", isOpen);
-    hamburger.setAttribute("aria-expanded", String(isOpen));
-    mobileNav?.setAttribute("aria-hidden", String(!isOpen));
-  });
-
-  // Close when a link is tapped
-  mobileNav?.querySelectorAll("a").forEach((a) =>
-    a.addEventListener("click", () => {
-      hamburger?.classList.remove("open");
-      mobileNav.classList.remove("open");
-      hamburger?.setAttribute("aria-expanded", "false");
-      mobileNav.setAttribute("aria-hidden", "true");
-    }),
-  );
-</script>
+<script is:inline src="/scripts/header.js"></script>

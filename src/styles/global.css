@@ -1,16 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --header-bg: #0b1120;
-  --header-height: 70px;
+  --bg-header: #080d18;
+  --bg-primary: #0b1120;
+  --border: rgba(255, 255, 255, 0.07);
+  --footer-head: #e8edf5;
   --accent: #3ee8a4;
   --accent-dim: rgba(62, 232, 164, 0.1);
-  --text: #e8edf5;
+  --header-height: 70px;
   --text-muted: #8a95a8;
-  --border: rgba(255, 255, 255, 0.07);
-  --font: "DM Sans", system-ui, sans-serif;
-  --font-secondary: "DM Serif Display", Georgia, serif;
+  --text-muted-light: #dae1ed;
+  --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
+
 body {
   background-color: var(--header-bg);
 }

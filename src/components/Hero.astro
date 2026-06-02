@@ -1,0 +1,80 @@
+<section class="hero">
+  <div class="hero-badge">Behavioral Fitness Coaching</div>
+  <h1>
+    The World is Ready for Empowered People<br />
+    <span class="accent">Starting with You.</span>
+  </h1>
+  <p class="hero-sub">
+    The BioCode System is a practical, actionable discipline building relentless
+    inner-strength and optimism. And it's about to make you unshakable.
+  </p>
+  <div class="hero-actions">
+    <a href="/self-assessment" class="btn-primary">Get Your Free Score →</a>
+    <a href="/the-biocode-system" class="btn-ghost">Learn the System</a>
+  </div>
+</section>
+
+<style>
+  /* ── Hero ── */
+  .hero {
+    text-align: center;
+    padding: 7rem 1rem 5rem;
+    margin: 0 auto;
+    animation: fadeUp 0.7s ease both;
+    background-color: var(--bg-primary);
+  }
+
+  .hero-badge {
+    display: inline-block;
+    font-family: var(--font);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid rgba(62, 232, 164, 0.35);
+    background: var(--accent-dim);
+    padding: 0.35rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.75rem;
+  }
+
+  .hero h1 {
+    font-family: var(--font);
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--text);
+    margin-bottom: 1.25rem;
+  }
+
+  .accent {
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-family: var(--font);
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    line-height: 1.75;
+    max-width: 580px;
+    margin: 0 auto 2.5rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

@@ -48,28 +48,30 @@ const socialLinks = [
 
 <footer id="site-footer">
   <div class="footer-inner">
-
     <!-- Brand column -->
     <div class="brand-col">
       <a href="/" class="footer-logo">
         <img src="/logo.png" alt="BioCode" />
       </a>
       <p class="tagline">
-        Science-backed behavioral coaching to help you become the best version of yourself.
+        Science-backed behavioral coaching to help you become the best version
+        of yourself.
       </p>
 
       <!-- Social icons -->
       <div class="social-row">
-        {socialLinks.map((s) => (
-          <a
-            href={s.href}
-            class="social-icon"
-            aria-label={s.label}
-            target="_blank"
-            rel="noopener noreferrer"
-            set:html={s.icon}
-          />
-        ))}
+        {
+          socialLinks.map((s) => (
+            <a
+              href={s.href}
+              class="social-icon"
+              aria-label={s.label}
+              target="_blank"
+              rel="noopener noreferrer"
+              set:html={s.icon}
+            />
+          ))
+        }
       </div>
     </div>
 
@@ -77,9 +79,13 @@ const socialLinks = [
     <div class="link-col">
       <h4>Quick Links</h4>
       <ul>
-        {quickLinks.map((l) => (
-          <li><a href={l.href}>{l.label}</a></li>
-        ))}
+        {
+          quickLinks.map((l) => (
+            <li>
+              <a href={l.href}>{l.label}</a>
+            </li>
+          ))
+        }
       </ul>
     </div>
 
@@ -87,19 +93,25 @@ const socialLinks = [
     <div class="link-col">
       <h4>Resources</h4>
       <ul>
-        {resourceLinks.map((l) => (
-          <li><a href={l.href}>{l.label}</a></li>
-        ))}
+        {
+          resourceLinks.map((l) => (
+            <li>
+              <a href={l.href}>{l.label}</a>
+            </li>
+          ))
+        }
       </ul>
     </div>
 
     <!-- CTA column -->
     <div class="cta-col">
       <h4>Get Started Free</h4>
-      <p>Take our Behavioral Fitness Score assessment and discover where you stand today.</p>
+      <p>
+        Take our Behavioral Fitness Score assessment and discover where you
+        stand today.
+      </p>
       <a href="/free-score" class="cta-btn">Take the Free Assessment →</a>
     </div>
-
   </div>
 
   <!-- Bottom bar -->
@@ -114,18 +126,9 @@ const socialLinks = [
 </footer>
 
 <style>
-  :root {
-    --footer-bg:     #0b1120;
-    --footer-border: rgba(255,255,255,0.07);
-    --footer-text:   #8a95a8;
-    --footer-head:   #e8edf5;
-    --accent:        #3ee8a4;
-    --font:          "DM Sans", system-ui, sans-serif;
-  }
-
   #site-footer {
-    background: var(--footer-bg);
-    border-top: 1px solid var(--footer-border);
+    background: var(--bg-primary);
+    border-top: 1px solid var(--border);
     font-family: var(--font);
     margin-top: 5rem;
   }
@@ -149,7 +152,7 @@ const socialLinks = [
   }
 
   .tagline {
-    color: var(--footer-text);
+    color: var(--text-muted);
     font-size: 0.875rem;
     line-height: 1.65;
     max-width: 260px;
@@ -170,10 +173,13 @@ const socialLinks = [
     width: 36px;
     height: 36px;
     border-radius: 8px;
-    border: 1px solid var(--footer-border);
-    color: var(--footer-text);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
     text-decoration: none;
-    transition: color 0.2s, border-color 0.2s, background 0.2s;
+    transition:
+      color 0.2s,
+      border-color 0.2s,
+      background 0.2s;
   }
 
   .social-icon:hover {
@@ -203,7 +209,7 @@ const socialLinks = [
   }
 
   .link-col a {
-    color: var(--footer-text);
+    color: var(--text-muted);
     text-decoration: none;
     font-size: 0.875rem;
     transition: color 0.2s;
@@ -215,7 +221,7 @@ const socialLinks = [
 
   /* ── CTA column ── */
   .cta-col p {
-    color: var(--footer-text);
+    color: var(--text-muted);
     font-size: 0.875rem;
     line-height: 1.65;
     margin-bottom: 1.25rem;
@@ -230,7 +236,9 @@ const socialLinks = [
     font-weight: 700;
     border-radius: 8px;
     text-decoration: none;
-    transition: opacity 0.2s, transform 0.2s;
+    transition:
+      opacity 0.2s,
+      transform 0.2s;
   }
 
   .cta-btn:hover {
@@ -248,9 +256,9 @@ const socialLinks = [
     max-width: 1280px;
     margin: 0 auto;
     padding: 1.25rem 1.5rem;
-    border-top: 1px solid var(--footer-border);
+    border-top: 1px solid var(--border);
     font-size: 0.8rem;
-    color: var(--footer-text);
+    color: var(--text-muted);
   }
 
   .bottom-links {
@@ -259,7 +267,7 @@ const socialLinks = [
   }
 
   .bottom-links a {
-    color: var(--footer-text);
+    color: var(--text-muted);
     text-decoration: none;
     transition: color 0.2s;
   }
