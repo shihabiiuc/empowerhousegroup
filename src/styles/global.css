@@ -4,11 +4,58 @@
   --header-bg: #0b1120;
   --header-height: 70px;
   --accent: #3ee8a4;
+  --accent-dim: rgba(62, 232, 164, 0.1);
   --text: #e8edf5;
   --text-muted: #8a95a8;
   --border: rgba(255, 255, 255, 0.07);
   --font: "DM Sans", system-ui, sans-serif;
+  --font-secondary: "DM Serif Display", Georgia, serif;
+}
+body {
+  background-color: var(--header-bg);
 }
 main {
   min-height: 100vh;
+}
+
+/* ── Buttons ── */
+.btn-primary {
+  display: inline-block;
+  padding: 0.75rem 1.6rem;
+  background: var(--accent);
+  color: #0b1120;
+  font-family: var(--font);
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: 8px;
+  text-decoration: none;
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
+}
+
+.btn-primary:hover {
+  opacity: 0.88;
+  transform: translateY(-2px);
+}
+
+.btn-ghost {
+  display: inline-block;
+  padding: 0.75rem 1.6rem;
+  background: transparent;
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  text-decoration: none;
+  transition:
+    border-color 0.2s,
+    color 0.2s;
+}
+
+.btn-ghost:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #fff;
 }
