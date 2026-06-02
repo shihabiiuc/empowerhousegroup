@@ -1,0 +1,237 @@
+---
+const navLinks = [
+  { label: "Home", href: "/" },
+  { label: "The BioCode System", href: "/the-biocode-system" },
+  { label: "Team", href: "/team" },
+  { label: "Free Behavioral Fitness Score", href: "/self-assessment" },
+  { label: "Coaching Programs", href: "/events" },
+  { label: "Biz Life Edu", href: "/programs" },
+  { label: "Testimonials", href: "/testimonials" },
+  { label: "Contact", href: "/contact-us" },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header id="site-header">
+  <div class="header-inner">
+    <!-- Logo -->
+    <a href="/" class="logo-link">
+      <img src="/logo.png" alt="BioCode Logo" class="logo" />
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="desktop-nav">
+      {
+        navLinks.map((link) => (
+          <a
+            href={link.href}
+            class={`nav-link ${currentPath === link.href ? "active" : ""}`}
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <!-- Mobile Hamburger -->
+    <button id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <!-- Mobile Nav -->
+  <nav id="mobile-nav" aria-hidden="true">
+    {
+      navLinks.map((link) => (
+        <a
+          href={link.href}
+          class={`mobile-nav-link ${currentPath === link.href ? "active" : ""}`}
+        >
+          {link.label}
+        </a>
+      ))
+    }
+  </nav>
+</header>
+
+<style>
+  /* ── Header shell ── */
+  #site-header {
+    position: relative;
+    /* position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100; */
+    background: var(--header-bg);
+    border-bottom: 1px solid var(--border);
+    font-family: var(--font);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    height: var(--header-height);
+    gap: 2rem;
+  }
+
+  /* ── Logo ── */
+  .logo-link {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .logo {
+    height: 38px;
+    width: auto;
+    display: block;
+  }
+
+  /* ── Desktop nav ── */
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    flex-wrap: nowrap;
+  }
+
+  .nav-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    white-space: nowrap;
+    transition:
+      color 0.2s,
+      background 0.2s;
+  }
+
+  .nav-link:hover {
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .nav-link.active {
+    color: var(--accent);
+    background: rgba(62, 232, 164, 0.08);
+  }
+
+  /* ── Hamburger ── */
+  #hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 36px;
+    height: 36px;
+    padding: 6px;
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  #hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition:
+      transform 0.25s,
+      opacity 0.25s;
+  }
+
+  /* open state */
+  #hamburger.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  #hamburger.open span:nth-child(2) {
+    opacity: 0;
+  }
+  #hamburger.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* ── Mobile nav ── */
+  #mobile-nav {
+    display: none;
+    flex-direction: column;
+    padding: 0.75rem 1.5rem 1rem;
+    border-top: 1px solid var(--border);
+    background: var(--header-bg);
+
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 999;
+  }
+
+  #mobile-nav.open {
+    display: flex;
+  }
+
+  .mobile-nav-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--border);
+    transition: color 0.2s;
+  }
+
+  .mobile-nav-link:last-child {
+    border-bottom: none;
+  }
+
+  .mobile-nav-link:hover,
+  .mobile-nav-link.active {
+    color: var(--accent);
+  }
+
+  /* ── Responsive breakpoint ── */
+  @media (max-width: 900px) {
+    .desktop-nav {
+      display: none;
+    }
+    #hamburger {
+      display: flex;
+    }
+  }
+</style>
+
+<script>
+  const hamburger = document.getElementById("hamburger");
+  const mobileNav = document.getElementById("mobile-nav");
+
+  hamburger?.addEventListener("click", () => {
+    const isOpen = hamburger.classList.toggle("open");
+    mobileNav?.classList.toggle("open", isOpen);
+    hamburger.setAttribute("aria-expanded", String(isOpen));
+    mobileNav?.setAttribute("aria-hidden", String(!isOpen));
+  });
+
+  // Close when a link is tapped
+  mobileNav?.querySelectorAll("a").forEach((a) =>
+    a.addEventListener("click", () => {
+      hamburger?.classList.remove("open");
+      mobileNav.classList.remove("open");
+      hamburger?.setAttribute("aria-expanded", "false");
+      mobileNav.setAttribute("aria-hidden", "true");
+    }),
+  );
+</script>

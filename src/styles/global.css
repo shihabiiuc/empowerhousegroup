@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+:root {
+  --header-bg: #0b1120;
+  --header-height: 70px;
+  --accent: #3ee8a4;
+  --text: #e8edf5;
+  --text-muted: #8a95a8;
+  --border: rgba(255, 255, 255, 0.07);
+  --font: "DM Sans", system-ui, sans-serif;
+}
+main {
+  min-height: 100vh;
+}
