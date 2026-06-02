@@ -1,0 +1,60 @@
+---
+import { Image } from "astro:assets";
+import drJill from "../assets/dr-jill.jpg";
+
+interface Props {
+  heading?: string;
+  description?: string;
+  image?: ImageMetadata;
+  imageAlt?: string;
+  buttonLabel?: string;
+  buttonHref?: string;
+}
+
+const {
+  heading = "A New Way of Everyday Empowerment",
+  description = "Discover a powerful missing piece of personal development to stress less, enjoy more and create a life you love. The BioCode System® is a revolutionary practice using in-the-moment exercises to build your behavioral agility, and stay strong and productive, even in your most challenging moments. And, the best part is – no one has to change other than you to see immediate results.",
+  image = drJill,
+  imageAlt = "Dr. Jill",
+  buttonLabel = "Learn More",
+  buttonHref = "/the-biocode-system",
+} = Astro.props;
+---
+
+<section
+  class="grid grid-cols-1 md:grid-cols-2 items-center gap-20 max-w-[1100px] mx-auto my-20 px-6 bg-[var(--bg-primary)"
+>
+  <div
+    class="cta-image-wrap relative rounded-[20px] overflow-hidden aspect-[4/5]"
+  >
+    <Image
+      src={drJill}
+      alt={imageAlt}
+      class="cta-image w-full h-full object-cover object-top block rounded-[20px] transition-transform duration-700 ease-in-out"
+    />
+    <div class="image-glow"></div>
+  </div>
+
+  <!-- Content side -->
+  <div class="cta-content">
+    <div class="badge badge-fit-content">The BioCode System®</div>
+    <h2>{heading}</h2>
+    <p>{description}</p>
+    <a href={buttonHref} class="cta-btn">
+      {buttonLabel}
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M5 12h14M12 5l7 7-7 7"></path>
+      </svg>
+    </a>
+  </div>
+</section>

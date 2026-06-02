@@ -1,0 +1,79 @@
+.cta-image-wrap:hover .cta-image {
+  transform: scale(1.03);
+}
+
+/* accent glow behind the image */
+.image-glow {
+  position: absolute;
+  inset: -2px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, var(--accent), transparent 60%);
+  opacity: 0.15;
+  z-index: -1;
+}
+
+/* ── Content side ── */
+.cta-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--text-muted-light);
+  margin: 0;
+}
+
+p {
+  font-size: 0.975rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ── Button ── */
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+  padding: 0.75rem 1.6rem;
+  background: var(--accent);
+  color: #0b1120;
+
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: 8px;
+  text-decoration: none;
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
+}
+
+.cta-btn:hover {
+  opacity: 0.88;
+  transform: translateY(-2px);
+}
+
+.cta-btn svg {
+  transition: transform 0.2s;
+}
+
+.cta-btn:hover svg {
+  transform: translateX(3px);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .cta-section {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .cta-image-wrap {
+    aspect-ratio: 3 / 2;
+  }
+}

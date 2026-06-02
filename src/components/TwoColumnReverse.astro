@@ -1,0 +1,60 @@
+---
+import { Image } from "astro:assets";
+import Joyfull from "../assets/joyful-moment.jpeg";
+
+interface Props {
+  heading?: string;
+  description?: string;
+  image?: ImageMetadata;
+  imageAlt?: string;
+  buttonLabel?: string;
+  buttonHref?: string;
+}
+
+const {
+  heading = "Make Yourself Unshakable",
+  description = "The BioCode System® empowers the way you lead your life and impact the world around you. This innovative training provides simple yet powerful tools to develop stronger, more confident people. More than a mindset… it’s a skillset. The BioCodes® are your “how to” build the muscle to make you unshakable. This new way of thinking and acting will build the personal stability and compassion needed to approach any stressful situation with strength, clarity and impact.",
+  image = Joyfull,
+  imageAlt = "Joyfull moment",
+  buttonLabel = "Learn More",
+  buttonHref = "/the-biocode-system",
+} = Astro.props;
+---
+
+<section
+  class="grid grid-cols-1 md:grid-cols-2 items-center gap-20 max-w-[1100px] mx-auto my-20 px-6 bg-[var(--bg-primary)"
+>
+  <!-- Content on left side -->
+  <div class="cta-content">
+    <div class="badge badge-fit-content">Personal stability</div>
+    <h2>{heading}</h2>
+    <p>{description}</p>
+    <a href={buttonHref} class="cta-btn">
+      {buttonLabel}
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M5 12h14M12 5l7 7-7 7"></path>
+      </svg>
+    </a>
+  </div>
+
+  <div
+    class="cta-image-wrap relative rounded-[20px] overflow-hidden aspect-[4/5]"
+  >
+    <Image
+      src={Joyfull}
+      alt={imageAlt}
+      class="cta-image w-full h-full object-cover object-top block rounded-[20px] transition-transform duration-700 ease-in-out"
+    />
+    <div class="image-glow"></div>
+  </div>
+</section>
