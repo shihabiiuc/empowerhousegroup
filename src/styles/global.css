@@ -10,10 +10,14 @@
   --header-height: 70px;
   --text-muted: #8a95a8;
   --text-muted-light: #dae1ed;
-  --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-body:
+    "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-heading:
+    "Cantarell", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
 body {
+  font-family: var(--font-body);
   background-color: var(--header-bg);
 }
 main {
@@ -26,9 +30,9 @@ main {
   padding: 0.75rem 1.6rem;
   background: var(--accent);
   color: #0b1120;
-  font-family: var(--font);
+  font-family: var(--font-body);
   font-size: 0.9rem;
-  font-weight: 700;
+  font-weight: 600;
   border-radius: 8px;
   text-decoration: none;
   transition:
@@ -45,10 +49,10 @@ main {
   display: inline-block;
   padding: 0.75rem 1.6rem;
   background: transparent;
-  color: var(--text);
-  font-family: var(--font);
+  color: var(--text-muted-light);
+  font-family: var(--font-body);
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 600;
   border: 1px solid var(--border);
   border-radius: 8px;
   text-decoration: none;
