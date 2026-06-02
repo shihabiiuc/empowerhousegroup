@@ -1,0 +1,678 @@
+---
+import { Image } from "astro:assets";
+import DrJill from "../assets/team/dr-jill.jpg";
+import Rebecca from "../assets/team/Rebecca.jpg";
+import DorseyLevens from "../assets/team/Dorsey-Levens.jpg";
+import MaryMcCoy from "../assets/team/Mary-McCoy.jpg";
+import JanCummins from "../assets/team/Jan-Cummins.jpg";
+import MarissaManrique from "../assets/team/Marissa-Manrique.png";
+import JohanSchutz from "../assets/team/Johan-Schutz.jpg";
+import MarilynWatkins from "../assets/team/Marilyn-Watkins.jpg";
+import KayButler from "../assets/team/Kay-Butler.jpg";
+import TJCanada from "../assets/team/TJ-Canada.jpg";
+import PamWoehrle from "../assets/team/Pam-Woehrle.png";
+import ScottCampbell from "../assets/team/Scott-Campbell.jpg";
+import JuliaKahn from "../assets/team/Julia-Kahn.jpg";
+import DawnCanada from "../assets/team/Dawn-Canada.jpg";
+import KimAndrade from "../assets/team/Kim-Andrade.jpg";
+
+const leaders = [
+  {
+    image: DrJill,
+    name: "Dr. Jill Kahn",
+    role: "Founder and President",
+    accent: "teal",
+    size: "featured",
+  },
+  {
+    image: Rebecca,
+    name: "Rebecca Desjardins",
+    role: "SVP of Operations, Sales and Marketing",
+    accent: "gold",
+    size: "featured",
+  },
+  {
+    image: JohanSchutz,
+    name: "Johan Schutz",
+    role: "SVP of Strategy",
+    accent: "sky",
+    size: "featured",
+  },
+];
+
+const members = [
+  {
+    image: DorseyLevens,
+    name: "Dorsey Levens",
+    role: "Senior Consultant",
+    accent: "amber",
+  },
+  {
+    image: JanCummins,
+    name: "Jan Cummins",
+    role: "Certified Facilitator",
+    accent: "teal",
+  },
+  {
+    image: MaryMcCoy,
+    name: "Mary McCoy",
+    role: "Certified Senior Facilitator",
+    accent: "gold",
+  },
+  {
+    image: MarissaManrique,
+    name: "Marissa Manrique",
+    role: "International Certified Senior Facilitator",
+    accent: "warm",
+  },
+  {
+    image: KayButler,
+    name: "Kay Butler",
+    role: "Certified Senior Facilitator",
+    accent: "sky",
+  },
+  {
+    image: MarilynWatkins,
+    name: "Marilyn Watkins",
+    role: "Senior Consultant",
+    accent: "violet",
+  },
+  {
+    image: TJCanada,
+    name: "TJ Canada",
+    role: "Senior Consultant",
+    accent: "amber",
+  },
+  {
+    image: PamWoehrle,
+    name: "Pam Woehrle",
+    role: "Consultant",
+    accent: "teal",
+  },
+  {
+    image: ScottCampbell,
+    name: "Scott Campbell",
+    role: "Certified Senior Facilitator",
+    accent: "gold",
+  },
+  {
+    image: JuliaKahn,
+    name: "Julia Kahn",
+    role: "Certified Yoga Instructor",
+    accent: "warm",
+  },
+  {
+    image: DawnCanada,
+    name: "Dawn Canada",
+    role: "Certified Facilitator",
+    accent: "sky",
+  },
+  {
+    image: KimAndrade,
+    name: "Kim Andrade",
+    role: "HR Manager",
+    accent: "violet",
+  },
+];
+
+const accentMap: Record<string, string> = {
+  teal: "#3ee8a4",
+  gold: "#e8c47a",
+  sky: "#38bdf8",
+  amber: "#ffa94d",
+  warm: "#ff6b6b",
+  violet: "#a78bfa",
+};
+
+const accentRgbMap: Record<string, string> = {
+  teal: "62,232,164",
+  gold: "232,196,122",
+  sky: "56,189,248",
+  amber: "255,169,77",
+  warm: "255,107,107",
+  violet: "167,139,250",
+};
+---
+
+<section class="team-section">
+  <!-- ambient bg -->
+  <div class="team-bg" aria-hidden="true">
+    <div class="team-blob team-blob--1"></div>
+    <div class="team-blob team-blob--2"></div>
+    <div class="team-blob team-blob--3"></div>
+    <div class="team-grid-overlay"></div>
+  </div>
+
+  <div class="team-inner">
+    <!-- ── Section header ── -->
+    <div class="team-header">
+      <div class="team-header__eyebrow">
+        <span class="team-header__line"></span>
+        <span class="team-header__label">The People Behind The System</span>
+        <span class="team-header__line team-header__line--rev"></span>
+      </div>
+      <h2 class="team-header__title">
+        Meet the <em>Team</em>
+      </h2>
+      <p class="team-header__sub">
+        Practitioners, strategists and coaches united by one mission —<br />
+        empowering every person to <strong>Take the Day On.</strong>
+      </p>
+    </div>
+
+    <!-- ── Leadership row ── -->
+    <div class="team-leaders">
+      {
+        leaders.map((p) => (
+          <div
+            class="team-card team-card--leader"
+            style={`--accent:${accentMap[p.accent]};--accent-rgb:${accentRgbMap[p.accent]};`}
+          >
+            <div class="team-card__img-wrap">
+              <Image
+                src={p.image}
+                alt={p.name}
+                class="team-card__img"
+                widths={[400, 700]}
+                sizes="(max-width: 768px) 90vw, 380px"
+              />
+              <div class="team-card__img-shine" aria-hidden="true" />
+            </div>
+            <div class="team-card__body">
+              <p class="team-card__role">{p.role}</p>
+              <h3 class="team-card__name">{p.name}</h3>
+              <div class="team-card__rule" />
+            </div>
+            <div
+              class="team-card__corner team-card__corner--tl"
+              aria-hidden="true"
+            />
+            <div
+              class="team-card__corner team-card__corner--br"
+              aria-hidden="true"
+            />
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- ── Divider ── -->
+    <div class="team-divider" aria-hidden="true">
+      <span></span>
+      <span class="team-divider__label">Facilitators &amp; Consultants</span>
+      <span></span>
+    </div>
+
+    <!-- ── Members grid ── -->
+    <div class="team-grid">
+      {
+        members.map((p) => (
+          <div
+            class="team-card team-card--member"
+            style={`--accent:${accentMap[p.accent]};--accent-rgb:${accentRgbMap[p.accent]};`}
+          >
+            <div class="team-card__img-wrap">
+              <Image
+                src={p.image}
+                alt={p.name}
+                class="team-card__img"
+                widths={[300, 500]}
+                sizes="(max-width: 600px) 45vw, 240px"
+              />
+              <div class="team-card__img-shine" aria-hidden="true" />
+            </div>
+            <div class="team-card__body">
+              <p class="team-card__role">{p.role}</p>
+              <h3 class="team-card__name">{p.name}</h3>
+              <div class="team-card__rule" />
+            </div>
+            <div
+              class="team-card__corner team-card__corner--tl"
+              aria-hidden="true"
+            />
+            <div
+              class="team-card__corner team-card__corner--br"
+              aria-hidden="true"
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ══════════════════════════════════════
+     SHELL
+  ══════════════════════════════════════ */
+  .team-section {
+    position: relative;
+    width: 100%;
+    padding: 7rem 1.5rem 8rem;
+    overflow: hidden;
+    isolation: isolate;
+    contain: layout;
+  }
+
+  .team-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1280px;
+    margin-inline: auto;
+  }
+
+  /* ══════════════════════════════════════
+     AMBIENT BG
+  ══════════════════════════════════════ */
+  .team-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .team-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(130px);
+  }
+  .team-blob--1 {
+    width: 650px;
+    height: 650px;
+    background: var(--teal);
+    opacity: 0.06;
+    top: -150px;
+    left: -250px;
+    animation: tb1 22s ease-in-out infinite;
+  }
+  .team-blob--2 {
+    width: 500px;
+    height: 500px;
+    background: var(--gold);
+    opacity: 0.07;
+    top: 35%;
+    right: -200px;
+    animation: tb2 28s ease-in-out infinite;
+  }
+  .team-blob--3 {
+    width: 550px;
+    height: 550px;
+    background: var(--violet);
+    opacity: 0.05;
+    bottom: -100px;
+    left: 25%;
+    animation: tb3 32s ease-in-out infinite;
+  }
+
+  @keyframes tb1 {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(50px, 30px);
+    }
+  }
+  @keyframes tb2 {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(-40px, -40px);
+    }
+  }
+  @keyframes tb3 {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(25px, -35px);
+    }
+  }
+
+  .team-grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+    background-size: 72px 72px;
+  }
+
+  /* ══════════════════════════════════════
+     HEADER
+  ══════════════════════════════════════ */
+  .team-header {
+    text-align: center;
+    margin-bottom: 4.5rem;
+  }
+  .team-header__eyebrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+  .team-header__line {
+    flex: 1;
+    max-width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent, #3ee8a4));
+  }
+  .team-header__line--rev {
+    background: linear-gradient(90deg, var(--accent, #3ee8a4), transparent);
+  }
+  .team-header__label {
+    font-family: var(--font-ui, "Barlow Condensed", sans-serif);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent, #3ee8a4);
+  }
+  .team-header__title {
+    font-family: var(--font-display, "Cormorant Garamond", serif);
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--text, #e2e8f0);
+    margin-bottom: 1rem;
+  }
+  .team-header__title em {
+    font-style: italic;
+    color: var(--gold-light, #e8c47a);
+  }
+  .team-header__sub {
+    font-family: var(--font-body, "Barlow", sans-serif);
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--muted, #7a8fa6);
+  }
+  .team-header__sub strong {
+    color: var(--text, #e2e8f0);
+    font-weight: 500;
+  }
+
+  /* ══════════════════════════════════════
+     LEADERSHIP ROW
+  ══════════════════════════════════════ */
+  .team-leaders {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+  }
+
+  /* ══════════════════════════════════════
+     MEMBER GRID
+  ══════════════════════════════════════ */
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+  }
+
+  /* ══════════════════════════════════════
+     CARD — shared
+  ══════════════════════════════════════ */
+  .team-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 3px;
+    overflow: hidden;
+    cursor: default;
+    transition:
+      border-color 0.35s ease,
+      background 0.35s ease,
+      transform 0.35s ease;
+  }
+  .team-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(var(--accent-rgb, 62, 232, 164), 0.35);
+    transform: translateY(-4px);
+  }
+
+  /* top accent line */
+  .team-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--accent, #3ee8a4);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    z-index: 3;
+  }
+  .team-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  /* corner brackets */
+  .team-card__corner {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    z-index: 2;
+    transition: opacity 0.35s ease;
+    opacity: 0;
+  }
+  .team-card:hover .team-card__corner {
+    opacity: 1;
+  }
+
+  .team-card__corner--tl {
+    top: 8px;
+    left: 8px;
+    border-top: 1.5px solid var(--accent, #3ee8a4);
+    border-left: 1.5px solid var(--accent, #3ee8a4);
+  }
+  .team-card__corner--br {
+    bottom: 8px;
+    right: 8px;
+    border-bottom: 1.5px solid var(--accent, #3ee8a4);
+    border-right: 1.5px solid var(--accent, #3ee8a4);
+  }
+
+  /* ── Image wrapper — forces perfect square ── */
+  .team-card__img-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: #0d1525;
+  }
+  .team-card__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    filter: brightness(0.88) saturate(0.8) grayscale(0.15);
+    transition:
+      filter 0.5s ease,
+      transform 0.55s ease;
+  }
+  .team-card:hover .team-card__img {
+    filter: brightness(0.96) saturate(1.05) grayscale(0);
+    transform: scale(1.04);
+  }
+
+  /* shine sweep on hover */
+  .team-card__img-shine {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      transparent 40%,
+      rgba(var(--accent-rgb, 62, 232, 164), 0.08) 60%,
+      transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 1;
+    pointer-events: none;
+  }
+  .team-card:hover .team-card__img-shine {
+    opacity: 1;
+  }
+
+  /* ── Card body ── */
+  .team-card__body {
+    padding: 1.1rem 1.25rem 1.3rem;
+  }
+  .team-card--leader .team-card__body {
+    padding: 1.4rem 1.6rem 1.6rem;
+  }
+
+  .team-card__role {
+    font-family: var(--font-ui, "Barlow Condensed", sans-serif);
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent, #3ee8a4);
+    margin-bottom: 0.4rem;
+    line-height: 1.4;
+  }
+
+  .team-card__name {
+    font-family: var(--font-display, "Cormorant Garamond", serif);
+    font-weight: 600;
+    line-height: 1.15;
+    color: #fff;
+  }
+  .team-card--leader .team-card__name {
+    font-size: clamp(1.3rem, 2vw, 1.65rem);
+  }
+  .team-card--member .team-card__name {
+    font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  }
+
+  .team-card__rule {
+    margin-top: 0.75rem;
+    width: 28px;
+    height: 1.5px;
+    background: linear-gradient(90deg, var(--accent, #3ee8a4), transparent);
+    transition: width 0.4s ease;
+  }
+  .team-card:hover .team-card__rule {
+    width: 48px;
+  }
+
+  /* ══════════════════════════════════════
+     DIVIDER
+  ══════════════════════════════════════ */
+  .team-divider {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+  }
+  .team-divider span:not(.team-divider__label) {
+    flex: 1;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.07);
+  }
+  .team-divider__label {
+    font-family: var(--font-ui, "Barlow Condensed", sans-serif);
+    font-size: 0.63rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.22);
+    white-space: nowrap;
+  }
+
+  /* ══════════════════════════════════════
+     RESPONSIVE
+  ══════════════════════════════════════ */
+  @media (max-width: 1100px) {
+    .team-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media (max-width: 860px) {
+    .team-leaders {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .team-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 560px) {
+    .team-leaders {
+      grid-template-columns: 1fr;
+      max-width: 360px;
+      margin-inline: auto;
+    }
+    .team-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.9rem;
+    }
+    .team-card--member .team-card__body {
+      padding: 0.85rem 0.9rem 1rem;
+    }
+  }
+
+  /* ══════════════════════════════════════
+     SCROLL REVEAL
+  ══════════════════════════════════════ */
+  .team-header,
+  .team-leaders,
+  .team-divider,
+  .team-card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+      opacity 0.65s ease,
+      transform 0.65s ease;
+  }
+  .team-header.is-visible,
+  .team-leaders.is-visible,
+  .team-divider.is-visible,
+  .team-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  function initTeamReveal() {
+    const els = document.querySelectorAll<HTMLElement>(
+      ".team-header, .team-leaders, .team-divider, .team-card",
+    );
+
+    els.forEach((el) => el.classList.remove("is-visible"));
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry, i) => {
+          if (entry.isIntersecting) {
+            const el = entry.target as HTMLElement;
+            // stagger cards based on their index in the NodeList
+            const idx = Array.from(els).indexOf(el);
+            setTimeout(
+              () => {
+                el.classList.add("is-visible");
+              },
+              Math.min(idx * 55, 500),
+            );
+            observer.unobserve(el);
+          }
+        });
+      },
+      { threshold: 0.08 },
+    );
+
+    els.forEach((el) => observer.observe(el));
+  }
+
+  document.addEventListener("astro:page-load", initTeamReveal);
+</script>

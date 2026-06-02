@@ -1,0 +1,497 @@
+---
+// MissionVision.astro
+---
+
+<section class="vmp-section">
+  <div class="vmp-bg" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <div class="vmp-eyebrow">
+    <div class="vmp-eyebrow__line">
+      <span></span>
+      <span class="vmp-eyebrow__label">Biocode</span>
+      <span></span>
+    </div>
+    <h2 class="vmp-eyebrow__heading">
+      Built on <em>Purpose.</em><br />Grounded in <em>Principle.</em>
+    </h2>
+  </div>
+
+  <div class="vmp-grid">
+    <!-- VISION -->
+    <div class="vmp-card vmp-card--vision">
+      <span class="vmp-card__num" aria-hidden="true">01</span>
+      <div class="vmp-card__icon" aria-hidden="true">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M2.25 12c0 0 3.75-7.5 9.75-7.5S21.75 12 21.75 12s-3.75 7.5-9.75 7.5S2.25 12 2.25 12z"
+          ></path>
+          <circle cx="12" cy="12" r="3" stroke-width="1.5"></circle>
+        </svg>
+      </div>
+      <p class="vmp-card__label">Our Vision</p>
+      <h3 class="vmp-card__title">A World of<br />Empowered People</h3>
+      <p class="vmp-card__body">
+        To create a world where people are truly <strong>empowered</strong> — able
+        to enjoy life fully while navigating the inevitable challenges of every day
+        with grace and resilience.
+      </p>
+      <div class="vmp-card__foot">
+        <div class="vmp-card__dot"></div>
+        <span class="vmp-card__tag">Where we're headed</span>
+      </div>
+    </div>
+
+    <!-- MISSION -->
+    <div class="vmp-card vmp-card--mission">
+      <span class="vmp-card__num" aria-hidden="true">02</span>
+      <div class="vmp-card__icon" aria-hidden="true">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+        >
+          <circle cx="12" cy="12" r="9"></circle>
+          <circle cx="12" cy="12" r="4.5"></circle>
+          <line x1="12" y1="3" x2="12" y2="6.5" stroke-linecap="round"></line>
+          <line x1="12" y1="17.5" x2="12" y2="21" stroke-linecap="round"></line>
+          <line x1="3" y1="12" x2="6.5" y2="12" stroke-linecap="round"></line>
+          <line x1="17.5" y1="12" x2="21" y2="12" stroke-linecap="round"></line>
+        </svg>
+      </div>
+      <p class="vmp-card__label">Our Mission</p>
+      <h3 class="vmp-card__title">From Classroom<br />to Boardroom</h3>
+      <p class="vmp-card__body">
+        To ensure that <strong>everyone</strong> — students, leaders, and everyone
+        in between — understands the benefits of practicing The BioCode System® and
+        how it empowers their everyday lives.
+      </p>
+      <div class="vmp-card__foot">
+        <div class="vmp-card__dot"></div>
+        <span class="vmp-card__tag">How we get there</span>
+      </div>
+    </div>
+
+    <!-- PHILOSOPHY -->
+    <div class="vmp-card vmp-card--philosophy">
+      <span class="vmp-card__num" aria-hidden="true">03</span>
+      <div class="vmp-card__icon" aria-hidden="true">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 2c0 0-5 4-5 9a5 5 0 0010 0c0-3-2-5-2-5s0 3-3 4c0 0 2-5 0-8z"
+          ></path>
+        </svg>
+      </div>
+      <p class="vmp-card__label">Our Philosophy</p>
+      <h3 class="vmp-card__title">Own Your Life.<br />Take the Day On.</h3>
+      <p class="vmp-card__body">
+        You are <strong>responsible</strong> for your life. Every challenge you face
+        is an opportunity to grow, build inner strength, and show up fully —
+        <strong>TAKE THE DAY ON.</strong>
+      </p>
+      <div class="vmp-card__foot">
+        <div class="vmp-card__dot"></div>
+        <span class="vmp-card__tag">What we believe</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="vmp-footer">
+    <div class="vmp-footer__line"></div>
+    <p class="vmp-footer__badge">
+      Relentless <span>Inner Strength</span>
+    </p>
+    <div class="vmp-footer__line"></div>
+  </div>
+</section>
+
+<style>
+  .vmp-section {
+    position: relative;
+    width: 100%;
+    max-width: 1280px;
+    margin-inline: auto;
+    padding: 6rem 1.5rem;
+    /* ✅ These three lines fix the bleed */
+    overflow: hidden;
+    isolation: isolate;
+    contain: layout;
+  }
+
+  .vmp-bg {
+    position: absolute;
+    /* ✅ Positive inset — stays inside the section */
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.12;
+  }
+  .blob-1 {
+    width: 600px;
+    height: 600px;
+    background: var(--teal);
+    top: -200px;
+    left: -180px;
+    animation: drift1 18s ease-in-out infinite;
+  }
+  .blob-2 {
+    width: 500px;
+    height: 500px;
+    background: var(--gold);
+    top: 100px;
+    right: -150px;
+    animation: drift2 22s ease-in-out infinite;
+  }
+  .blob-3 {
+    width: 400px;
+    height: 400px;
+    background: var(--rust);
+    bottom: -100px;
+    left: 30%;
+    animation: drift3 26s ease-in-out infinite;
+  }
+
+  @keyframes drift1 {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+    50% {
+      transform: translate(40px, -30px) scale(1.07);
+    }
+  }
+  @keyframes drift2 {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+    50% {
+      transform: translate(-30px, 40px) scale(1.05);
+    }
+  }
+  @keyframes drift3 {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+    50% {
+      transform: translate(20px, -20px) scale(1.09);
+    }
+  }
+
+  .vmp-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .vmp-eyebrow {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    margin-bottom: 3.5rem;
+    animation: fadeUp 0.8s ease both;
+  }
+  .vmp-eyebrow__line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .vmp-eyebrow__line span {
+    display: block;
+    height: 1px;
+    width: 60px;
+    background: linear-gradient(90deg, transparent, var(--accent));
+  }
+  .vmp-eyebrow__line span:last-child {
+    background: linear-gradient(90deg, var(--accent), transparent);
+  }
+  .vmp-eyebrow__label {
+    font-family: var(--font-ui);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .vmp-eyebrow__heading {
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 4vw, 3.8rem);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.1;
+    color: var(--text);
+  }
+  .vmp-eyebrow__heading em {
+    font-style: normal;
+    font-weight: 600;
+    color: var(--gold-light);
+  }
+
+  .vmp-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .vmp-card {
+    position: relative;
+    background: var(--bg-primary);
+    padding: 3rem 2.8rem 3.2rem;
+    overflow: hidden;
+    cursor: default;
+    transition: background 0.4s ease;
+    animation: fadeUp 0.7s ease both;
+  }
+  /* ✅ Target nth-child on the cards directly, not inside .vmp-grid */
+  .vmp-card:nth-child(1) {
+    animation-delay: 0.15s;
+  }
+  .vmp-card:nth-child(2) {
+    animation-delay: 0.28s;
+  }
+  .vmp-card:nth-child(3) {
+    animation-delay: 0.42s;
+  }
+
+  .vmp-card:hover {
+    background: #0e1729;
+  }
+
+  .vmp-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--card-accent, var(--accent));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .vmp-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  .vmp-card__num {
+    font-family: var(--font-display);
+    font-size: 7rem;
+    font-weight: 300;
+    line-height: 1;
+    color: var(--card-accent, var(--accent));
+    opacity: 0.06;
+    position: absolute;
+    top: 1rem;
+    right: 1.6rem;
+    user-select: none;
+    transition:
+      opacity 0.4s ease,
+      transform 0.4s ease;
+  }
+  .vmp-card:hover .vmp-card__num {
+    opacity: 0.12;
+    transform: scale(1.05) translateY(-4px);
+  }
+
+  .vmp-card__icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 2rem;
+    border-radius: 50%;
+    border: 1px solid var(--card-accent, var(--accent));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+      background 0.3s ease,
+      box-shadow 0.3s ease;
+    /* ✅ Pass SVG color via currentColor properly */
+    color: var(--card-accent, var(--accent));
+  }
+  .vmp-card:hover .vmp-card__icon {
+    background: rgba(var(--card-accent-rgb, 62, 232, 164), 0.1);
+    box-shadow: 0 0 20px rgba(var(--card-accent-rgb, 62, 232, 164), 0.25);
+  }
+  .vmp-card__icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .vmp-card__label {
+    font-family: var(--font-ui);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--card-accent, var(--accent));
+    margin-bottom: 0.85rem;
+  }
+
+  .vmp-card__title {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 2.2vw, 2rem);
+    font-weight: 600;
+    line-height: 1.15;
+    color: #fff;
+    margin-bottom: 1.25rem;
+  }
+
+  .vmp-card__body {
+    font-family: var(--font-body);
+    font-size: 0.97rem;
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--muted);
+    transition: color 0.3s ease;
+  }
+  .vmp-card:hover .vmp-card__body {
+    color: #9aaec4;
+  }
+
+  .vmp-card__body strong {
+    font-weight: 500;
+    color: var(--card-accent, var(--accent));
+  }
+
+  .vmp-card__foot {
+    margin-top: 2.2rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .vmp-card__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--card-accent, var(--accent));
+    opacity: 0.5;
+  }
+  .vmp-card__tag {
+    font-family: var(--font-ui);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.2);
+  }
+
+  .vmp-card--vision {
+    --card-accent: #3ee8a4;
+    --card-accent-rgb: 62, 232, 164;
+  }
+  .vmp-card--mission {
+    --card-accent: #e8c47a;
+    --card-accent-rgb: 232, 196, 122;
+  }
+  .vmp-card--philosophy {
+    --card-accent: #ff6b6b;
+    --card-accent-rgb: 255, 107, 107;
+  }
+
+  .vmp-card--mission {
+    border-left: 1.5px solid rgba(255, 255, 255, 0.06);
+    border-right: 1.5px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .vmp-footer {
+    position: relative;
+    z-index: 1;
+    margin-top: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    animation: fadeUp 0.7s 0.55s ease both;
+  }
+  .vmp-footer__line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.07));
+  }
+  .vmp-footer__line:last-child {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.07), transparent);
+  }
+  .vmp-footer__badge {
+    font-family: var(--font-ui);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.18);
+    white-space: nowrap;
+  }
+  .vmp-footer__badge span {
+    color: var(--accent);
+    opacity: 0.7;
+  }
+
+  @media (max-width: 900px) {
+    .vmp-grid {
+      grid-template-columns: 1fr;
+      background: transparent;
+      gap: 1rem;
+    }
+    .vmp-card--mission {
+      border-left: none;
+      border-right: none;
+    }
+    .vmp-card {
+      border-radius: 2px;
+    }
+  }
+  @media (max-width: 600px) {
+    .vmp-card {
+      padding: 2.2rem 1.8rem 2.4rem;
+    }
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(32px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
