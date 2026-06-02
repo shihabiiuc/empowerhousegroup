@@ -1,0 +1,719 @@
+---
+// BioCodeWhat.astro
+// "What is The BioCode System?" section
+import DrJillThree from "../assets/dr-jill-three.jpg";
+import BookCover from "../assets/book-cover.jpeg";
+import FiveStrength from "../assets/BioCodes-Horiz_RGB_trans-copy.png";
+---
+
+<section class="bcw-section" aria-label="What is The BioCode System">
+  <!-- ── Background layers ── -->
+  <div class="bcw-bg-base"></div>
+  <div class="bcw-bg-glow-top"></div>
+  <div class="bcw-bg-glow-bottom"></div>
+  <div class="bcw-noise"></div>
+
+  <!-- ══ PART 1 — Intro: heading + text + Dr. Jill image ══ -->
+  <div class="bcw-inner bcw-intro-grid">
+    <!-- Text side -->
+    <div class="bcw-text-col">
+      <div class="bcw-eyebrow">
+        <span class="bcw-eyebrow-bar"></span>
+        <span>A daily practice. A lifetime of strength.</span>
+      </div>
+
+      <h2 class="bcw-heading">
+        What is<br />
+        <span class="bcw-heading-accent">The BioCode System<sup>®</sup>?</span>
+      </h2>
+
+      <div class="bcw-body-stack">
+        <p class="bcw-lead">
+          The BioCode System<sup>®</sup> is a personal
+          <strong>Daily Inner Workout™</strong> that builds your behavioral agility.
+        </p>
+        <p class="bcw-body">
+          This program not only teaches you how to navigate more effortlessly
+          through the continual challenges of everyday life, but also teaches
+          you how to <em>strengthen yourself within each one</em>. Like "flexing
+          muscles" your stress will soon become your strength, giving you
+          greater personal freedom and inner peace within each moment.
+        </p>
+        <p class="bcw-body">
+          Not something to be magically achieved — <em>Abracadabra</em> — but as a
+          work in progress. Simply, <strong>you grow as you go.</strong>
+        </p>
+      </div>
+
+      <!-- Book cover -->
+      <div class="bcw-book-wrap">
+        <div class="bcw-book-glow"></div>
+        <img
+          src={BookCover.src}
+          alt="The BioCode System official book cover"
+          class="bcw-book-img"
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="bcw-book-label">
+          <span class="bcw-book-label-dot"></span>
+          Now available
+        </div>
+      </div>
+    </div>
+
+    <!-- Dr. Jill image side -->
+    <div class="bcw-photo-col">
+      <div class="bcw-photo-frame">
+        <!-- Corner accents -->
+        <div class="bcw-frame-corner bcw-frame-corner--tl"></div>
+        <div class="bcw-frame-corner bcw-frame-corner--tr"></div>
+        <div class="bcw-frame-corner bcw-frame-corner--bl"></div>
+        <div class="bcw-frame-corner bcw-frame-corner--br"></div>
+        <!-- Glow behind photo -->
+        <div class="bcw-photo-glow"></div>
+        <img
+          src={DrJillThree.src}
+          alt="Dr. Jill Kahn, founder of The BioCode System, at her desk"
+          class="bcw-photo"
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="bcw-photo-caption">
+          <span>Dr. Jill Kahn</span>
+          <span class="bcw-caption-dot">·</span>
+          <span>Founder, The BioCode System</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PART 2 — Five BioCodes banner ══ -->
+  <div class="bcw-five-wrap">
+    <div class="bcw-five-inner">
+      <div class="bcw-five-label-col">
+        <p class="bcw-five-tagline">
+          The 5 BioCodes<sup>®</sup> will<br />
+          <strong>Strengthen Your Life.</strong>
+        </p>
+        <div class="bcw-five-line"></div>
+      </div>
+
+      <div class="bcw-five-img-col">
+        <img
+          src={FiveStrength.src}
+          alt="The 5 BioCodes — five strength points of The BioCode System"
+          class="bcw-five-img"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PART 3 — CTA strip ══ -->
+  <div class="bcw-cta-wrap">
+    <div class="bcw-cta-glow"></div>
+    <div class="bcw-cta-inner">
+      <p class="bcw-cta-text">
+        Discover the secret that has helped <strong>thousands of people</strong>
+        strengthen themselves, improve their relationships, and lead a life they love.
+      </p>
+
+      <a
+        href="/self-assessment"
+        class="bcw-cta-btn"
+        aria-label="Take the quiz to get started"
+      >
+        <span class="bcw-cta-btn-bg"></span>
+        <span class="bcw-cta-btn-label">Take the quiz to get started</span>
+        <svg
+          class="bcw-cta-btn-arrow"
+          width="18"
+          height="18"
+          viewBox="0 0 18 18"
+          fill="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M3 9h12M10 4l5 5-5 5"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ══════════════════════════════════════════
+     Shell
+  ══════════════════════════════════════════ */
+  .bcw-section {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    padding-bottom: 0;
+  }
+
+  /* ══════════════════════════════════════════
+     Background
+  ══════════════════════════════════════════ */
+  .bcw-bg-base {
+    position: absolute;
+    inset: 0;
+    background: var(--bg-primary);
+    z-index: 0;
+  }
+
+  .bcw-bg-glow-top {
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    translate: -50% 0;
+    width: 80%;
+    height: 50%;
+    background: radial-gradient(
+      ellipse at 50% 0%,
+      rgba(62, 232, 164, 0.055) 0%,
+      transparent 65%
+    );
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .bcw-bg-glow-bottom {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 55%;
+    height: 45%;
+    background: radial-gradient(
+      ellipse at 80% 100%,
+      rgba(0, 153, 255, 0.07) 0%,
+      transparent 65%
+    );
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .bcw-noise {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  /* ══════════════════════════════════════════
+     Shared inner container
+  ══════════════════════════════════════════ */
+  .bcw-inner {
+    position: relative;
+    z-index: 10;
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 7rem 2rem 5rem;
+  }
+
+  /* ══════════════════════════════════════════
+     PART 1 — Intro grid
+  ══════════════════════════════════════════ */
+  .bcw-intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  @media (max-width: 960px) {
+    .bcw-intro-grid {
+      grid-template-columns: 1fr;
+      gap: 3.5rem;
+    }
+    /* Photo order: show after text on mobile */
+    .bcw-photo-col {
+      order: -1;
+    }
+  }
+
+  /* ── Text column ── */
+  .bcw-text-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .bcw-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-family: "DM Mono", "Fira Mono", ui-monospace, monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .bcw-eyebrow-bar {
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background: var(--accent);
+    opacity: 0.6;
+  }
+
+  .bcw-heading {
+    font-family: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+    font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--footer-head);
+    margin: 0;
+  }
+
+  .bcw-heading sup {
+    font-size: 0.45em;
+    color: var(--accent);
+    vertical-align: super;
+  }
+
+  .bcw-heading-accent {
+    font-style: italic;
+    font-weight: 400;
+    background: linear-gradient(
+      120deg,
+      var(--footer-head) 0%,
+      var(--accent) 60%,
+      #38bdf8 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 16px rgba(62, 232, 164, 0.15));
+  }
+
+  .bcw-body-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+
+  .bcw-lead {
+    font-family: "Lora", Georgia, serif;
+    font-size: clamp(1.05rem, 2vw, 1.18rem);
+    line-height: 1.75;
+    color: var(--footer-head);
+    margin: 0;
+  }
+
+  .bcw-lead sup {
+    font-size: 0.6em;
+    color: var(--accent);
+  }
+
+  .bcw-lead strong {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .bcw-body {
+    font-family: "Lora", Georgia, serif;
+    font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+    line-height: 1.88;
+    color: var(--text-muted-light);
+    margin: 0;
+  }
+
+  .bcw-body em {
+    font-style: italic;
+    color: var(--footer-head);
+  }
+
+  .bcw-body strong {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  /* ── Book cover ── */
+  .bcw-book-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .bcw-book-glow {
+    position: absolute;
+    left: -10px;
+    top: -10px;
+    width: 120px;
+    height: 160px;
+    background: radial-gradient(
+      ellipse,
+      rgba(62, 232, 164, 0.14) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+    border-radius: 8px;
+  }
+
+  .bcw-book-img {
+    position: relative;
+    z-index: 1;
+    width: 96px;
+    height: auto;
+    border-radius: 6px;
+    box-shadow:
+      0 12px 40px rgba(0, 0, 0, 0.55),
+      0 0 0 1px rgba(255, 255, 255, 0.07),
+      4px 4px 0 rgba(62, 232, 164, 0.12);
+    transition:
+      transform 0.35s ease,
+      box-shadow 0.35s ease;
+  }
+
+  .bcw-book-img:hover {
+    transform: translateY(-4px) rotate(-1.5deg);
+    box-shadow:
+      0 20px 55px rgba(0, 0, 0, 0.65),
+      0 0 0 1px rgba(62, 232, 164, 0.2),
+      6px 6px 0 rgba(62, 232, 164, 0.18);
+  }
+
+  .bcw-book-label {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: "DM Mono", ui-monospace, monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .bcw-book-label-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%,
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.5;
+      transform: scale(0.75);
+    }
+  }
+
+  /* ── Photo column ── */
+  .bcw-photo-col {
+    display: flex;
+    justify-content: center;
+  }
+
+  .bcw-photo-frame {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+  }
+
+  /* Corner accents */
+  .bcw-frame-corner {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border-color: rgba(62, 232, 164, 0.35);
+    border-style: solid;
+    z-index: 3;
+    border-radius: 2px;
+  }
+  .bcw-frame-corner--tl {
+    top: -6px;
+    left: -6px;
+    border-width: 1px 0 0 1px;
+  }
+  .bcw-frame-corner--tr {
+    top: -6px;
+    right: -6px;
+    border-width: 1px 1px 0 0;
+  }
+  .bcw-frame-corner--bl {
+    bottom: 28px;
+    left: -6px;
+    border-width: 0 0 1px 1px;
+  }
+  .bcw-frame-corner--br {
+    bottom: 28px;
+    right: -6px;
+    border-width: 0 1px 1px 0;
+  }
+
+  .bcw-photo-glow {
+    position: absolute;
+    inset: -20px;
+    background: radial-gradient(
+      ellipse at 50% 60%,
+      rgba(62, 232, 164, 0.1) 0%,
+      transparent 65%
+    );
+    z-index: 0;
+    border-radius: 14px;
+  }
+
+  .bcw-photo {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
+  }
+
+  .bcw-photo-caption {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    font-family: "DM Mono", ui-monospace, monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .bcw-caption-dot {
+    color: var(--accent);
+    opacity: 0.5;
+  }
+
+  /* ══════════════════════════════════════════
+     PART 2 — Five BioCodes banner
+  ══════════════════════════════════════════ */
+  .bcw-five-wrap {
+    position: relative;
+    z-index: 10;
+    margin: 2rem 0 0;
+    padding: 3.5rem 2rem;
+    background: rgba(255, 255, 255, 0.025);
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  .bcw-five-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  @media (max-width: 760px) {
+    .bcw-five-inner {
+      grid-template-columns: 1fr;
+      gap: 1.8rem;
+      text-align: center;
+    }
+    .bcw-five-line {
+      margin: 0 auto;
+    }
+  }
+
+  .bcw-five-label-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .bcw-five-tagline {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+    font-weight: 300;
+    line-height: 1.3;
+    color: var(--footer-head);
+    margin: 0;
+  }
+
+  .bcw-five-tagline sup {
+    font-size: 0.5em;
+    color: var(--accent);
+    vertical-align: super;
+  }
+
+  .bcw-five-tagline strong {
+    display: block;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+
+  .bcw-five-line {
+    width: 48px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+  }
+
+  .bcw-five-img-col {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  @media (max-width: 760px) {
+    .bcw-five-img-col {
+      justify-content: center;
+    }
+  }
+
+  .bcw-five-img {
+    max-width: 100%;
+    height: auto;
+    /* If the PNG has a transparent/dark bg, invert slightly on dark background */
+    filter: brightness(1.05) drop-shadow(0 4px 24px rgba(62, 232, 164, 0.12));
+    border-radius: 8px;
+  }
+
+  /* ══════════════════════════════════════════
+     PART 3 — CTA strip
+  ══════════════════════════════════════════ */
+  .bcw-cta-wrap {
+    position: relative;
+    z-index: 10;
+    padding: 5rem 2rem 6rem;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .bcw-cta-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 70%;
+    height: 200%;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(62, 232, 164, 0.07) 0%,
+      transparent 60%
+    );
+    pointer-events: none;
+  }
+
+  .bcw-cta-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 680px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.2rem;
+  }
+
+  .bcw-cta-text {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(1.25rem, 2.8vw, 1.75rem);
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--text-muted-light);
+    margin: 0;
+    font-style: italic;
+  }
+
+  .bcw-cta-text strong {
+    font-style: normal;
+    font-weight: 600;
+    color: var(--footer-head);
+  }
+
+  /* CTA button */
+  .bcw-cta-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.9rem 2.2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-family: "DM Mono", ui-monospace, monospace;
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    color: var(--bg-primary);
+    font-weight: 600;
+    overflow: hidden;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+    box-shadow:
+      0 4px 24px rgba(62, 232, 164, 0.3),
+      0 0 0 1px rgba(62, 232, 164, 0.5);
+  }
+
+  .bcw-cta-btn-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, var(--accent) 0%, #38bdf8 100%);
+    transition: opacity 0.3s ease;
+    z-index: 0;
+  }
+
+  .bcw-cta-btn-label,
+  .bcw-cta-btn-arrow {
+    position: relative;
+    z-index: 1;
+  }
+
+  .bcw-cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 8px 36px rgba(62, 232, 164, 0.4),
+      0 0 0 1px rgba(62, 232, 164, 0.6);
+  }
+
+  .bcw-cta-btn:hover .bcw-cta-btn-bg {
+    opacity: 0.9;
+  }
+
+  .bcw-cta-btn:hover .bcw-cta-btn-arrow {
+    transform: translateX(3px);
+    transition: transform 0.2s ease;
+  }
+
+  .bcw-cta-btn:active {
+    transform: translateY(0);
+  }
+
+  /* ══════════════════════════════════════════
+     Reduced motion
+  ══════════════════════════════════════════ */
+  @media (prefers-reduced-motion: reduce) {
+    .bcw-book-label-dot {
+      animation: none;
+      opacity: 1;
+    }
+    .bcw-book-img:hover {
+      transform: none;
+    }
+    .bcw-cta-btn:hover {
+      transform: none;
+    }
+  }
+</style>
