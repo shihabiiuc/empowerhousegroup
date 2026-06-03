@@ -37,12 +37,12 @@
   --warm: #ff6b6b;
   --warm-white: #fff9f3;
 
-  --font-heading: "Cormorant Garamond", serif;
-  --font-body: "Inter", sans-serif;
+  --font-heading: "DM Serif Display", serif;
+  --navlinks: "Inter", sans-serif;
+  --font-body: "Jost", sans-serif;
 }
 h1 {
   font-family: var(--font-heading);
-  font-size: var(--hero-font-size);
 }
 h2,
 h3,
