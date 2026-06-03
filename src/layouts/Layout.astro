@@ -7,9 +7,21 @@ import { ClientRouter } from "astro:transitions";
 interface Props {
   title: string;
   description?: string;
+  ogImage?: string;
+  ogType?: "website" | "article";
 }
 
-const { title, description = "" } = Astro.props;
+const {
+  title,
+  description = "",
+  ogImage = "/og-image.jpg",
+  ogType = "website",
+} = Astro.props;
+
+const siteUrl = Astro.site ?? new URL(Astro.request.url).origin;
+const canonicalURL = new URL(Astro.url.pathname, siteUrl);
+// const ogImageURL = new URL(ogImage, siteUrl);
+const ogImageURL = new URL(ogImage, siteUrl).toString();
 ---
 
 <!doctype html>
@@ -21,7 +33,26 @@ const { title, description = "" } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonicalURL} />
 
+    <meta name="robots" content="index, follow" />
+    <meta property="og:site_name" content="Empowerhouse Group" />
+    <!-- Open Graph -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter/X Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -37,7 +68,7 @@ const { title, description = "" } = Astro.props;
       rel="stylesheet"
     />
 
-    <title>{title} | {description}</title>
+    <title>{title} | Empowerhouse Group</title>
     <ClientRouter />
   </head>
 
