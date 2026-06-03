@@ -238,7 +238,6 @@
     background: linear-gradient(90deg, var(--accent), transparent);
   }
   .vmp-eyebrow__label {
-    font-family: var(--font-ui);
     font-size: 0.72rem;
     font-weight: 600;
     letter-spacing: 0.3em;
@@ -246,7 +245,6 @@
     color: var(--accent);
   }
   .vmp-eyebrow__heading {
-    font-family: var(--font-display);
     font-size: clamp(2.4rem, 4vw, 3.8rem);
     font-weight: 300;
     font-style: italic;
@@ -302,7 +300,7 @@
     left: 0;
     right: 0;
     height: 3px;
-    background: var(--card-accent, var(--accent));
+    background: var(--gold, var(--accent));
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
@@ -312,11 +310,10 @@
   }
 
   .vmp-card__num {
-    font-family: var(--font-display);
     font-size: 7rem;
     font-weight: 300;
     line-height: 1;
-    color: var(--card-accent, var(--accent));
+    color: var(--gold, var(--accent));
     opacity: 0.06;
     position: absolute;
     top: 1rem;
@@ -336,19 +333,19 @@
     height: 48px;
     margin-bottom: 2rem;
     border-radius: 50%;
-    border: 1px solid var(--card-accent, var(--accent));
+    border: 1px solid var(--gold, var(--accent));
     display: flex;
     align-items: center;
     justify-content: center;
     transition:
       background 0.3s ease,
       box-shadow 0.3s ease;
-    /* ✅ Pass SVG color via currentColor properly */
-    color: var(--card-accent, var(--accent));
+    /* Pass SVG color via currentColor properly */
+    color: var(--gold, var(--accent));
   }
   .vmp-card:hover .vmp-card__icon {
-    background: rgba(var(--card-accent-rgb, 62, 232, 164), 0.1);
-    box-shadow: 0 0 20px rgba(var(--card-accent-rgb, 62, 232, 164), 0.25);
+    background: rgba(var(--gold, 62, 232, 164), 0.1);
+    box-shadow: 0 0 20px rgba(var(--gold, 62, 232, 164), 0.25);
   }
   .vmp-card__icon svg {
     width: 20px;
@@ -356,17 +353,15 @@
   }
 
   .vmp-card__label {
-    font-family: var(--font-ui);
     font-size: 0.65rem;
     font-weight: 600;
     letter-spacing: 0.3em;
     text-transform: uppercase;
-    color: var(--card-accent, var(--accent));
+    color: var(--gold, var(--accent));
     margin-bottom: 0.85rem;
   }
 
   .vmp-card__title {
-    font-family: var(--font-display);
     font-size: clamp(1.5rem, 2.2vw, 2rem);
     font-weight: 600;
     line-height: 1.15;
@@ -375,7 +370,6 @@
   }
 
   .vmp-card__body {
-    font-family: var(--font-body);
     font-size: 0.97rem;
     font-weight: 300;
     line-height: 1.75;
@@ -388,7 +382,7 @@
 
   .vmp-card__body strong {
     font-weight: 500;
-    color: var(--card-accent, var(--accent));
+    color: var(--gold, var(--accent));
   }
 
   .vmp-card__foot {
@@ -403,11 +397,10 @@
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: var(--card-accent, var(--accent));
+    background: var(--gold, var(--accent));
     opacity: 0.5;
   }
   .vmp-card__tag {
-    font-family: var(--font-ui);
     font-size: 0.7rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
@@ -451,7 +444,6 @@
     background: linear-gradient(90deg, rgba(255, 255, 255, 0.07), transparent);
   }
   .vmp-footer__badge {
-    font-family: var(--font-ui);
     font-size: 0.68rem;
     font-weight: 600;
     letter-spacing: 0.22em;

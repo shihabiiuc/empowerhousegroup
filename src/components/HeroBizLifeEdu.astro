@@ -55,7 +55,7 @@ const pillars = [
         pillars.map((p, i) => (
           <div
             class="ble-pillar"
-            style={`--p-accent:${p.accent};--p-rgb:${p.accentRgb};--p-delay:${i * 0.14}s`}
+            style={`--gold:${p.accent};--gold:${p.accentRgb};--delay:${i * 0.14}s`}
           >
             <span class="ble-pillar__word">{p.word}</span>
             <span class="ble-pillar__divider" aria-hidden="true" />
@@ -210,7 +210,6 @@ const pillars = [
     background: linear-gradient(90deg, rgba(255, 255, 255, 0.15), transparent);
   }
   .ble-eyebrow__text {
-    font-family: var(--font-ui, "Barlow Condensed", sans-serif);
     font-size: 0.63rem;
     font-weight: 600;
     letter-spacing: 0.3em;
@@ -233,7 +232,6 @@ const pillars = [
   }
 
   .ble-heading__sep {
-    font-family: var(--font-display, "Cormorant Garamond", serif);
     font-size: clamp(2.5rem, 6vw, 6rem);
     font-weight: 300;
     color: rgba(255, 255, 255, 0.2);
@@ -242,7 +240,6 @@ const pillars = [
   }
 
   .ble-heading__word {
-    font-family: var(--font-display, "Cormorant Garamond", serif);
     font-size: clamp(4rem, 10.5vw, 10rem);
     font-weight: 600;
     letter-spacing: -0.02em;
@@ -322,13 +319,13 @@ const pillars = [
     cursor: default;
     transition: background 0.35s ease;
     opacity: 0;
-    animation: bleFadeUp 0.65s calc(0.62s + var(--p-delay, 0s)) ease both;
+    animation: bleFadeUp 0.65s calc(0.62s + var(--delay, 0s)) ease both;
   }
   .ble-pillar:not(:last-child) {
     border-right: 1px solid rgba(255, 255, 255, 0.07);
   }
   .ble-pillar:hover {
-    background: rgba(var(--p-rgb, 62, 232, 164), 0.06);
+    background: rgba(var(--gold-rgb, 62, 232, 164), 0.06);
   }
 
   /* accent top bar on each pillar */
@@ -339,7 +336,7 @@ const pillars = [
     left: 0;
     right: 0;
     height: 2px;
-    background: var(--p-accent, #3ee8a4);
+    background: var(--gold, #3ee8a4);
     transform: scaleX(0);
     transform-origin: center;
     transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
@@ -349,22 +346,20 @@ const pillars = [
   }
 
   .ble-pillar__word {
-    font-family: var(--font-ui, "Barlow Condensed", sans-serif);
     font-size: 0.68rem;
     font-weight: 700;
     letter-spacing: 0.28em;
     text-transform: uppercase;
-    color: var(--p-accent, #3ee8a4);
+    color: var(--amber, #3ee8a4);
   }
 
   .ble-pillar__divider {
     width: 20px;
     height: 1px;
-    background: rgba(var(--p-rgb, 62, 232, 164), 0.25);
+    background: rgba(var(--gold-rgb, 62, 232, 164), 0.25);
   }
 
   .ble-pillar__sub {
-    font-family: var(--font-body, "Barlow", sans-serif);
     font-size: 0.78rem;
     font-weight: 300;
     line-height: 1.5;
@@ -373,7 +368,7 @@ const pillars = [
     transition: color 0.3s ease;
   }
   .ble-pillar:hover .ble-pillar__sub {
-    color: rgba(var(--p-rgb, 62, 232, 164), 0.8);
+    color: rgba(var(--gold-rgb, 62, 232, 164), 0.8);
   }
 
   /* ══════════════════════════

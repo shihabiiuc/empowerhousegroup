@@ -3,43 +3,46 @@
 @import "./BiocodeResilience.css";
 
 :root {
-  --cream: #faf6f0;
-  --warm-white: #fff9f3;
-  --ink: #1a1208;
-  --gold: #c9973a;
-  --gold-light: #e8c47a;
-  --sand: #e8ddd0;
-  --rust: #8b3a1e;
-  --text-body: #3d3228;
+  --delay: 0.3s;
+  --header-height: 70px;
+  --hero-font-size: clamp(2.4rem, 7vw, 4rem);
 
-  --teal: #00f5c4;
-  --blue: #0099ff;
-  --warm: #ff6b6b;
-  --amber: #ffa94d;
-  --violet: #a78bfa;
-  --sky: #38bdf8;
-  --dark: #080c14;
-  --card: rgba(255, 255, 255, 0.04);
-  --border: rgba(255, 255, 255, 0.08);
-  --text: #e2e8f0;
-  --muted: #7a8fa6;
-  --bg-header: #080d18;
-  --bg-primary: #0b1120;
-  --border: rgba(255, 255, 255, 0.07);
-  --footer-head: #e8edf5;
   --accent: #3ee8a4;
   --accent-dim: rgba(62, 232, 164, 0.1);
-  --header-height: 70px;
+  --amber: #ffa94d;
+  --bg-header: #080d18;
+  --bg-primary: #0b1120;
+  --blue: #0099ff;
+  --border: rgba(255, 255, 255, 0.08);
+  --card: rgba(255, 255, 255, 0.04);
+  --cream: #faf6f0;
+  --dash: #5e8981;
+  --dark: #080c14;
+  --footer-head: #e8edf5;
+  --gold: #c9973a;
+  --gold-light: #e8c47a;
+  --gold-rgb: 201, 151, 58;
+  --ink: #1a1208;
+  --muted: #7a8fa6;
+  --pct: #1e17e3;
+  --rust: #8b3a1e;
+  --sand: #e8ddd0;
+  --sky: #38bdf8;
+  --teal: #00f5c4;
+  --text: #e2e8f0;
+  --text-body: #3d3228;
   --text-muted: #8a95a8;
   --text-muted-light: #dae1ed;
+  --violet: #a78bfa;
+  --warm: #ff6b6b;
+  --warm-white: #fff9f3;
 
-  --font-body:
-    "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-heading:
-    "Cantarell", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-heading: "Cormorant Garamond", serif;
+  --font-body: "Inter", sans-serif;
 }
 h1 {
   font-family: var(--font-heading);
+  font-size: var(--hero-font-size);
 }
 h2,
 h3,
@@ -65,7 +68,7 @@ main {
   display: inline-block;
   padding: 0.75rem 1.6rem;
   background: var(--accent);
-  color: #0b1120;
+  color: var(--bg-primary);
   font-family: var(--font-body);
   font-size: 0.9rem;
   font-weight: 600;

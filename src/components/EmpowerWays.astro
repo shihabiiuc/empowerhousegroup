@@ -118,7 +118,7 @@ const pillars = [
       {pillars.map((pillar, pi) => (
         <div
           class="ew-col"
-          style={`--col-accent:${pillar.accent};--col-rgb:${pillar.accentRgb};--col-delay:${pi * 0.12}s`}
+          style={`--gold:${pillar.accent};--gold-rgb:${pillar.accentRgb};--delay:${pi * 0.12}s`}
         >
           <!-- column header -->
           <div class="ew-col__head">
@@ -231,7 +231,6 @@ const pillars = [
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    font-family: var(--font-ui,'Barlow Condensed',sans-serif);
     font-size: 0.65rem;
     font-weight: 600;
     letter-spacing: 0.3em;
@@ -248,7 +247,6 @@ const pillars = [
   }
 
   .ew-header__title {
-    font-family: var(--font-display,'Cormorant Garamond',serif);
     font-size: clamp(2.4rem,4.5vw,4rem);
     font-weight: 300;
     line-height: 1.1;
@@ -281,8 +279,8 @@ const pillars = [
     opacity: 0;
     transform: translateY(32px);
     transition:
-      opacity 0.7s var(--col-delay,0s) ease,
-      transform 0.7s var(--col-delay,0s) ease;
+      opacity 0.7s var(--delay,0s) ease,
+      transform 0.7s var(--delay,0s) ease;
   }
   .ew-col.is-visible { opacity:1; transform:translateY(0); }
 
@@ -299,7 +297,7 @@ const pillars = [
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 3px;
-    background: var(--col-accent,#3ee8a4);
+    background: var(--gold,#3ee8a4);
   }
 
   /* large ghost label behind text */
@@ -308,10 +306,9 @@ const pillars = [
     position: absolute;
     right: -0.5rem;
     bottom: -1rem;
-    font-family: var(--font-display,'Cormorant Garamond',serif);
     font-size: 6rem;
     font-weight: 700;
-    color: var(--col-accent,#3ee8a4);
+    color: var(--gold,#3ee8a4);
     opacity: 0.04;
     pointer-events: none;
     user-select: none;
@@ -320,17 +317,15 @@ const pillars = [
   }
 
   .ew-col__label {
-    font-family: var(--font-ui,'Barlow Condensed',sans-serif);
     font-size: 0.62rem;
     font-weight: 700;
     letter-spacing: 0.32em;
     text-transform: uppercase;
-    color: var(--col-accent,#3ee8a4);
+    color: var(--gold,#3ee8a4);
     margin-bottom: 0.45rem;
   }
 
   .ew-col__tagline {
-    font-family: var(--font-body,'Barlow',sans-serif);
     font-size: 0.82rem;
     font-weight: 300;
     color: var(--muted,#7a8fa6);
@@ -341,20 +336,18 @@ const pillars = [
   .ew-hook {
     padding: 1.75rem 2rem;
     border-bottom: 1px solid rgba(255,255,255,0.05);
-    background: rgba(var(--col-rgb,62,232,164),0.03);
+    background: rgba(var(--gold-rgb,62,232,164),0.03);
   }
 
   .ew-hook__heading {
-    font-family: var(--font-display,'Cormorant Garamond',serif);
     font-size: 1.15rem;
     font-style: italic;
     font-weight: 600;
-    color: var(--col-accent,#3ee8a4);
+    color: var(--gold,#3ee8a4);
     margin-bottom: 0.85rem;
   }
 
   .ew-hook__body {
-    font-family: var(--font-body,'Barlow',sans-serif);
     font-size: 0.88rem;
     font-weight: 300;
     line-height: 1.8;
@@ -380,11 +373,11 @@ const pillars = [
     transition: border-color 0.3s ease, background 0.3s ease;
   }
   .ew-card[open] {
-    border-color: rgba(var(--col-rgb,62,232,164),0.25);
-    background: rgba(var(--col-rgb,62,232,164),0.04);
+    border-color: rgba(var(--gold-rgb,62,232,164),0.25);
+    background: rgba(var(--gold-rgb,62,232,164),0.04);
   }
   .ew-card:not([open]):hover {
-    border-color: rgba(var(--col-rgb,62,232,164),0.18);
+    border-color: rgba(var(--gold-rgb,62,232,164),0.18);
     background: rgba(255,255,255,0.035);
   }
 
@@ -405,28 +398,27 @@ const pillars = [
     flex-shrink: 0;
     width: 32px; height: 32px;
     border-radius: 50%;
-    border: 1px solid rgba(var(--col-rgb,62,232,164),0.3);
+    border: 1px solid rgba(var(--gold-rgb,62,232,164),0.3);
     display: flex; align-items:center; justify-content:center;
-    color: var(--col-accent,#3ee8a4);
+    color: var(--gold,#3ee8a4);
     transition: background 0.3s ease, box-shadow 0.3s ease;
   }
   .ew-card__icon svg { width:15px; height:15px; }
   .ew-card[open] .ew-card__icon,
   .ew-card__summary:hover .ew-card__icon {
-    background: rgba(var(--col-rgb,62,232,164),0.1);
-    box-shadow: 0 0 14px rgba(var(--col-rgb,62,232,164),0.2);
+    background: rgba(var(--gold-rgb,62,232,164),0.1);
+    box-shadow: 0 0 14px rgba(var(--gold-rgb,62,232,164),0.2);
   }
 
   .ew-card__title {
     flex: 1;
-    font-family: var(--font-ui,'Barlow Condensed',sans-serif);
     font-size: 0.78rem;
     font-weight: 700;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--text,#e2e8f0);
   }
-  .ew-card[open] .ew-card__title { color:var(--col-accent,#3ee8a4); }
+  .ew-card[open] .ew-card__title { color:var(--gold,#3ee8a4); }
 
   .ew-card__chevron {
     flex-shrink: 0;
@@ -436,7 +428,7 @@ const pillars = [
   .ew-card__chevron svg { width:16px; height:16px; display:block; }
   .ew-card[open] .ew-card__chevron {
     transform: rotate(180deg);
-    color: var(--col-accent,#3ee8a4);
+    color: var(--gold,#3ee8a4);
   }
 
   /* accordion body */
@@ -444,7 +436,6 @@ const pillars = [
     padding: 0 1rem 1.1rem 3.35rem;
   }
   .ew-card__body p {
-    font-family: var(--font-body,'Barlow',sans-serif);
     font-size: 0.86rem;
     font-weight: 300;
     line-height: 1.8;
