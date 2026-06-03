@@ -1,0 +1,245 @@
+---
+// HeroPage.astro
+// Reusable hero for utility pages — Privacy Policy, Terms & Conditions, etc.
+// Usage: <HeroPage title="Privacy Policy" />
+
+interface Props {
+  title: string;
+  subtitle?: string; // optional short descriptor line
+}
+
+const { title, subtitle } = Astro.props;
+---
+
+<section class="ph-section" aria-label={title}>
+  <!-- Background layers -->
+  <div class="ph-bg"></div>
+  <div class="ph-glow"></div>
+  <div class="ph-grid"></div>
+  <div class="ph-vignette"></div>
+
+  <div class="ph-inner">
+    <!-- Breadcrumb-style kicker -->
+    <div class="ph-kicker" aria-hidden="true">
+      <a href="/" class="ph-kicker-home">Home</a>
+      <span class="ph-kicker-sep">/</span>
+      <span class="ph-kicker-current">{title}</span>
+    </div>
+
+    <!-- Main heading — always h1 -->
+    <h1 class="ph-heading">{title}</h1>
+
+    <!-- Optional subtitle -->
+    {subtitle && <p class="ph-subtitle">{subtitle}</p>}
+
+    <!-- Decorative bottom ornament -->
+    <div class="ph-ornament" aria-hidden="true">
+      <span class="ph-ornament-line"></span>
+      <span class="ph-ornament-diamond"></span>
+      <span class="ph-ornament-line ph-ornament-line--rev"></span>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ── Shell ── */
+  .ph-section {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    padding: calc(var(--header-height) + 4rem) 1.5rem 4rem;
+    text-align: center;
+  }
+
+  /* ── Background ── */
+  .ph-bg {
+    position: absolute;
+    inset: 0;
+    background: var(--bg-primary);
+    z-index: 0;
+  }
+
+  /* Subtle centered glow */
+  .ph-glow {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: radial-gradient(
+      ellipse 70% 80% at 50% 100%,
+      rgba(62, 232, 164, 0.06) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+  }
+
+  /* Dot grid — masked to center */
+  .ph-grid {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background-image: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.045) 1px,
+      transparent 1px
+    );
+    background-size: 32px 32px;
+    -webkit-mask-image: radial-gradient(
+      ellipse 85% 90% at 50% 50%,
+      black 20%,
+      transparent 100%
+    );
+    mask-image: radial-gradient(
+      ellipse 85% 90% at 50% 50%,
+      black 20%,
+      transparent 100%
+    );
+    pointer-events: none;
+  }
+
+  /* Edge vignette */
+  .ph-vignette {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    background: radial-gradient(
+      ellipse 100% 100% at 50% 50%,
+      transparent 50%,
+      rgba(8, 12, 20, 0.55) 100%
+    );
+    pointer-events: none;
+  }
+
+  /* ── Content ── */
+  .ph-inner {
+    position: relative;
+    z-index: 10;
+    max-width: 760px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    animation: ph-fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0.3s)
+      both;
+  }
+
+  /* ── Kicker / breadcrumb ── */
+  .ph-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .ph-kicker-home {
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .ph-kicker-home:hover {
+    color: var(--accent);
+  }
+
+  .ph-kicker-sep {
+    opacity: 0.4;
+  }
+
+  .ph-kicker-current {
+    color: var(--accent);
+  }
+
+  /* ── Heading ── */
+  .ph-heading {
+    font-family: var(--font-heading);
+    font-size: var(--hero-font-size);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--footer-head);
+    margin: 0;
+  }
+
+  /* ── Optional subtitle ── */
+  .ph-subtitle {
+    font-family: var(--font-body);
+    font-size: clamp(0.9rem, 1.6vw, 1rem);
+    line-height: 1.7;
+    color: var(--muted);
+    max-width: 480px;
+    margin: 0;
+  }
+
+  /* ── Ornament ── */
+  .ph-ornament {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-top: 0.5rem;
+  }
+
+  .ph-ornament-line {
+    display: block;
+    width: 52px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(62, 232, 164, 0.3));
+  }
+
+  .ph-ornament-line--rev {
+    background: linear-gradient(270deg, transparent, rgba(62, 232, 164, 0.3));
+  }
+
+  .ph-ornament-diamond {
+    display: block;
+    width: 5px;
+    height: 5px;
+    background: var(--accent);
+    opacity: 0.6;
+    transform: rotate(45deg);
+    border-radius: 1px;
+  }
+
+  /* ── Bottom border ── */
+  .ph-section::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    translate: -50% 0;
+    width: min(600px, 80%);
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.07) 30%,
+      rgba(62, 232, 164, 0.15) 50%,
+      rgba(255, 255, 255, 0.07) 70%,
+      transparent
+    );
+  }
+
+  /* ── Entrance animation ── */
+  @keyframes ph-fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ── Reduced motion ── */
+  @media (prefers-reduced-motion: reduce) {
+    .ph-inner {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>
