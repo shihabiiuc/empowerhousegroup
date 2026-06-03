@@ -5,7 +5,7 @@
 ### _Behavioral Agility. Inner Strength. Unshakable You._
 
 [![Live Site](https://img.shields.io/badge/🌐_Live_Site-empowerhousegroup.com-3ee8a4?style=for-the-badge&logoColor=white)](https://empowerhousegroup.com/)
-[![Netlify Status](https://img.shields.io/badge/Netlify-Deployed-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](https://empowerhousegroup.netlify.app/)
+[![Netlify Status](https://img.shields.io/badge/Netlify-Deployed-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](https://biocodesys.netlify.app/)
 [![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/shihabiiuc/empowerhousegroup)
 
 </div>
@@ -175,16 +175,16 @@ To override the OG image on any page:
 
 This site is deployed on **Netlify** with continuous deployment from the `master` branch.
 
-| Environment       | URL                                                                     |
-| ----------------- | ----------------------------------------------------------------------- |
-| Production        | [empowerhousegroup.com](https://empowerhousegroup.com/)                 |
-| Preview / Staging | [empowerhousegroup.netlify.app](https://empowerhousegroup.netlify.app/) |
+| Environment       | URL                                                       |
+| ----------------- | --------------------------------------------------------- |
+| Production        | [empowerhousegroup.com](https://empowerhousegroup.com/)   |
+| Preview / Staging | [biocodesys.netlify.app](https://biocodesys.netlify.app/) |
 
 The `site` field in `astro.config.mjs` is set to the production domain to ensure all canonical and OG URLs resolve correctly:
 
 ```js
 export default defineConfig({
-  site: "https://empowerhousegroup.netlify.app",
+  site: "https://biocodesys.netlify.app",
 });
 ```
 
