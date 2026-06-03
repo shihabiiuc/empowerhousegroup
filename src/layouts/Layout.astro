@@ -20,8 +20,7 @@ const {
 
 const siteUrl = Astro.site ?? new URL(Astro.request.url).origin;
 const canonicalURL = new URL(Astro.url.pathname, siteUrl);
-// const ogImageURL = new URL(ogImage, siteUrl);
-const ogImageURL = new URL(ogImage, siteUrl).toString();
+const ogImageURL = new URL(ogImage, siteUrl);
 ---
 
 <!doctype html>
