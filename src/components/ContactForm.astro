@@ -1,0 +1,756 @@
+---
+// ContactForm.astro
+// Netlify form with redirect to /thank-you
+---
+
+<section class="cf-section" aria-label="Contact form">
+  <!-- Background -->
+  <div class="cf-bg-base"></div>
+  <div class="cf-bg-glow-left"></div>
+  <div class="cf-bg-glow-right"></div>
+  <div class="cf-noise"></div>
+
+  <div class="cf-inner">
+    <!-- Left — context panel -->
+    <div class="cf-context">
+      <div class="cf-eyebrow">
+        <span class="cf-eyebrow-bar"></span>
+        <span>Get in touch</span>
+      </div>
+
+      <h2 class="cf-context-heading">
+        Ready to begin your<br />
+        <span class="cf-context-accent">inner workout?</span>
+      </h2>
+
+      <p class="cf-context-body">
+        Send a message and Dr. Jill will get back to you personally. Whether
+        you're curious about the program, ready to start, or just need a little
+        more information — there are no wrong reasons to reach out.
+      </p>
+
+      <!-- Trust signals -->
+      <ul class="cf-trust" aria-label="What to expect">
+        <li class="cf-trust-item">
+          <span class="cf-trust-icon" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+              <circle
+                cx="8"
+                cy="8"
+                r="7"
+                stroke="var(--accent)"
+                stroke-width="1.2"></circle>
+              <path
+                d="M5 8l2 2 4-4"
+                stroke="var(--accent)"
+                stroke-width="1.3"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            </svg>
+          </span>
+          Personal reply from Dr. Jill
+        </li>
+        <li class="cf-trust-item">
+          <span class="cf-trust-icon" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+              <circle
+                cx="8"
+                cy="8"
+                r="7"
+                stroke="var(--accent)"
+                stroke-width="1.2"></circle>
+              <path
+                d="M5 8l2 2 4-4"
+                stroke="var(--accent)"
+                stroke-width="1.3"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            </svg>
+          </span>
+          No pressure, no sales pitch
+        </li>
+        <li class="cf-trust-item">
+          <span class="cf-trust-icon" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+              <circle
+                cx="8"
+                cy="8"
+                r="7"
+                stroke="var(--accent)"
+                stroke-width="1.2"></circle>
+              <path
+                d="M5 8l2 2 4-4"
+                stroke="var(--accent)"
+                stroke-width="1.3"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            </svg>
+          </span>
+          Typically responds within 24 hours
+        </li>
+      </ul>
+
+      <!-- Decorative vertical ornament -->
+      <div class="cf-vert-ornament" aria-hidden="true">
+        <span class="cf-vert-dot"></span>
+        <span class="cf-vert-line"></span>
+        <span class="cf-vert-dot cf-vert-dot--dim"></span>
+      </div>
+    </div>
+
+    <!-- Right — the form card -->
+    <div class="cf-form-col">
+      <div class="cf-card">
+        <!-- Card corner accents — consistent with other sections -->
+        <div class="cf-corner cf-corner--tl"></div>
+        <div class="cf-corner cf-corner--br"></div>
+
+        <!--
+          Netlify form:
+          - name="contact"  → identifies the form in Netlify UI
+          - netlify          → enables Netlify form detection
+          - action="/thank-you" → redirect on success
+        -->
+        <form
+          name="contact"
+          method="POST"
+          netlify
+          action="/thank-you"
+          class="cf-form"
+          novalidate
+          id="contact-form"
+        >
+          <!-- Required hidden input for Netlify -->
+          <input type="hidden" name="form-name" value="contact" />
+
+          <!-- Name + Phone — two columns -->
+          <div class="cf-row">
+            <div class="cf-field">
+              <label for="cf-name" class="cf-label">
+                Your Name <span class="cf-required" aria-label="required"
+                  >*</span
+                >
+              </label>
+              <input
+                type="text"
+                id="cf-name"
+                name="name"
+                class="cf-input"
+                placeholder="Jane Smith"
+                required
+                autocomplete="name"
+              />
+              <span class="cf-field-bar"></span>
+            </div>
+
+            <div class="cf-field">
+              <label for="cf-phone" class="cf-label">
+                Phone Number <span class="cf-required" aria-label="required"
+                  >*</span
+                >
+              </label>
+              <input
+                type="tel"
+                id="cf-phone"
+                name="phone"
+                class="cf-input"
+                placeholder="+1 (555) 000-0000"
+                required
+                autocomplete="tel"
+              />
+              <span class="cf-field-bar"></span>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="cf-field">
+            <label for="cf-email" class="cf-label">
+              Email Address <span class="cf-required" aria-label="required"
+                >*</span
+              >
+            </label>
+            <input
+              type="email"
+              id="cf-email"
+              name="email"
+              class="cf-input"
+              placeholder="jane@example.com"
+              required
+              autocomplete="email"
+            />
+            <span class="cf-field-bar"></span>
+          </div>
+
+          <!-- How did you hear -->
+          <div class="cf-field">
+            <label for="cf-source" class="cf-label"
+              >How did you hear about us?</label
+            >
+            <div class="cf-select-wrap">
+              <select id="cf-source" name="source" class="cf-select">
+                <option value="" disabled selected>Select an option…</option>
+                <option value="web-search">Web Search</option>
+                <option value="social-media">Social Media</option>
+                <option value="referral">Friend / Referral</option>
+                <option value="book">The Book</option>
+                <option value="speaking-event">Speaking Event</option>
+                <option value="other">Other</option>
+              </select>
+              <span class="cf-select-arrow" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path
+                    d="M2 4l4 4 4-4"
+                    stroke="var(--accent)"
+                    stroke-width="1.4"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+                </svg>
+              </span>
+            </div>
+            <span class="cf-field-bar"></span>
+          </div>
+
+          <!-- Message -->
+          <div class="cf-field">
+            <label for="cf-message" class="cf-label">
+              Your Message <span class="cf-required" aria-label="required"
+                >*</span
+              >
+            </label>
+            <textarea
+              id="cf-message"
+              name="message"
+              class="cf-textarea"
+              rows="5"
+              placeholder="Tell Dr. Jill what's on your mind…"
+              required></textarea>
+            <span class="cf-field-bar"></span>
+          </div>
+
+          <!-- Submit -->
+          <div class="cf-submit-row">
+            <p class="cf-fine-print">
+              Fields marked <span class="cf-required">*</span> are required. Your
+              information is never shared.
+            </p>
+            <button type="submit" class="cf-submit-btn">
+              <span class="cf-submit-bg"></span>
+              <span class="cf-submit-label">Send Message</span>
+              <svg
+                class="cf-submit-arrow"
+                width="16"
+                height="16"
+                viewBox="0 0 18 18"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M3 9h12M10 4l5 5-5 5"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+              </svg>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="cf-bottom-fade" aria-hidden="true"></div>
+</section>
+
+<style>
+  /* ══════════════════════════════════════════
+     Shell
+  ══════════════════════════════════════════ */
+  .cf-section {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  /* ══════════════════════════════════════════
+     Background
+  ══════════════════════════════════════════ */
+  .cf-bg-base {
+    position: absolute;
+    inset: 0;
+    background: var(--bg-primary);
+    z-index: 0;
+  }
+
+  .cf-bg-glow-left {
+    position: absolute;
+    top: 10%;
+    left: -10%;
+    width: 50%;
+    height: 80%;
+    background: radial-gradient(
+      ellipse at 25% 50%,
+      rgba(167, 139, 250, 0.07) 0%,
+      transparent 65%
+    );
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .cf-bg-glow-right {
+    position: absolute;
+    bottom: 0;
+    right: -5%;
+    width: 50%;
+    height: 70%;
+    background: radial-gradient(
+      ellipse at 75% 70%,
+      rgba(62, 232, 164, 0.06) 0%,
+      transparent 65%
+    );
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .cf-noise {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    opacity: 0.022;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  /* ══════════════════════════════════════════
+     Layout
+  ══════════════════════════════════════════ */
+  .cf-inner {
+    position: relative;
+    z-index: 10;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 7rem 2rem 7rem;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  @media (max-width: 860px) {
+    .cf-inner {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+
+  /* ══════════════════════════════════════════
+     Left context panel
+  ══════════════════════════════════════════ */
+  .cf-context {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+    padding-top: 0.5rem;
+    position: relative;
+  }
+
+  .cf-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-family: "DM Mono", ui-monospace, monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .cf-eyebrow-bar {
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background: var(--accent);
+    opacity: 0.6;
+  }
+
+  .cf-context-heading {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(2rem, 3.8vw, 3rem);
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--footer-head);
+    margin: 0;
+  }
+
+  .cf-context-accent {
+    display: block;
+    font-style: italic;
+    font-weight: 400;
+    background: linear-gradient(120deg, var(--violet) 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 14px rgba(167, 139, 250, 0.18));
+  }
+
+  .cf-context-body {
+    font-family: "Lora", Georgia, serif;
+    font-size: clamp(0.92rem, 1.6vw, 1rem);
+    line-height: 1.88;
+    color: var(--text-muted-light);
+    margin: 0;
+  }
+
+  /* Trust list */
+  .cf-trust {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .cf-trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: "DM Mono", ui-monospace, monospace;
+    font-size: 0.67rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted-light);
+  }
+
+  .cf-trust-icon {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  /* Vertical ornament */
+  .cf-vert-ornament {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding-left: 2px;
+  }
+
+  .cf-vert-dot {
+    display: block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.5;
+  }
+  .cf-vert-dot--dim {
+    opacity: 0.18;
+  }
+
+  .cf-vert-line {
+    display: block;
+    width: 1px;
+    height: 48px;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+    margin-left: 2px;
+    opacity: 0.3;
+  }
+
+  /* ══════════════════════════════════════════
+     Form card
+  ══════════════════════════════════════════ */
+  .cf-form-col {
+    display: flex;
+  }
+
+  .cf-card {
+    position: relative;
+    width: 100%;
+    padding: 2.8rem 2.6rem 2.6rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow:
+      0 24px 64px rgba(0, 0, 0, 0.32),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  /* Corner accents — same as every other section */
+  .cf-corner {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-color: rgba(167, 139, 250, 0.3);
+    border-style: solid;
+    border-radius: 2px;
+  }
+  .cf-corner--tl {
+    top: 14px;
+    left: 14px;
+    border-width: 1px 0 0 1px;
+  }
+  .cf-corner--br {
+    bottom: 14px;
+    right: 14px;
+    border-width: 0 1px 1px 0;
+  }
+
+  /* ══════════════════════════════════════════
+     Form layout
+  ══════════════════════════════════════════ */
+  .cf-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+
+  /* Two-column row */
+  .cf-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.4rem;
+  }
+
+  @media (max-width: 560px) {
+    .cf-row {
+      grid-template-columns: 1fr;
+    }
+    .cf-card {
+      padding: 2rem 1.5rem 2rem;
+    }
+  }
+
+  /* ══════════════════════════════════════════
+     Field base
+  ══════════════════════════════════════════ */
+  .cf-field {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .cf-label {
+    font-family: "DM Mono", ui-monospace, monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    transition: color 0.2s ease;
+  }
+
+  .cf-required {
+    color: var(--accent);
+    font-size: 0.9em;
+  }
+
+  /* Shared input/textarea/select base */
+  .cf-input,
+  .cf-textarea,
+  .cf-select {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 8px;
+    padding: 0.78rem 1rem;
+    font-family: "Lora", Georgia, serif;
+    font-size: 0.95rem;
+    color: var(--footer-head);
+    outline: none;
+    transition:
+      border-color 0.25s ease,
+      background 0.25s ease,
+      box-shadow 0.25s ease;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  .cf-input::placeholder,
+  .cf-textarea::placeholder {
+    color: var(--muted);
+    opacity: 0.6;
+    font-style: italic;
+    font-size: 0.88rem;
+  }
+
+  /* Focus state */
+  .cf-input:focus,
+  .cf-textarea:focus,
+  .cf-select:focus {
+    border-color: rgba(167, 139, 250, 0.5);
+    background: rgba(167, 139, 250, 0.05);
+    box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.1);
+  }
+
+  /* Valid state */
+  .cf-input:valid:not(:placeholder-shown),
+  .cf-textarea:valid:not(:placeholder-shown) {
+    border-color: rgba(62, 232, 164, 0.3);
+  }
+
+  /* Label brightens on field focus via sibling trick */
+  .cf-field:focus-within .cf-label {
+    color: var(--accent);
+  }
+
+  /* Animated bottom bar */
+  .cf-field-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 0;
+    background: linear-gradient(90deg, var(--violet), var(--accent));
+    border-radius: 0 0 8px 8px;
+    transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+  }
+
+  .cf-field:focus-within .cf-field-bar {
+    width: 100%;
+  }
+
+  /* Textarea */
+  .cf-textarea {
+    resize: vertical;
+    min-height: 130px;
+    line-height: 1.7;
+  }
+
+  /* Select wrapper */
+  .cf-select-wrap {
+    position: relative;
+  }
+
+  .cf-select {
+    cursor: pointer;
+    padding-right: 2.5rem;
+    color: var(--footer-head);
+  }
+
+  .cf-select option {
+    background: var(--bg-primary);
+    color: var(--footer-head);
+  }
+
+  /* Placeholder-style default option */
+  .cf-select option[disabled] {
+    color: var(--muted);
+  }
+
+  .cf-select-arrow {
+    position: absolute;
+    right: 0.9rem;
+    top: 50%;
+    translate: 0 -50%;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+  }
+
+  /* ══════════════════════════════════════════
+     Submit row
+  ══════════════════════════════════════════ */
+  .cf-submit-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding-top: 0.4rem;
+  }
+
+  .cf-fine-print {
+    font-family: "DM Mono", ui-monospace, monospace;
+    font-size: 0.57rem;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin: 0;
+    max-width: 220px;
+    line-height: 1.6;
+  }
+
+  /* Submit button — matches site-wide CTA pill style */
+  .cf-submit-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.9rem 2rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: "DM Mono", ui-monospace, monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    color: var(--bg-primary);
+    font-weight: 600;
+    overflow: hidden;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+    box-shadow:
+      0 4px 24px rgba(167, 139, 250, 0.28),
+      0 0 0 1px rgba(167, 139, 250, 0.45);
+  }
+
+  .cf-submit-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, var(--violet) 0%, var(--accent) 100%);
+    z-index: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .cf-submit-label,
+  .cf-submit-arrow {
+    position: relative;
+    z-index: 1;
+  }
+
+  .cf-submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 8px 36px rgba(167, 139, 250, 0.38),
+      0 0 0 1px rgba(167, 139, 250, 0.55);
+  }
+
+  .cf-submit-btn:hover .cf-submit-arrow {
+    transform: translateX(3px);
+    transition: transform 0.2s ease;
+  }
+
+  .cf-submit-btn:active {
+    transform: translateY(0);
+  }
+
+  /* ══════════════════════════════════════════
+     Bottom fade
+  ══════════════════════════════════════════ */
+  .cf-bottom-fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: linear-gradient(to bottom, transparent, rgba(8, 17, 32, 0.5));
+    pointer-events: none;
+    z-index: 5;
+  }
+
+  /* ══════════════════════════════════════════
+     Reduced motion
+  ══════════════════════════════════════════ */
+  @media (prefers-reduced-motion: reduce) {
+    .cf-field-bar {
+      transition: none;
+    }
+    .cf-submit-btn:hover {
+      transform: none;
+    }
+  }
+</style>
