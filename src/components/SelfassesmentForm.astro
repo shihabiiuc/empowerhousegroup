@@ -1,0 +1,567 @@
+---
+// SelfassessmentForm.astro
+---
+
+<section class="saf-section">
+  <!-- ambient bg -->
+  <div class="saf-bg" aria-hidden="true">
+    <div class="saf-blob saf-blob--1"></div>
+    <div class="saf-blob saf-blob--2"></div>
+    <div class="saf-grid"></div>
+  </div>
+
+  <div class="saf-inner">
+    <!-- decorative side label -->
+    <div class="saf-side-label" aria-hidden="true">
+      <span>BioCode Self-Assessment</span>
+    </div>
+
+    <!-- form card -->
+    <div class="saf-card">
+      <!-- card top bar -->
+      <div class="saf-card__header">
+        <div class="saf-card__header-left">
+          <span class="saf-card__dot saf-card__dot--teal"></span>
+          <span class="saf-card__dot saf-card__dot--gold"></span>
+          <span class="saf-card__dot saf-card__dot--muted"></span>
+        </div>
+        <span class="saf-card__header-label"
+          >The BioCode System® — Self-Assessment Quiz</span
+        >
+        <div class="saf-card__header-right">
+          <span class="saf-card__secure">
+            <svg
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <rect
+                x="3"
+                y="7"
+                width="10"
+                height="8"
+                rx="1.5"
+                stroke="currentColor"
+                stroke-width="1.2"></rect>
+              <path
+                d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"
+                stroke="currentColor"
+                stroke-width="1.2"
+                stroke-linecap="round"></path>
+            </svg>
+            Secure
+          </span>
+        </div>
+      </div>
+
+      <!-- iframe wrapper — handles responsive scaling -->
+      <div class="saf-frame-wrap">
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLSc9Sq8fMX-x2YCwrkh1o1w4QdTnahQqrFYp_O56G8TC71p0Og/viewform?embedded=true"
+          title="BioCode Self-Assessment Quiz"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          loading="lazy"
+          allow="accelerometer"
+          class="saf-iframe"
+        >
+          Loading…
+        </iframe>
+      </div>
+
+      <!-- card bottom note -->
+      <div class="saf-card__footer">
+        <span class="saf-card__footer-dot" aria-hidden="true"></span>
+        <p>
+          Your responses are submitted securely via Google Forms and used solely
+          to support your BioCode journey.
+        </p>
+      </div>
+    </div><!-- /.saf-card -->
+
+    <!-- right column: context panel -->
+    <aside class="saf-aside">
+      <div class="saf-aside__block">
+        <span class="saf-aside__icon" aria-hidden="true">
+          <!-- clipboard check icon -->
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.4"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"
+            ></path>
+            <rect x="9" y="3" width="6" height="4" rx="1" stroke-linecap="round"
+            ></rect>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M9 12l2 2 4-4"></path>
+          </svg>
+        </span>
+        <h3 class="saf-aside__title">What to expect</h3>
+        <p class="saf-aside__body">
+          A series of honest, reflective questions designed to reveal where you
+          are today — and where The BioCode System can take you.
+        </p>
+      </div>
+
+      <div class="saf-aside__divider" aria-hidden="true"></div>
+
+      <ul class="saf-aside__list">
+        <li>
+          <span class="saf-aside__check" aria-hidden="true">◆</span>
+          Multi-step, guided format
+        </li>
+        <li>
+          <span class="saf-aside__check" aria-hidden="true">◆</span>
+          No right or wrong answers
+        </li>
+        <li>
+          <span class="saf-aside__check" aria-hidden="true">◆</span>
+          Takes roughly 5 – 10 minutes
+        </li>
+        <li>
+          <span class="saf-aside__check" aria-hidden="true">◆</span>
+          Completely confidential
+        </li>
+      </ul>
+
+      <div class="saf-aside__divider" aria-hidden="true"></div>
+
+      <div class="saf-aside__quote">
+        <p>
+          "Your everyday challenges are opportunities to grow &amp; build inner
+          strength."
+        </p>
+        <span>— Dr. Jill Kahn</span>
+      </div>
+    </aside>
+  </div><!-- /.saf-inner -->
+</section>
+
+<style>
+  /* ══════════════════════════
+     SHELL
+  ══════════════════════════ */
+  .saf-section {
+    position: relative;
+    width: 100%;
+    padding: 0 1.5rem 8rem;
+    overflow: hidden;
+    isolation: isolate;
+    contain: layout;
+  }
+
+  .saf-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1280px;
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    grid-template-areas: "card aside";
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  /* ══════════════════════════
+     AMBIENT BG
+  ══════════════════════════ */
+  .saf-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .saf-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+  }
+  .saf-blob--1 {
+    width: 500px;
+    height: 500px;
+    background: var(--teal, #00f5c4);
+    opacity: 0.06;
+    top: 0;
+    left: -200px;
+    animation: safb1 24s ease-in-out infinite;
+  }
+  .saf-blob--2 {
+    width: 400px;
+    height: 400px;
+    background: var(--gold, #c9973a);
+    opacity: 0.07;
+    bottom: 0;
+    right: -150px;
+    animation: safb2 30s ease-in-out infinite;
+  }
+  @keyframes safb1 {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(40px, 30px);
+    }
+  }
+  @keyframes safb2 {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(-30px, -25px);
+    }
+  }
+
+  .saf-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(
+      ellipse 90% 100% at 50% 0%,
+      black 30%,
+      transparent 100%
+    );
+  }
+
+  /* ══════════════════════════
+     SIDE LABEL
+  ══════════════════════════ */
+  .saf-side-label {
+    display: none; /* shown on wide screens via media query */
+    position: absolute;
+    left: -3.5rem;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    transform-origin: center;
+    font-family: var(--font-ui, "Barlow Condensed", sans-serif);
+    font-size: 0.58rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.12);
+    white-space: nowrap;
+    z-index: 1;
+    pointer-events: none;
+  }
+  @media (min-width: 1400px) {
+    .saf-side-label {
+      display: block;
+    }
+  }
+
+  /* ══════════════════════════
+     FORM CARD
+  ══════════════════════════ */
+  .saf-card {
+    grid-area: card;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.025);
+    backdrop-filter: blur(6px);
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+      opacity 0.7s ease,
+      transform 0.7s ease;
+  }
+  .saf-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* top bar */
+  .saf-card__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    background: rgba(255, 255, 255, 0.03);
+  }
+  .saf-card__header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+  }
+  .saf-card__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+  .saf-card__dot--teal {
+    background: var(--accent, #3ee8a4);
+    opacity: 0.7;
+  }
+  .saf-card__dot--gold {
+    background: var(--gold-light, #e8c47a);
+    opacity: 0.7;
+  }
+  .saf-card__dot--muted {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .saf-card__header-label {
+    font-family: var(--font-ui, "Barlow Condensed", sans-serif);
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.2);
+  }
+
+  .saf-card__secure {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: var(--font-ui, "Barlow Condensed", sans-serif);
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent, #3ee8a4);
+    opacity: 0.6;
+  }
+  .saf-card__secure svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  /* ── iframe wrapper ── */
+  .saf-frame-wrap {
+    width: 100%;
+    /* let the iframe be as tall as it needs; we just ensure width fills */
+    background: #fff;
+  }
+  .saf-iframe {
+    display: block;
+    width: 100%;
+    /* 800px default from Google; tall enough for multi-step */
+    height: clamp(700px, 90vh, 1100px);
+    border: none;
+    /* Google Forms has a white bg; no need to style further */
+  }
+
+  /* card footer */
+  .saf-card__footer {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.9rem 1.25rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.02);
+  }
+  .saf-card__footer-dot {
+    flex-shrink: 0;
+    margin-top: 0.3rem;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent, #3ee8a4);
+    opacity: 0.4;
+  }
+  .saf-card__footer p {
+    font-family: var(--font-body, "Barlow", sans-serif);
+    font-size: 0.75rem;
+    font-weight: 300;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.2);
+  }
+
+  /* ══════════════════════════
+     ASIDE PANEL
+  ══════════════════════════ */
+  .saf-aside {
+    grid-area: aside;
+    position: sticky;
+    top: calc(var(--header-height, 70px) + 2rem);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+      opacity 0.7s 0.2s ease,
+      transform 0.7s 0.2s ease;
+  }
+  .saf-aside.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .saf-aside__block {
+    padding: 1.75rem 0 1.5rem;
+  }
+
+  .saf-aside__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(62, 232, 164, 0.3);
+    color: var(--accent, #3ee8a4);
+    margin-bottom: 1.1rem;
+  }
+  .saf-aside__icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .saf-aside__title {
+    font-family: var(--font-display, "Cormorant Garamond", serif);
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+  }
+
+  .saf-aside__body {
+    font-family: var(--font-body, "Barlow", sans-serif);
+    font-size: 0.88rem;
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--muted, #7a8fa6);
+  }
+
+  .saf-aside__divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.07);
+    margin: 0.25rem 0;
+  }
+
+  .saf-aside__list {
+    list-style: none;
+    padding: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+  .saf-aside__list li {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-family: var(--font-body, "Barlow", sans-serif);
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: var(--muted, #7a8fa6);
+    line-height: 1.5;
+  }
+  .saf-aside__check {
+    font-size: 0.4rem;
+    color: var(--accent, #3ee8a4);
+    opacity: 0.7;
+    flex-shrink: 0;
+  }
+
+  .saf-aside__quote {
+    padding: 1.5rem 0 0;
+  }
+  .saf-aside__quote p {
+    font-family: var(--font-display, "Cormorant Garamond", serif);
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.35);
+    margin-bottom: 0.6rem;
+  }
+  .saf-aside__quote span {
+    font-family: var(--font-ui, "Barlow Condensed", sans-serif);
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold, #c9973a);
+    opacity: 0.6;
+  }
+
+  /* ══════════════════════════
+     RESPONSIVE
+  ══════════════════════════ */
+  @media (max-width: 960px) {
+    .saf-inner {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "aside"
+        "card";
+    }
+    .saf-aside {
+      position: static;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 3px;
+      padding: 1.5rem;
+      background: rgba(255, 255, 255, 0.025);
+    }
+    .saf-aside__block {
+      grid-column: 1 / -1;
+      padding-bottom: 0;
+    }
+    .saf-aside__divider:first-of-type {
+      grid-column: 1 / -1;
+    }
+    .saf-aside__list {
+      padding: 1rem 0;
+    }
+    .saf-aside__quote {
+      padding-top: 0;
+    }
+    .saf-aside__divider:last-of-type {
+      display: none;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .saf-aside {
+      grid-template-columns: 1fr;
+    }
+    .saf-card__header-label {
+      display: none;
+    }
+    .saf-iframe {
+      height: clamp(600px, 85vh, 900px);
+    }
+  }
+</style>
+
+<script>
+  function initSafReveal() {
+    const els = document.querySelectorAll<HTMLElement>(".saf-card, .saf-aside");
+    els.forEach((el) => el.classList.remove("is-visible"));
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            (entry.target as HTMLElement).classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.06 },
+    );
+
+    els.forEach((el) => observer.observe(el));
+  }
+
+  document.addEventListener("astro:page-load", initSafReveal);
+</script>

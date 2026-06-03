@@ -1,0 +1,505 @@
+---
+// EmpowerWays.astro
+
+const pillars = [
+  {
+    id: "biz",
+    label: "BIZ",
+    tagline: "for leaders, teams and culture",
+    accent: "#38bdf8",
+    accentRgb: "56,189,248",
+    hook: {
+      heading: "Let's Be Real…",
+      body: "The biggest problem that tanks innovation is people problems. Silos, conflict, communication breakdowns — these don't come from a lack of intelligent, hardworking people. They come from a missing piece that will change everything: <strong>behavioral agility.</strong><br/><br/>Whether you want to grow your business, develop healthier work relationships, master change or create a kick-butt workforce — behavioral intelligence will train your leaders to think more creatively, positively and kindly, especially in the face of setbacks.",
+    },
+    cards: [
+      {
+        title: "Leader",
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path stroke-linecap="round" d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>`,
+        body: "The BioCode System® 1:1 Leadership Program accelerates outstanding performance and personal development. Leaders gain a new set of rules, strategies and practices to systematically build capacity — empowering physical energy, emotional resilience, focused thinking and a stronger sense of purpose. Behavior changes that last.",
+      },
+      {
+        title: "Team",
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="9" cy="8" r="3"/><circle cx="15" cy="8" r="3"/><path stroke-linecap="round" d="M3 20c0-3 2.7-5.5 6-5.5M21 20c0-3-2.7-5.5-6-5.5M9 20c0-3 1.3-5.5 3-5.5s3 2.5 3 5.5"/></svg>`,
+        body: "BioCode Team Programs deliver outstanding team performance and collaboration. Highly interactive and rooted in real-time, real-life situations — teams develop a culture of positive energy, emotional resilience, mental toughness and a strong sense of shared purpose. Leaders move forward with more freedom and confidence.",
+      },
+      {
+        title: "Keynote",
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path stroke-linecap="round" stroke-linejoin="round" d="M12 20V10M8 20V14M16 20V6M4 20h16"/></svg>`,
+        body: "Empowerhouse speakers captivate from beginning to end — entertaining, impactful and relatable. They inspire leaders with fresh ideas centered on outstanding leadership at every level, starting with themselves. Simple yet powerful tools that use everyday challenges as opportunities to grow.",
+      },
+    ],
+  },
+  {
+    id: "life",
+    label: "LIFE",
+    tagline: "for individuals, couples and families",
+    accent: "#3ee8a4",
+    accentRgb: "62,232,164",
+    hook: {
+      heading: "Let's Face It…",
+      body: "None of us were handed a <em>how to live your best life</em> manual on day one. If you're navigating personal challenges, relationships, parenting, or just trying to make sense of this crazy world — the problem isn't you. You were simply never taught the skills to build your <strong>behavioral agility.</strong><br/><br/>This is the one missing piece that will change everything. This coaching will train you to think more clearly and positively — through every up and down of everyday life.",
+    },
+    cards: [
+      {
+        title: "Adult",
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path stroke-linecap="round" d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>`,
+        body: "The BioCode System® 1:1 Program for adults, couples and groups empowers individuals to accept 100% responsibility for their behaviors. New rules, tools and practices that build physical energy, emotional resilience, focused thinking and a strong sense of purpose — behavior changes that last a lifetime.",
+      },
+      {
+        title: "Children",
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3l1.5 4h4l-3.2 2.4 1.2 4L12 11l-3.5 2.4 1.2-4L6.5 7h4z"/><path stroke-linecap="round" d="M12 11v9"/></svg>`,
+        body: "The BioCode System® Program for children equips youth with tools for personal development — strengthening thoughts, emotions and behaviors regardless of the circumstances they face. Fully engaged at school, centered enough to resist peer pressure, and empowered to truly enjoy life at home.",
+      },
+      {
+        title: "Keynote",
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path stroke-linecap="round" stroke-linejoin="round" d="M12 20V10M8 20V14M16 20V6M4 20h16"/></svg>`,
+        body: "Empowerhouse speakers inspire people with fresh ideas centered on outstanding everyday interactions — beginning with themselves. Humorous, relatable and engaging, they share simple yet powerful tools that transform everyday challenges into growth opportunities. A new way of thinking that changes how you live every day.",
+      },
+    ],
+  },
+  {
+    id: "edu",
+    label: "EDU & SPORT",
+    tagline: "for students, athletes and organizations",
+    accent: "#e8c47a",
+    accentRgb: "232,196,122",
+    hook: {
+      heading: "Let's Be Honest…",
+      body: "One of the greatest challenges most athletic programs face is how their athletes show up <em>off</em> the field. Staying out of trouble, controlling emotions, resisting peer pressure — these aren't failures of talent or effort. Athletes and students are given excellent skills in academics and sport, but never taught the skill to develop their <strong>behavioral agility.</strong><br/><br/>That one missing piece will change everything.",
+    },
+    cards: [
+      {
+        title: "Youth",
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3l1.5 4h4l-3.2 2.4 1.2 4L12 11l-3.5 2.4 1.2-4L6.5 7h4z"/><path stroke-linecap="round" d="M12 11v9"/></svg>`,
+        body: "The BioCode System® 1:1 Youth Program accelerates individual performance and personal development for athletes, coaches and students. New rules, strategies and practices lead to improved functionality on and off the field — building physical energy, emotional resilience, focused thinking and shared purpose.",
+      },
+      {
+        title: "Team",
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="9" cy="8" r="3"/><circle cx="15" cy="8" r="3"/><path stroke-linecap="round" d="M3 20c0-3 2.7-5.5 6-5.5M21 20c0-3-2.7-5.5-6-5.5M9 20c0-3 1.3-5.5 3-5.5s3 2.5 3 5.5"/></svg>`,
+        body: "The BioCode System™ Team Program accelerates outstanding team performance and cohesiveness on and off the field. Through metaphors, storytelling and experiential exercises, teams examine the behaviors holding them back — then move forward with more freedom, confidence, positive energy and mental toughness.",
+      },
+      {
+        title: "Keynote",
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path stroke-linecap="round" stroke-linejoin="round" d="M12 20V10M8 20V14M16 20V6M4 20h16"/></svg>`,
+        body: "Our speakers captivate with a focus on leadership skills for athletes on and off the field. Entertaining, engaging and full of competitive energy — they share fresh ideas centered on outstanding leadership at every level. Simple, powerful tools that will improve personal performance, empower teams and take organizations to greater heights.",
+      },
+    ],
+  },
+];
+---
+
+<section class="ew-section">
+
+  <div class="ew-bg" aria-hidden="true">
+    <div class="ew-blob ew-blob--1"></div>
+    <div class="ew-blob ew-blob--2"></div>
+    <div class="ew-blob ew-blob--3"></div>
+    <div class="ew-grid"></div>
+  </div>
+
+  <div class="ew-inner">
+
+    <!-- ── Section heading ── -->
+    <div class="ew-header">
+      <p class="ew-header__eyebrow">
+        <span class="ew-header__eyebrow-line"></span>
+        The BioCode System®
+        <span class="ew-header__eyebrow-line ew-header__eyebrow-line--rev"></span>
+      </p>
+      <h2 class="ew-header__title">
+        Empower the Way You<br />
+        <em>work, live &amp; play.</em>
+      </h2>
+    </div>
+
+    <!-- ── Three columns ── -->
+    <div class="ew-cols">
+      {pillars.map((pillar, pi) => (
+        <div
+          class="ew-col"
+          style={`--col-accent:${pillar.accent};--col-rgb:${pillar.accentRgb};--col-delay:${pi * 0.12}s`}
+        >
+          <!-- column header -->
+          <div class="ew-col__head">
+            <div class="ew-col__head-bar" aria-hidden="true"></div>
+            <p class="ew-col__label">{pillar.label}</p>
+            <p class="ew-col__tagline">{pillar.tagline}</p>
+          </div>
+
+          <!-- hook / reality check -->
+          <div class="ew-hook">
+            <h3 class="ew-hook__heading">{pillar.hook.heading}</h3>
+            <p class="ew-hook__body" set:html={pillar.hook.body}></p>
+          </div>
+
+          <!-- program cards -->
+          <div class="ew-cards">
+            {pillar.cards.map((card, ci) => (
+              <details
+                class="ew-card"
+                style={`--card-delay:${ci * 0.07}s`}
+              >
+                <summary class="ew-card__summary">
+                  <span class="ew-card__icon" aria-hidden="true" set:html={card.icon}></span>
+                  <span class="ew-card__title">{card.title}</span>
+                  <span class="ew-card__chevron" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                </summary>
+                <div class="ew-card__body">
+                  <p>{card.body}</p>
+                </div>
+              </details>
+            ))}
+          </div>
+
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* ══════════════════════════
+     SHELL
+  ══════════════════════════ */
+  .ew-section {
+    position: relative;
+    width: 100%;
+    padding: 2rem 1.5rem 8rem;
+    overflow: hidden;
+    isolation: isolate;
+    contain: layout;
+  }
+
+  .ew-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1280px;
+    margin-inline: auto;
+  }
+
+  /* ══════════════════════════
+     AMBIENT BG
+  ══════════════════════════ */
+  .ew-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .ew-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+  }
+  .ew-blob--1 { width:550px;height:550px;background:#38bdf8;    opacity:0.06;top:-100px; left:-200px; animation:ewb1 22s ease-in-out infinite; }
+  .ew-blob--2 { width:480px;height:480px;background:var(--teal,#00f5c4); opacity:0.06;bottom:-100px;right:-150px;animation:ewb2 28s ease-in-out infinite; }
+  .ew-blob--3 { width:400px;height:400px;background:var(--gold,#c9973a); opacity:0.06;top:40%;     left:38%;    animation:ewb3 34s ease-in-out infinite; }
+
+  @keyframes ewb1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(40px,30px)} }
+  @keyframes ewb2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-35px,-25px)} }
+  @keyframes ewb3 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-20px,25px)} }
+
+  .ew-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.014) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.014) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  /* ══════════════════════════
+     HEADER
+  ══════════════════════════ */
+  .ew-header {
+    text-align: center;
+    margin-bottom: 5rem;
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .ew-header.is-visible { opacity:1; transform:translateY(0); }
+
+  .ew-header__eyebrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-family: var(--font-ui,'Barlow Condensed',sans-serif);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent,#3ee8a4);
+    margin-bottom: 1.25rem;
+  }
+  .ew-header__eyebrow-line {
+    flex:1; max-width:64px; height:1px;
+    background: linear-gradient(90deg,transparent,var(--accent,#3ee8a4));
+  }
+  .ew-header__eyebrow-line--rev {
+    background: linear-gradient(90deg,var(--accent,#3ee8a4),transparent);
+  }
+
+  .ew-header__title {
+    font-family: var(--font-display,'Cormorant Garamond',serif);
+    font-size: clamp(2.4rem,4.5vw,4rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--text,#e2e8f0);
+  }
+  .ew-header__title em {
+    font-style: italic;
+    font-weight: 600;
+    color: var(--gold-light,#e8c47a);
+  }
+
+  /* ══════════════════════════
+     THREE COLUMNS
+  ══════════════════════════ */
+  .ew-cols {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1.5px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  /* ── Single column ── */
+  .ew-col {
+    background: var(--bg-primary,#0b1120);
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(32px);
+    transition:
+      opacity 0.7s var(--col-delay,0s) ease,
+      transform 0.7s var(--col-delay,0s) ease;
+  }
+  .ew-col.is-visible { opacity:1; transform:translateY(0); }
+
+  /* ── Column header ── */
+  .ew-col__head {
+    position: relative;
+    padding: 2.25rem 2rem 1.75rem;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    overflow: hidden;
+  }
+
+  /* full-width top accent bar */
+  .ew-col__head-bar {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--col-accent,#3ee8a4);
+  }
+
+  /* large ghost label behind text */
+  .ew-col__head::after {
+    content: attr(data-ghost);
+    position: absolute;
+    right: -0.5rem;
+    bottom: -1rem;
+    font-family: var(--font-display,'Cormorant Garamond',serif);
+    font-size: 6rem;
+    font-weight: 700;
+    color: var(--col-accent,#3ee8a4);
+    opacity: 0.04;
+    pointer-events: none;
+    user-select: none;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .ew-col__label {
+    font-family: var(--font-ui,'Barlow Condensed',sans-serif);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--col-accent,#3ee8a4);
+    margin-bottom: 0.45rem;
+  }
+
+  .ew-col__tagline {
+    font-family: var(--font-body,'Barlow',sans-serif);
+    font-size: 0.82rem;
+    font-weight: 300;
+    color: var(--muted,#7a8fa6);
+    line-height: 1.5;
+  }
+
+  /* ── Hook block ── */
+  .ew-hook {
+    padding: 1.75rem 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    background: rgba(var(--col-rgb,62,232,164),0.03);
+  }
+
+  .ew-hook__heading {
+    font-family: var(--font-display,'Cormorant Garamond',serif);
+    font-size: 1.15rem;
+    font-style: italic;
+    font-weight: 600;
+    color: var(--col-accent,#3ee8a4);
+    margin-bottom: 0.85rem;
+  }
+
+  .ew-hook__body {
+    font-family: var(--font-body,'Barlow',sans-serif);
+    font-size: 0.88rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--muted,#7a8fa6);
+  }
+  .ew-hook__body strong { color:var(--text,#e2e8f0); font-weight:500; }
+  .ew-hook__body em    { font-style:italic; color:rgba(255,255,255,0.45); }
+
+  /* ── Program cards (details/summary accordion) ── */
+  .ew-cards {
+    padding: 1.25rem 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    flex: 1;
+  }
+
+  .ew-card {
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 2px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.02);
+    transition: border-color 0.3s ease, background 0.3s ease;
+  }
+  .ew-card[open] {
+    border-color: rgba(var(--col-rgb,62,232,164),0.25);
+    background: rgba(var(--col-rgb,62,232,164),0.04);
+  }
+  .ew-card:not([open]):hover {
+    border-color: rgba(var(--col-rgb,62,232,164),0.18);
+    background: rgba(255,255,255,0.035);
+  }
+
+  /* summary row */
+  .ew-card__summary {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.95rem 1rem;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+  .ew-card__summary::-webkit-details-marker { display:none; }
+  .ew-card__summary::marker               { display:none; }
+
+  .ew-card__icon {
+    flex-shrink: 0;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    border: 1px solid rgba(var(--col-rgb,62,232,164),0.3);
+    display: flex; align-items:center; justify-content:center;
+    color: var(--col-accent,#3ee8a4);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+  }
+  .ew-card__icon svg { width:15px; height:15px; }
+  .ew-card[open] .ew-card__icon,
+  .ew-card__summary:hover .ew-card__icon {
+    background: rgba(var(--col-rgb,62,232,164),0.1);
+    box-shadow: 0 0 14px rgba(var(--col-rgb,62,232,164),0.2);
+  }
+
+  .ew-card__title {
+    flex: 1;
+    font-family: var(--font-ui,'Barlow Condensed',sans-serif);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text,#e2e8f0);
+  }
+  .ew-card[open] .ew-card__title { color:var(--col-accent,#3ee8a4); }
+
+  .ew-card__chevron {
+    flex-shrink: 0;
+    color: rgba(255,255,255,0.25);
+    transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), color 0.3s ease;
+  }
+  .ew-card__chevron svg { width:16px; height:16px; display:block; }
+  .ew-card[open] .ew-card__chevron {
+    transform: rotate(180deg);
+    color: var(--col-accent,#3ee8a4);
+  }
+
+  /* accordion body */
+  .ew-card__body {
+    padding: 0 1rem 1.1rem 3.35rem;
+  }
+  .ew-card__body p {
+    font-family: var(--font-body,'Barlow',sans-serif);
+    font-size: 0.86rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--muted,#7a8fa6);
+  }
+
+  /* ══════════════════════════
+     RESPONSIVE
+  ══════════════════════════ */
+  @media (max-width: 1024px) {
+    .ew-cols {
+      grid-template-columns: 1fr;
+      background: transparent;
+      border: none;
+      gap: 1.25rem;
+    }
+    .ew-col {
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .ew-col__head, .ew-hook { padding-left:1.5rem; padding-right:1.5rem; }
+  }
+
+  @media (max-width: 560px) {
+    .ew-col__head { padding: 1.75rem 1.25rem 1.25rem; }
+    .ew-hook      { padding: 1.25rem; }
+    .ew-cards     { padding: 0.9rem 0.9rem 1.25rem; }
+    .ew-card__body { padding-left: 2.9rem; }
+  }
+</style>
+
+<script>
+  function initEwReveal() {
+    const header = document.querySelector<HTMLElement>(".ew-header");
+    const cols   = document.querySelectorAll<HTMLElement>(".ew-col");
+
+    header?.classList.remove("is-visible");
+    cols.forEach((el) => el.classList.remove("is-visible"));
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            (entry.target as HTMLElement).classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.07 }
+    );
+
+    if (header) observer.observe(header);
+    cols.forEach((el) => observer.observe(el));
+  }
+
+  document.addEventListener("astro:page-load", initEwReveal);
+</script>

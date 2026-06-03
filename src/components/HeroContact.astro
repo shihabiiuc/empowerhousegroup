@@ -1,0 +1,578 @@
+---
+// HeroContact.astro
+// Hero banner for the Contact page
+---
+
+<section class="hc-section" aria-label="Contact hero">
+  <!-- Background layers -->
+  <div class="hc-bg-base"></div>
+  <div class="hc-bg-glow-core"></div>
+  <div class="hc-bg-glow-ring"></div>
+  <div class="hc-bg-grid"></div>
+  <div class="hc-bg-vignette"></div>
+
+  <!-- Floating orbs -->
+  <div class="hc-orb hc-orb-1"></div>
+  <div class="hc-orb hc-orb-2"></div>
+  <div class="hc-orb hc-orb-3"></div>
+
+  <!-- Signal rings -->
+  <div class="hc-rings" aria-hidden="true">
+    <div class="hc-ring hc-ring-1"></div>
+    <div class="hc-ring hc-ring-2"></div>
+    <div class="hc-ring hc-ring-3"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="hc-content">
+    <!-- Kicker -->
+    <div class="hc-kicker">
+      <span class="hc-kicker-dot"></span>
+      The BioCode System<sup>®</sup>
+      <span class="hc-kicker-dot"></span>
+    </div>
+
+    <!-- Heading -->
+    <div class="hc-heading-block">
+      <h1 class="hc-heading">
+        <span class="hc-heading-main">Let's&nbsp;Connect</span>
+      </h1>
+      <div class="hc-heading-sub-row">
+        <span class="hc-sub-line"></span>
+        <p class="hc-heading-sub">
+          Start your <em class="hc-sub-em">inner&nbsp;workout</em>
+          <span class="hc-sub-sep" aria-hidden="true">·</span>
+          We're here
+        </p>
+        <span class="hc-sub-line hc-sub-line--rev"></span>
+      </div>
+    </div>
+
+    <!-- Body -->
+    <p class="hc-body">
+      Whether you're ready to begin, have questions about the program, or just
+      want to learn more — reach out. Every strong journey starts with a single
+      step.
+    </p>
+
+    <!-- Three quick-contact chips -->
+    <div class="hc-chips" role="list" aria-label="Ways to reach us">
+      <div class="hc-chip" role="listitem">
+        <span class="hc-chip-icon" aria-hidden="true">
+          <svg width="15" height="15" viewBox="0 0 20 20" fill="none">
+            <path
+              d="M2 5.5A2.5 2.5 0 014.5 3h11A2.5 2.5 0 0118 5.5v9A2.5 2.5 0 0115.5 17h-11A2.5 2.5 0 012 14.5v-9z"
+              stroke="currentColor"
+              stroke-width="1.4"></path>
+            <path
+              d="M2 6l8 5.5L18 6"
+              stroke="currentColor"
+              stroke-width="1.4"
+              stroke-linecap="round"></path>
+          </svg>
+        </span>
+        <span>Email Us</span>
+      </div>
+      <div class="hc-chip-dot" aria-hidden="true"></div>
+      <div class="hc-chip" role="listitem">
+        <span class="hc-chip-icon" aria-hidden="true">
+          <svg width="15" height="15" viewBox="0 0 20 20" fill="none">
+            <path
+              d="M4 4h3l1.5 3.5-1.75 1.25C7.85 11.05 9 12.15 11.25 13.25L12.5 11.5 16 13v3c0 .55-.45 1-1 1C7.16 17 3 12.84 3 5c0-.55.45-1 1-1z"
+              stroke="currentColor"
+              stroke-width="1.4"
+              stroke-linejoin="round"></path>
+          </svg>
+        </span>
+        <span>Schedule a Call</span>
+      </div>
+      <div class="hc-chip-dot" aria-hidden="true"></div>
+      <div class="hc-chip" role="listitem">
+        <span class="hc-chip-icon" aria-hidden="true">
+          <svg width="15" height="15" viewBox="0 0 20 20" fill="none">
+            <circle
+              cx="10"
+              cy="10"
+              r="7"
+              stroke="currentColor"
+              stroke-width="1.4"></circle>
+            <path
+              d="M10 6v4l2.5 2.5"
+              stroke="currentColor"
+              stroke-width="1.4"
+              stroke-linecap="round"></path>
+          </svg>
+        </span>
+        <span>Quick Response</span>
+      </div>
+    </div>
+
+    <!-- Ornament -->
+    <div class="hc-ornament" aria-hidden="true">
+      <span class="hc-ornament-line"></span>
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <circle cx="7" cy="7" r="3" fill="var(--accent)"></circle>
+        <circle
+          cx="7"
+          cy="7"
+          r="6"
+          stroke="var(--accent)"
+          stroke-opacity="0.3"
+          stroke-width="1"></circle>
+      </svg>
+      <span class="hc-ornament-line hc-ornament-line--rev"></span>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ══════════════════════════════════════════
+     Shell
+  ══════════════════════════════════════════ */
+  .hc-section {
+    position: relative;
+    min-height: 88svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  /* ══════════════════════════════════════════
+     Background — same layered system, violet-warm tone
+  ══════════════════════════════════════════ */
+  .hc-bg-base {
+    position: absolute;
+    inset: 0;
+    background: var(--bg-primary);
+    z-index: 0;
+  }
+
+  /* Core glow — violet/amber warmth, distinct from green/blue heroes */
+  .hc-bg-glow-core {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: radial-gradient(
+      ellipse 60% 48% at 50% 54%,
+      rgba(167, 139, 250, 0.1) 0%,
+      rgba(62, 232, 164, 0.05) 45%,
+      transparent 70%
+    );
+  }
+
+  .hc-bg-glow-ring {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: radial-gradient(
+      ellipse 85% 65% at 50% 58%,
+      rgba(62, 232, 164, 0.04) 0%,
+      transparent 65%
+    );
+  }
+
+  .hc-bg-grid {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background-image: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.05) 1px,
+      transparent 1px
+    );
+    background-size: 36px 36px;
+    -webkit-mask-image: radial-gradient(
+      ellipse 80% 80% at 50% 50%,
+      black 30%,
+      transparent 100%
+    );
+    mask-image: radial-gradient(
+      ellipse 80% 80% at 50% 50%,
+      black 30%,
+      transparent 100%
+    );
+  }
+
+  .hc-bg-vignette {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    background: radial-gradient(
+      ellipse 100% 100% at 50% 50%,
+      transparent 40%,
+      rgba(8, 12, 20, 0.7) 100%
+    );
+    pointer-events: none;
+  }
+
+  /* ══════════════════════════════════════════
+     Orbs — violet + teal mix
+  ══════════════════════════════════════════ */
+  .hc-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(65px);
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0;
+    animation: hc-orb-drift 22s ease-in-out infinite;
+  }
+
+  .hc-orb-1 {
+    width: 320px;
+    height: 320px;
+    top: 8%;
+    left: 4%;
+    background: radial-gradient(
+      circle,
+      rgba(167, 139, 250, 0.13),
+      transparent 70%
+    );
+    animation-duration: 26s;
+    animation-delay: 0s;
+  }
+  .hc-orb-2 {
+    width: 260px;
+    height: 260px;
+    bottom: 12%;
+    right: 5%;
+    background: radial-gradient(
+      circle,
+      rgba(62, 232, 164, 0.11),
+      transparent 70%
+    );
+    animation-duration: 22s;
+    animation-delay: -10s;
+  }
+  .hc-orb-3 {
+    width: 180px;
+    height: 180px;
+    top: 55%;
+    left: 62%;
+    background: radial-gradient(
+      circle,
+      rgba(0, 153, 255, 0.09),
+      transparent 70%
+    );
+    animation-duration: 18s;
+    animation-delay: -16s;
+  }
+
+  @keyframes hc-orb-drift {
+    0% {
+      opacity: 0;
+      transform: translate(0, 0) scale(1);
+    }
+    15% {
+      opacity: 1;
+    }
+    50% {
+      transform: translate(24px, -20px) scale(1.07);
+    }
+    85% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translate(0, 0) scale(1);
+    }
+  }
+
+  /* ══════════════════════════════════════════
+     Signal rings — violet tint
+  ══════════════════════════════════════════ */
+  .hc-rings {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+  }
+
+  .hc-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(167, 139, 250, 0.2);
+    opacity: 0;
+    animation: hc-ring-expand 7s ease-out infinite;
+  }
+
+  .hc-ring-1 {
+    width: 300px;
+    height: 300px;
+    animation-delay: 0s;
+  }
+  .hc-ring-2 {
+    width: 300px;
+    height: 300px;
+    animation-delay: 2.3s;
+  }
+  .hc-ring-3 {
+    width: 300px;
+    height: 300px;
+    animation-delay: 4.6s;
+  }
+
+  @keyframes hc-ring-expand {
+    0% {
+      transform: scale(0.4);
+      opacity: 0.55;
+      border-color: rgba(167, 139, 250, 0.3);
+    }
+    100% {
+      transform: scale(3.4);
+      opacity: 0;
+      border-color: rgba(167, 139, 250, 0);
+    }
+  }
+
+  /* ══════════════════════════════════════════
+     Content
+  ══════════════════════════════════════════ */
+  .hc-content {
+    position: relative;
+    z-index: 10;
+    max-width: 760px;
+    padding: 6rem 2rem 5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  /* Kicker */
+  .hc-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: "DM Mono", "Fira Mono", ui-monospace, monospace;
+    font-size: 0.63rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    opacity: 0;
+    animation: hc-fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
+  }
+
+  .hc-kicker sup {
+    font-size: 0.7em;
+  }
+
+  .hc-kicker-dot {
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.6;
+  }
+
+  /* Heading block */
+  .hc-heading-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    opacity: 0;
+    animation: hc-fade-up 1s cubic-bezier(0.22, 1, 0.36, 1) 0.4s forwards;
+  }
+
+  .hc-heading {
+    font-family: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+    font-size: clamp(4.2rem, 12vw, 9.5rem);
+    font-weight: 300;
+    line-height: 0.93;
+    letter-spacing: -0.025em;
+    margin: 0;
+  }
+
+  /* Violet → green gradient — distinct from other heroes */
+  .hc-heading-main {
+    display: block;
+    background: linear-gradient(
+      130deg,
+      var(--footer-head) 0%,
+      var(--violet) 40%,
+      var(--accent) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 30px rgba(167, 139, 250, 0.22));
+  }
+
+  /* Sub-row */
+  .hc-heading-sub-row {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hc-sub-line {
+    flex: 1;
+    max-width: 90px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(167, 139, 250, 0.4));
+  }
+  .hc-sub-line--rev {
+    background: linear-gradient(270deg, transparent, rgba(167, 139, 250, 0.4));
+  }
+
+  .hc-heading-sub {
+    font-family: "DM Mono", ui-monospace, monospace;
+    font-size: clamp(0.68rem, 1.3vw, 0.8rem);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+  }
+
+  .hc-sub-em {
+    font-style: normal;
+    color: var(--accent);
+    letter-spacing: 0.18em;
+  }
+  .hc-sub-sep {
+    color: rgba(255, 255, 255, 0.2);
+  }
+
+  /* Body */
+  .hc-body {
+    font-family: "Lora", Georgia, serif;
+    font-size: clamp(1rem, 2vw, 1.18rem);
+    line-height: 1.88;
+    color: var(--text-muted-light);
+    max-width: 560px;
+    margin: 0;
+    opacity: 0;
+    animation: hc-fade-up 1s cubic-bezier(0.22, 1, 0.36, 1) 0.62s forwards;
+  }
+
+  /* ══════════════════════════════════════════
+     Chips row
+  ══════════════════════════════════════════ */
+  .hc-chips {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    opacity: 0;
+    animation: hc-fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.85s forwards;
+  }
+
+  .hc-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.5rem 1.1rem;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    font-family: "DM Mono", ui-monospace, monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted-light);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    transition:
+      background 0.25s ease,
+      border-color 0.25s ease,
+      color 0.25s ease;
+    cursor: default;
+  }
+
+  .hc-chip:hover {
+    background: rgba(167, 139, 250, 0.08);
+    border-color: rgba(167, 139, 250, 0.3);
+    color: var(--footer-head);
+  }
+
+  .hc-chip-icon {
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .hc-chip-dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 480px) {
+    .hc-chip-dot {
+      display: none;
+    }
+    .hc-chips {
+      gap: 0.5rem;
+    }
+  }
+
+  /* ══════════════════════════════════════════
+     Ornament
+  ══════════════════════════════════════════ */
+  .hc-ornament {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    opacity: 0;
+    animation: hc-fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) 1.05s forwards;
+  }
+
+  .hc-ornament-line {
+    display: block;
+    width: 64px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(167, 139, 250, 0.35));
+  }
+  .hc-ornament-line--rev {
+    background: linear-gradient(270deg, transparent, rgba(167, 139, 250, 0.35));
+  }
+
+  /* ══════════════════════════════════════════
+     Entrance animation
+  ══════════════════════════════════════════ */
+  @keyframes hc-fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ══════════════════════════════════════════
+     Reduced motion
+  ══════════════════════════════════════════ */
+  @media (prefers-reduced-motion: reduce) {
+    .hc-orb,
+    .hc-ring,
+    .hc-kicker,
+    .hc-heading-block,
+    .hc-body,
+    .hc-chips,
+    .hc-ornament {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+</style>

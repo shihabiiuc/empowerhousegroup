@@ -1,0 +1,726 @@
+---
+// PowerSessions.astro
+
+const packages = [
+  {
+    id: "individual",
+    name: "Individual",
+    suffix: "Session",
+    sessions: 1,
+    price: 125,
+    per: "single session",
+    accent: "teal",
+    accentHex: "#3ee8a4",
+    accentRgb: "62,232,164",
+    badge: null,
+    perks: [
+      "1 private 1:1 coaching session",
+      "Personalised BioCode strategy",
+      "Session recap & action plan",
+      "Email follow-up support",
+    ],
+    paypalButtonId: "5XWY5SECNVL2Q",
+  },
+  {
+    id: "starter",
+    name: "Starter",
+    suffix: "Package",
+    sessions: 4,
+    price: 500,
+    per: "4 sessions · $125/session",
+    accent: "amber",
+    accentHex: "#ffa94d",
+    accentRgb: "255,169,77",
+    badge: null,
+    perks: [
+      "4 private 1:1 coaching sessions",
+      "Personalised BioCode strategy",
+      "Session recaps & action plans",
+      "Email support between sessions",
+    ],
+    paypalButtonId: "W5G4633F5YWDY",
+  },
+  {
+    id: "competitor",
+    name: "Competitor",
+    suffix: "Package",
+    sessions: 8,
+    price: 1000,
+    per: "8 sessions · $125/session",
+    accent: "gold",
+    accentHex: "#e8c47a",
+    accentRgb: "232,196,122",
+    badge: "Most Popular",
+    perks: [
+      "8 private 1:1 coaching sessions",
+      "Deep-dive BioCode assessment",
+      "Custom inner-strength roadmap",
+      "Priority email & text support",
+      "Access to BioCode resource library",
+    ],
+    paypalButtonId: "5XW2HQRTZF8AS",
+  },
+  {
+    id: "mastery",
+    name: "Mastery",
+    suffix: "Package",
+    sessions: 12,
+    price: 1500,
+    per: "12 sessions · $125/session",
+    accent: "warm",
+    accentHex: "#ff6b6b",
+    accentRgb: "255,107,107",
+    badge: "Ultimate",
+    perks: [
+      "12 private 1:1 coaching sessions",
+      "Full BioCode System immersion",
+      "Custom inner-strength roadmap",
+      "Unlimited email & text support",
+      "Access to BioCode resource library",
+      "Exclusive Mastery graduation call",
+    ],
+    paypalButtonId: "CBBK7ZWZVKDZJ",
+  },
+];
+---
+
+<section class="ps-section">
+
+  <div class="ps-bg" aria-hidden="true">
+    <div class="ps-blob ps-blob--1"></div>
+    <div class="ps-blob ps-blob--2"></div>
+    <div class="ps-blob ps-blob--3"></div>
+    <div class="ps-grid"></div>
+  </div>
+
+  <div class="ps-inner">
+
+    <!-- ── Section header ── -->
+    <div class="ps-header">
+      <p class="ps-header__eyebrow">
+        <span class="ps-header__eyebrow-line"></span>
+        Private 1:1 Coaching
+        <span class="ps-header__eyebrow-line ps-header__eyebrow-line--rev"></span>
+      </p>
+
+      <h2 class="ps-header__title">
+        The BioCode System®<br />
+        <em>Power Sessions</em>
+      </h2>
+
+      <p class="ps-header__practice">PRACTICE MAKES <strong>POWERFUL.</strong></p>
+
+      <p class="ps-header__desc">
+        Deepen your practice with private 1:1 coaching sessions — a learning
+        program for individuals ready to <strong>Stress Less, Enjoy More</strong>
+        and lead a life they love.
+      </p>
+
+      <blockquote class="ps-header__quote">
+        "It's a practical, actionable discipline building relentless inner
+        strength and optimism."
+        <br />
+        <strong>AND, IT'S ABOUT TO MAKE YOU UNSHAKABLE.</strong>
+      </blockquote>
+    </div>
+
+    <!-- ── Cards ── -->
+    <div class="ps-grid-cards">
+      {packages.map((pkg, i) => (
+        <div
+          class={`ps-card${pkg.badge ? " ps-card--featured" : ""}`}
+          style={`--accent:${pkg.accentHex};--accent-rgb:${pkg.accentRgb};--delay:${i * 0.1}s`}
+        >
+          {pkg.badge && (
+            <div class="ps-card__badge">{pkg.badge}</div>
+          )}
+
+          <!-- top accent bar -->
+          <div class="ps-card__bar" aria-hidden="true"></div>
+
+          <!-- corner brackets -->
+          <div class="ps-card__corner ps-card__corner--tl" aria-hidden="true"></div>
+          <div class="ps-card__corner ps-card__corner--br" aria-hidden="true"></div>
+
+          <!-- session count -->
+          <div class="ps-card__sessions" aria-hidden="true">
+            <span class="ps-card__sessions-num">{pkg.sessions}</span>
+            <span class="ps-card__sessions-label">
+              {pkg.sessions === 1 ? "session" : "sessions"}
+            </span>
+          </div>
+
+          <div class="ps-card__body">
+            <p class="ps-card__eyebrow">{pkg.suffix}</p>
+            <h3 class="ps-card__name">{pkg.name}</h3>
+
+            <div class="ps-card__price-row">
+              <span class="ps-card__currency">$</span>
+              <span class="ps-card__price">
+                {pkg.price.toLocaleString()}
+              </span>
+            </div>
+            <p class="ps-card__per">{pkg.per}</p>
+
+            <div class="ps-card__rule" aria-hidden="true"></div>
+
+            <ul class="ps-card__perks">
+              {pkg.perks.map((perk) => (
+                <li>
+                  <span class="ps-card__perk-dot" aria-hidden="true"></span>
+                  {perk}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- PayPal form as the CTA -->
+          <div class="ps-card__cta">
+            <form
+              action="https://www.paypal.com/cgi-bin/webscr"
+              method="post"
+              target="_top"
+              class="ps-paypal-form"
+            >
+              <input type="hidden" name="cmd" value="_s-xclick" />
+              <input type="hidden" name="hosted_button_id" value={pkg.paypalButtonId} />
+              <button type="submit" class="ps-btn" aria-label={`Buy ${pkg.name} ${pkg.suffix} for $${pkg.price}`}>
+                <span class="ps-btn__text">Get Started</span>
+                <span class="ps-btn__icon" aria-hidden="true">
+                  <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </button>
+              {/* PayPal tracking pixel — hidden */}
+              <img
+                alt=""
+                style="display:none;width:1px;height:1px;"
+                src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif"
+                width="1"
+                height="1"
+              />
+            </form>
+            <p class="ps-card__paypal-note">
+              <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="2" y="5.5" width="12" height="9" rx="1.2" stroke="currentColor" stroke-width="1.1"/>
+                <path d="M5.5 5.5V4a2.5 2.5 0 0 1 5 0v1.5" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+              </svg>
+              Secure checkout via PayPal
+            </p>
+          </div>
+
+        </div>
+      ))}
+    </div>
+
+    <!-- ── Bottom CTA strip ── -->
+    <div class="ps-footer">
+      <div class="ps-footer__rule"></div>
+      <p class="ps-footer__text">
+        Not sure which package is right for you?&nbsp;
+        <a href="/contact-us" class="ps-footer__link">Let's talk first →</a>
+      </p>
+      <div class="ps-footer__rule ps-footer__rule--rev"></div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  /* ══════════════════════════
+     SHELL
+  ══════════════════════════ */
+  .ps-section {
+    position: relative;
+    width: 100%;
+    padding: 2rem 1.5rem 8rem;
+    overflow: hidden;
+    isolation: isolate;
+    contain: layout;
+  }
+
+  .ps-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1280px;
+    margin-inline: auto;
+  }
+
+  /* ══════════════════════════
+     AMBIENT BG
+  ══════════════════════════ */
+  .ps-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .ps-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+  }
+  .ps-blob--1 { width:600px; height:600px; background:var(--amber,#ffa94d); opacity:0.07; top:-150px; left:-200px; animation: psb1 22s ease-in-out infinite; }
+  .ps-blob--2 { width:500px; height:500px; background:var(--teal,#00f5c4);  opacity:0.06; bottom:0;   right:-150px; animation: psb2 28s ease-in-out infinite; }
+  .ps-blob--3 { width:400px; height:400px; background:var(--warm,#ff6b6b);  opacity:0.05; top:40%;   left:45%;    animation: psb3 34s ease-in-out infinite; }
+
+  @keyframes psb1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(40px,30px)} }
+  @keyframes psb2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-35px,-30px)} }
+  @keyframes psb3 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-20px,25px)} }
+
+  .ps-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  /* ══════════════════════════
+     HEADER
+  ══════════════════════════ */
+  .ps-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 5rem;
+  }
+
+  .ps-header__eyebrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-family: var(--font-ui, 'Barlow Condensed', sans-serif);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent, #3ee8a4);
+    margin-bottom: 1.5rem;
+  }
+  .ps-header__eyebrow-line {
+    flex: 1;
+    max-width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent, #3ee8a4));
+  }
+  .ps-header__eyebrow-line--rev {
+    background: linear-gradient(90deg, var(--accent, #3ee8a4), transparent);
+  }
+
+  .ps-header__title {
+    font-family: var(--font-display, 'Cormorant Garamond', serif);
+    font-size: clamp(2.4rem, 4.5vw, 4rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--text, #e2e8f0);
+    margin-bottom: 1.5rem;
+  }
+  .ps-header__title em {
+    font-style: italic;
+    color: var(--gold-light, #e8c47a);
+    font-weight: 600;
+  }
+
+  .ps-header__practice {
+    font-family: var(--font-ui, 'Barlow Condensed', sans-serif);
+    font-size: 0.72rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    margin-bottom: 1.25rem;
+  }
+  .ps-header__practice strong {
+    color: var(--amber, #ffa94d);
+  }
+
+  .ps-header__desc {
+    font-family: var(--font-body, 'Barlow', sans-serif);
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--muted, #7a8fa6);
+    margin-bottom: 2rem;
+  }
+  .ps-header__desc strong { color: var(--text, #e2e8f0); font-weight: 500; }
+
+  .ps-header__quote {
+    display: inline-block;
+    font-family: var(--font-display, 'Cormorant Garamond', serif);
+    font-size: 1.05rem;
+    font-style: italic;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.35);
+    padding: 1.25rem 2rem;
+    border-left: 2px solid rgba(255,169,77,0.35);
+    border-right: 2px solid rgba(255,169,77,0.35);
+    text-align: center;
+  }
+  .ps-header__quote strong {
+    display: block;
+    margin-top: 0.5rem;
+    font-style: normal;
+    font-weight: 700;
+    font-family: var(--font-ui, 'Barlow Condensed', sans-serif);
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--amber, #ffa94d);
+  }
+
+  /* ══════════════════════════
+     CARDS GRID
+  ══════════════════════════ */
+  .ps-grid-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    align-items: start;
+    margin-bottom: 4rem;
+  }
+
+  /* ══════════════════════════
+     CARD
+  ══════════════════════════ */
+  .ps-card {
+    position: relative;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 3px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.35s ease, transform 0.35s ease, background 0.35s ease;
+    opacity: 0;
+    transform: translateY(36px);
+  }
+  .ps-card.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+      opacity 0.65s var(--delay, 0s) ease,
+      transform 0.65s var(--delay, 0s) ease,
+      border-color 0.35s ease,
+      background 0.35s ease;
+  }
+  .ps-card:hover {
+    border-color: rgba(var(--accent-rgb, 62,232,164), 0.4);
+    background: rgba(255,255,255,0.055);
+    transform: translateY(-5px);
+  }
+  .ps-card--featured {
+    border-color: rgba(var(--accent-rgb, 232,196,122), 0.3);
+    background: rgba(var(--accent-rgb, 232,196,122), 0.04);
+  }
+
+  /* accent top bar */
+  .ps-card__bar {
+    height: 3px;
+    background: var(--accent, #3ee8a4);
+    transform: scaleX(0.35);
+    transform-origin: left;
+    transition: transform 0.5s cubic-bezier(0.22,1,0.36,1);
+  }
+  .ps-card:hover .ps-card__bar,
+  .ps-card--featured .ps-card__bar { transform: scaleX(1); }
+
+  /* badge */
+  .ps-card__badge {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    font-family: var(--font-ui, 'Barlow Condensed', sans-serif);
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent, #3ee8a4);
+    background: rgba(var(--accent-rgb, 62,232,164), 0.12);
+    border: 1px solid rgba(var(--accent-rgb, 62,232,164), 0.3);
+    border-radius: 999px;
+    padding: 0.25rem 0.65rem;
+    z-index: 2;
+  }
+
+  /* corner brackets */
+  .ps-card__corner {
+    position: absolute;
+    width: 12px; height: 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+  }
+  .ps-card:hover .ps-card__corner,
+  .ps-card--featured .ps-card__corner { opacity: 1; }
+  .ps-card__corner--tl { top: 8px; left: 8px; border-top: 1.5px solid var(--accent); border-left: 1.5px solid var(--accent); }
+  .ps-card__corner--br { bottom: 8px; right: 8px; border-bottom: 1.5px solid var(--accent); border-right: 1.5px solid var(--accent); }
+
+  /* ghost session number */
+  .ps-card__sessions {
+    position: absolute;
+    bottom: 0; right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 0 1.1rem 0.6rem 0;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+  }
+  .ps-card__sessions-num {
+    font-family: var(--font-display, 'Cormorant Garamond', serif);
+    font-size: 7rem;
+    font-weight: 600;
+    line-height: 1;
+    color: var(--accent, #3ee8a4);
+    opacity: 0.04;
+    transition: opacity 0.4s ease;
+  }
+  .ps-card:hover .ps-card__sessions-num { opacity: 0.09; }
+  .ps-card__sessions-label {
+    font-family: var(--font-ui, 'Barlow Condensed', sans-serif);
+    font-size: 0.5rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    opacity: 0.15;
+    margin-top: -1rem;
+  }
+
+  /* card body */
+  .ps-card__body {
+    padding: 1.75rem 1.5rem 1.25rem;
+    flex: 1;
+    position: relative;
+    z-index: 1;
+  }
+
+  .ps-card__eyebrow {
+    font-family: var(--font-ui, 'Barlow Condensed', sans-serif);
+    font-size: 0.58rem;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--accent, #3ee8a4);
+    margin-bottom: 0.3rem;
+  }
+
+  .ps-card__name {
+    font-family: var(--font-display, 'Cormorant Garamond', serif);
+    font-size: clamp(1.5rem, 2vw, 1.85rem);
+    font-weight: 600;
+    line-height: 1.1;
+    color: #fff;
+    margin-bottom: 1.25rem;
+  }
+
+  /* price */
+  .ps-card__price-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.1rem;
+    margin-bottom: 0.3rem;
+  }
+  .ps-card__currency {
+    font-family: var(--font-ui, 'Barlow Condensed', sans-serif);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--accent, #3ee8a4);
+    line-height: 1.8;
+  }
+  .ps-card__price {
+    font-family: var(--font-display, 'Cormorant Garamond', serif);
+    font-size: clamp(2.4rem, 3.5vw, 3rem);
+    font-weight: 600;
+    line-height: 1;
+    color: #fff;
+  }
+  .ps-card__per {
+    font-family: var(--font-ui, 'Barlow Condensed', sans-serif);
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.2);
+    margin-bottom: 1.5rem;
+  }
+
+  .ps-card__rule {
+    width: 32px; height: 1.5px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+    margin-bottom: 1.25rem;
+    transition: width 0.4s ease;
+  }
+  .ps-card:hover .ps-card__rule { width: 52px; }
+
+  /* perks list */
+  .ps-card__perks {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+  .ps-card__perks li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-family: var(--font-body, 'Barlow', sans-serif);
+    font-size: 0.84rem;
+    font-weight: 300;
+    line-height: 1.5;
+    color: var(--muted, #7a8fa6);
+  }
+  .ps-card__perk-dot {
+    flex-shrink: 0;
+    margin-top: 0.42rem;
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--accent, #3ee8a4);
+    opacity: 0.6;
+  }
+
+  /* CTA */
+  .ps-card__cta {
+    padding: 1.25rem 1.5rem 1.5rem;
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .ps-paypal-form { width: 100%; }
+
+  .ps-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 0.85rem 1.25rem;
+    border: 1.5px solid var(--accent, #3ee8a4);
+    border-radius: 2px;
+    background: transparent;
+    color: var(--accent, #3ee8a4);
+    cursor: pointer;
+    font-family: var(--font-ui, 'Barlow Condensed', sans-serif);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .ps-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--accent, #3ee8a4);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s cubic-bezier(0.22,1,0.36,1);
+    z-index: 0;
+  }
+  .ps-btn:hover::before { transform: scaleX(1); }
+  .ps-btn:hover {
+    color: var(--dark, #080c14);
+    box-shadow: 0 0 24px rgba(var(--accent-rgb, 62,232,164), 0.3);
+  }
+  .ps-btn__text, .ps-btn__icon {
+    position: relative;
+    z-index: 1;
+  }
+  .ps-btn__icon svg { width: 14px; height: 14px; }
+
+  .ps-card__paypal-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    margin-top: 0.65rem;
+    font-family: var(--font-ui, 'Barlow Condensed', sans-serif);
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.16);
+  }
+  .ps-card__paypal-note svg {
+    width: 10px; height: 10px;
+    color: rgba(255,255,255,0.2);
+  }
+
+  /* ══════════════════════════
+     FOOTER STRIP
+  ══════════════════════════ */
+  .ps-footer {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .ps-footer.is-visible { opacity: 1; transform: translateY(0); }
+
+  .ps-footer__rule {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07));
+  }
+  .ps-footer__rule--rev {
+    background: linear-gradient(90deg, rgba(255,255,255,0.07), transparent);
+  }
+  .ps-footer__text {
+    font-family: var(--font-body, 'Barlow', sans-serif);
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: var(--muted, #7a8fa6);
+    white-space: nowrap;
+  }
+  .ps-footer__link {
+    color: var(--accent, #3ee8a4);
+    text-decoration: none;
+    font-weight: 400;
+    transition: opacity 0.2s ease;
+  }
+  .ps-footer__link:hover { opacity: 0.7; }
+
+  /* ══════════════════════════
+     RESPONSIVE
+  ══════════════════════════ */
+  @media (max-width: 1100px) {
+    .ps-grid-cards { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 580px) {
+    .ps-grid-cards { grid-template-columns: 1fr; max-width: 420px; margin-inline: auto; }
+    .ps-footer { flex-direction: column; gap: 0.75rem; text-align: center; }
+    .ps-footer__rule { display: none; }
+    .ps-footer__text { white-space: normal; text-align: center; }
+  }
+</style>
+
+<script>
+  function initPsReveal() {
+    const cards = document.querySelectorAll<HTMLElement>(".ps-card");
+    const footer = document.querySelector<HTMLElement>(".ps-footer");
+
+    cards.forEach((el) => el.classList.remove("is-visible"));
+    footer?.classList.remove("is-visible");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            (entry.target as HTMLElement).classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.08 }
+    );
+
+    cards.forEach((el) => observer.observe(el));
+    if (footer) observer.observe(footer);
+  }
+
+  document.addEventListener("astro:page-load", initPsReveal);
+</script>

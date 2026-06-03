@@ -1,0 +1,638 @@
+---
+// GetCertifiedCTA.astro
+---
+
+<section class="gc-section">
+  <div class="gc-bg" aria-hidden="true">
+    <div class="gc-blob gc-blob--1"></div>
+    <div class="gc-blob gc-blob--2"></div>
+    <div class="gc-grid"></div>
+    <!-- decorative lines -->
+    <div class="gc-lines" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <div class="gc-inner">
+    <!-- left: text content -->
+    <div class="gc-content">
+      <p class="gc-eyebrow">
+        <span class="gc-eyebrow__dot" aria-hidden="true"></span>
+        The BioCode System® Certification
+        <span class="gc-eyebrow__dot" aria-hidden="true"></span>
+      </p>
+
+      <h2 class="gc-heading">
+        Get <em>Certified</em>
+      </h2>
+
+      <p class="gc-desc">
+        Imagine being part of a vision that becomes an essential part of the
+        world — even long after you're gone. Are you passionate about helping
+        others? Do you want to teach work that lasts a lifetime?
+      </p>
+
+      <p class="gc-desc gc-desc--accent">
+        Get all the tools and step-by-step training you need to become
+        <strong>certified in The BioCode System®.</strong>
+      </p>
+
+      <a href="/contact-us" class="gc-btn">
+        <span class="gc-btn__bg" aria-hidden="true"></span>
+        <span class="gc-btn__text">Contact Us</span>
+        <span class="gc-btn__arrow" aria-hidden="true">
+          <svg
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M4 10h12M11 5l5 5-5 5"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+        </span>
+      </a>
+    </div>
+
+    <!-- right: decorative visual panel -->
+    <div class="gc-visual" aria-hidden="true">
+      <!-- large medallion -->
+      <div class="gc-medallion">
+        <div class="gc-medallion__ring gc-medallion__ring--outer"></div>
+        <div class="gc-medallion__ring gc-medallion__ring--mid"></div>
+        <div class="gc-medallion__ring gc-medallion__ring--inner"></div>
+        <div class="gc-medallion__core">
+          <!-- star / seal glyph -->
+          <svg
+            viewBox="0 0 80 80"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M40 8l4.9 14.9H61l-12.8 9.3 4.9 14.9L40 38.8l-13.1 8.3 4.9-14.9L19 22.9h16.1z"
+              stroke="currentColor"
+              stroke-width="1.2"
+              stroke-linejoin="round"></path>
+            <circle
+              cx="40"
+              cy="40"
+              r="28"
+              stroke="currentColor"
+              stroke-width="0.8"
+              stroke-dasharray="3 4"></circle>
+            <circle
+              cx="40"
+              cy="40"
+              r="22"
+              stroke="currentColor"
+              stroke-width="0.5"
+              opacity="0.4"></circle>
+          </svg>
+          <span class="gc-medallion__label">CERTIFIED</span>
+        </div>
+      </div>
+
+      <!-- floating stat chips -->
+      <div class="gc-chip gc-chip--1">
+        <span class="gc-chip__icon">◆</span>
+        <span>Lifetime teaching rights</span>
+      </div>
+      <div class="gc-chip gc-chip--2">
+        <span class="gc-chip__icon">◆</span>
+        <span>Step-by-step training</span>
+      </div>
+      <div class="gc-chip gc-chip--3">
+        <span class="gc-chip__icon">◆</span>
+        <span>Global community</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ══════════════════════════
+     SHELL
+  ══════════════════════════ */
+  .gc-section {
+    position: relative;
+    width: 100%;
+    padding: 6rem 1.5rem 7rem;
+    overflow: hidden;
+    isolation: isolate;
+    contain: layout;
+  }
+
+  .gc-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1160px;
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  /* ══════════════════════════
+     BG
+  ══════════════════════════ */
+  .gc-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* border top/bottom rules */
+  .gc-bg::before,
+  .gc-bg::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+  }
+  .gc-bg::before {
+    top: 0;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(201, 151, 58, 0.25) 30%,
+      rgba(201, 151, 58, 0.25) 70%,
+      transparent
+    );
+  }
+  .gc-bg::after {
+    bottom: 0;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(62, 232, 164, 0.15) 30%,
+      rgba(62, 232, 164, 0.15) 70%,
+      transparent
+    );
+  }
+
+  .gc-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(110px);
+  }
+  .gc-blob--1 {
+    width: 580px;
+    height: 580px;
+    background: var(--gold, #c9973a);
+    opacity: 0.08;
+    top: -200px;
+    right: -100px;
+    animation: gcb1 22s ease-in-out infinite;
+  }
+  .gc-blob--2 {
+    width: 420px;
+    height: 420px;
+    background: var(--teal, #00f5c4);
+    opacity: 0.06;
+    bottom: -150px;
+    left: -100px;
+    animation: gcb2 28s ease-in-out infinite;
+  }
+
+  @keyframes gcb1 {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(-40px, 30px);
+    }
+  }
+  @keyframes gcb2 {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(35px, -25px);
+    }
+  }
+
+  .gc-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  /* diagonal accent lines */
+  .gc-lines {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+  .gc-lines span {
+    position: absolute;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(201, 151, 58, 0.1),
+      transparent
+    );
+    transform: rotate(15deg);
+    transform-origin: left center;
+  }
+  .gc-lines span:nth-child(1) {
+    width: 70%;
+    top: 20%;
+    left: -5%;
+    animation: gcline 10s 0s ease-in-out infinite;
+  }
+  .gc-lines span:nth-child(2) {
+    width: 50%;
+    top: 50%;
+    left: 10%;
+    animation: gcline 13s 2.5s ease-in-out infinite;
+  }
+  .gc-lines span:nth-child(3) {
+    width: 60%;
+    top: 78%;
+    left: -8%;
+    animation: gcline 11s 1.2s ease-in-out infinite;
+  }
+
+  @keyframes gcline {
+    0%,
+    100% {
+      opacity: 0.5;
+      transform: rotate(15deg) scaleX(1);
+    }
+    50% {
+      opacity: 1;
+      transform: rotate(15deg) scaleX(1.06);
+    }
+  }
+
+  /* ══════════════════════════
+     CONTENT (left)
+  ══════════════════════════ */
+  .gc-content {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition:
+      opacity 0.8s ease,
+      transform 0.8s ease;
+  }
+  .gc-content.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .gc-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-family: var(--font-ui, "Barlow Condensed", sans-serif);
+    font-size: 0.63rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold, #c9973a);
+    margin-bottom: 1.5rem;
+  }
+  .gc-eyebrow__dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--gold, #c9973a);
+    opacity: 0.6;
+  }
+
+  .gc-heading {
+    font-family: var(--font-display, "Cormorant Garamond", serif);
+    font-size: clamp(3rem, 5.5vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1;
+    color: var(--text, #e2e8f0);
+    margin-bottom: 2rem;
+    letter-spacing: -0.01em;
+  }
+  .gc-heading em {
+    font-style: italic;
+    font-weight: 600;
+    /* gold gradient text */
+    background: linear-gradient(
+      120deg,
+      var(--gold, #c9973a) 0%,
+      var(--gold-light, #e8c47a) 50%,
+      var(--gold, #c9973a) 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gcShimmer 5s 1s linear infinite;
+  }
+  @keyframes gcShimmer {
+    0% {
+      background-position: 0% center;
+    }
+    100% {
+      background-position: 200% center;
+    }
+  }
+
+  .gc-desc {
+    font-family: var(--font-body, "Barlow", sans-serif);
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.85;
+    color: var(--muted, #7a8fa6);
+    margin-bottom: 1.25rem;
+    max-width: 520px;
+  }
+  .gc-desc--accent {
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 2.5rem;
+  }
+  .gc-desc--accent strong {
+    color: var(--gold-light, #e8c47a);
+    font-weight: 500;
+  }
+
+  /* CTA button */
+  .gc-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    border: 1.5px solid var(--gold, #c9973a);
+    border-radius: 2px;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition:
+      box-shadow 0.35s ease,
+      color 0.35s ease;
+    color: var(--gold-light, #e8c47a);
+  }
+  .gc-btn__bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, var(--gold, #c9973a), #a8782d);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    z-index: 0;
+  }
+  .gc-btn:hover .gc-btn__bg {
+    transform: scaleX(1);
+  }
+  .gc-btn:hover {
+    color: var(--dark, #080c14);
+    box-shadow: 0 0 28px rgba(201, 151, 58, 0.4);
+  }
+  .gc-btn__text {
+    position: relative;
+    z-index: 1;
+    font-family: var(--font-ui, "Barlow Condensed", sans-serif);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+  .gc-btn__arrow {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+  }
+  .gc-btn__arrow svg {
+    width: 18px;
+    height: 18px;
+  }
+  .gc-btn:hover .gc-btn__arrow {
+    transform: translateX(4px);
+  }
+
+  /* ══════════════════════════
+     VISUAL PANEL (right)
+  ══════════════════════════ */
+  .gc-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 360px;
+    opacity: 0;
+    transform: translateX(30px);
+    transition:
+      opacity 0.8s 0.15s ease,
+      transform 0.8s 0.15s ease;
+  }
+  .gc-visual.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* ── Medallion ── */
+  .gc-medallion {
+    position: relative;
+    width: 260px;
+    height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .gc-medallion__ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid var(--gold, #c9973a);
+  }
+  .gc-medallion__ring--outer {
+    inset: 0;
+    opacity: 0.15;
+    animation: gcSpin 40s linear infinite;
+  }
+  .gc-medallion__ring--mid {
+    inset: 18px;
+    opacity: 0.2;
+    border-style: dashed;
+    animation: gcSpin 28s linear infinite reverse;
+  }
+  .gc-medallion__ring--inner {
+    inset: 38px;
+    opacity: 0.3;
+    animation: gcSpin 18s linear infinite;
+  }
+
+  @keyframes gcSpin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .gc-medallion__core {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: rgba(201, 151, 58, 0.06);
+    border: 1px solid rgba(201, 151, 58, 0.2);
+    color: var(--gold-light, #e8c47a);
+  }
+  .gc-medallion__core svg {
+    width: 64px;
+    height: 64px;
+    opacity: 0.7;
+  }
+  .gc-medallion__label {
+    font-family: var(--font-ui, "Barlow Condensed", sans-serif);
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold, #c9973a);
+    opacity: 0.6;
+  }
+
+  /* ── Floating chips ── */
+  .gc-chip {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.85rem;
+    background: rgba(10, 15, 26, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    backdrop-filter: blur(8px);
+    font-family: var(--font-ui, "Barlow Condensed", sans-serif);
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.45);
+    white-space: nowrap;
+    animation: gcFloat 0s ease-in-out infinite;
+  }
+  .gc-chip__icon {
+    font-size: 0.35rem;
+    color: var(--gold, #c9973a);
+    opacity: 0.8;
+  }
+
+  .gc-chip--1 {
+    top: 14%;
+    left: -8%;
+    animation: gcFloat 5s 0s ease-in-out infinite;
+  }
+  .gc-chip--2 {
+    bottom: 16%;
+    left: -5%;
+    animation: gcFloat 6.5s 1.2s ease-in-out infinite;
+  }
+  .gc-chip--3 {
+    top: 12%;
+    right: -4%;
+    animation: gcFloat 5.8s 0.6s ease-in-out infinite;
+  }
+
+  @keyframes gcFloat {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-7px);
+    }
+  }
+
+  /* ══════════════════════════
+     RESPONSIVE
+  ══════════════════════════ */
+  @media (max-width: 900px) {
+    .gc-inner {
+      grid-template-columns: 1fr;
+      gap: 3.5rem;
+      text-align: center;
+    }
+    .gc-eyebrow {
+      justify-content: center;
+    }
+    .gc-desc {
+      max-width: 100%;
+    }
+    .gc-btn {
+      margin-inline: auto;
+    }
+    .gc-visual {
+      min-height: 280px;
+    }
+    .gc-medallion {
+      width: 220px;
+      height: 220px;
+    }
+    .gc-chip--1 {
+      top: 5%;
+      left: 2%;
+    }
+    .gc-chip--2 {
+      bottom: 5%;
+      left: 2%;
+    }
+    .gc-chip--3 {
+      top: 5%;
+      right: 2%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .gc-visual {
+      display: none;
+    }
+    .gc-section {
+      padding: 5rem 1.25rem 6rem;
+    }
+  }
+</style>
+
+<script>
+  function initGcReveal() {
+    const els = document.querySelectorAll<HTMLElement>(
+      ".gc-content, .gc-visual",
+    );
+    els.forEach((el) => el.classList.remove("is-visible"));
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            (entry.target as HTMLElement).classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 },
+    );
+
+    els.forEach((el) => observer.observe(el));
+  }
+
+  document.addEventListener("astro:page-load", initGcReveal);
+</script>

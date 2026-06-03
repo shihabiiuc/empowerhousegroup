@@ -1,0 +1,452 @@
+---
+// BizLifeEduHero.astro
+
+const pillars = [
+  {
+    word: "BIZ",
+    sub: "for leaders, teams and culture",
+    accent: "#38bdf8",
+    accentRgb: "56,189,248",
+  },
+  {
+    word: "LIFE",
+    sub: "for individuals, couples and families",
+    accent: "#3ee8a4",
+    accentRgb: "62,232,164",
+  },
+  {
+    word: "EDU & SPORT",
+    sub: "for students, athletes and organizations",
+    accent: "#e8c47a",
+    accentRgb: "232,196,122",
+  },
+];
+---
+
+<section class="ble-hero">
+  <div class="ble-bg" aria-hidden="true">
+    <div class="ble-blob ble-blob--1"></div>
+    <div class="ble-blob ble-blob--2"></div>
+    <div class="ble-blob ble-blob--3"></div>
+    <div class="ble-grid"></div>
+  </div>
+
+  <div class="ble-inner">
+    <!-- eyebrow -->
+    <p class="ble-eyebrow">
+      <span class="ble-eyebrow__line"></span>
+      <span class="ble-eyebrow__text">The BioCode System® — Where It Works</span
+      >
+      <span class="ble-eyebrow__line ble-eyebrow__line--rev"></span>
+    </p>
+
+    <!-- heading -->
+    <h1 class="ble-heading" aria-label="Biz, Life & Edu">
+      <span class="ble-heading__word ble-heading__word--biz">Biz</span>
+      <span class="ble-heading__sep">,&nbsp;</span>
+      <span class="ble-heading__word ble-heading__word--life">Life</span>
+      <span class="ble-heading__sep">&nbsp;&amp;&nbsp;</span>
+      <span class="ble-heading__word ble-heading__word--edu">Edu</span>
+    </h1>
+
+    <!-- three descriptor pills -->
+    <div class="ble-pillars">
+      {
+        pillars.map((p, i) => (
+          <div
+            class="ble-pillar"
+            style={`--p-accent:${p.accent};--p-rgb:${p.accentRgb};--p-delay:${i * 0.14}s`}
+          >
+            <span class="ble-pillar__word">{p.word}</span>
+            <span class="ble-pillar__divider" aria-hidden="true" />
+            <span class="ble-pillar__sub">{p.sub}</span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <div class="ble-fade" aria-hidden="true"></div>
+</section>
+
+<style>
+  /* ══════════════════════════
+     SHELL
+  ══════════════════════════ */
+  .ble-hero {
+    position: relative;
+    width: 100%;
+    min-height: clamp(380px, 52vh, 560px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    isolation: isolate;
+    contain: layout;
+  }
+
+  /* ══════════════════════════
+     BG
+  ══════════════════════════ */
+  .ble-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .ble-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(115px);
+  }
+  /* sky blue — top left — BIZ */
+  .ble-blob--1 {
+    width: 480px;
+    height: 480px;
+    background: #38bdf8;
+    opacity: 0.07;
+    top: -160px;
+    left: -160px;
+    animation: blb1 20s ease-in-out infinite;
+  }
+  /* teal — bottom right — LIFE */
+  .ble-blob--2 {
+    width: 420px;
+    height: 420px;
+    background: var(--teal, #00f5c4);
+    opacity: 0.07;
+    bottom: -140px;
+    right: -120px;
+    animation: blb2 26s ease-in-out infinite;
+  }
+  /* gold — centre right — EDU */
+  .ble-blob--3 {
+    width: 360px;
+    height: 360px;
+    background: var(--gold, #c9973a);
+    opacity: 0.08;
+    top: 20%;
+    right: 10%;
+    animation: blb3 32s ease-in-out infinite;
+  }
+
+  @keyframes blb1 {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(45px, 30px);
+    }
+  }
+  @keyframes blb2 {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(-35px, -30px);
+    }
+  }
+  @keyframes blb3 {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(-25px, 20px);
+    }
+  }
+
+  .ble-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.016) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.016) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(
+      ellipse 90% 100% at 50% 50%,
+      black 20%,
+      transparent 100%
+    );
+  }
+
+  /* ══════════════════════════
+     INNER
+  ══════════════════════════ */
+  .ble-inner {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 4.5rem 1.5rem 3.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+    max-width: 1100px;
+    margin-inline: auto;
+  }
+
+  /* ══════════════════════════
+     EYEBROW
+  ══════════════════════════ */
+  .ble-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: bleFadeUp 0.6s 0.05s ease both;
+  }
+  .ble-eyebrow__line {
+    flex: 1;
+    max-width: 64px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15));
+  }
+  .ble-eyebrow__line--rev {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.15), transparent);
+  }
+  .ble-eyebrow__text {
+    font-family: var(--font-ui, "Barlow Condensed", sans-serif);
+    font-size: 0.63rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.22);
+    white-space: nowrap;
+  }
+
+  /* ══════════════════════════
+     HEADING
+  ══════════════════════════ */
+  .ble-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0;
+    line-height: 0.92;
+    margin-bottom: 2.75rem;
+  }
+
+  .ble-heading__sep {
+    font-family: var(--font-display, "Cormorant Garamond", serif);
+    font-size: clamp(2.5rem, 6vw, 6rem);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.2);
+    opacity: 0;
+    animation: bleFadeUp 0.5s 0.42s ease both;
+  }
+
+  .ble-heading__word {
+    font-family: var(--font-display, "Cormorant Garamond", serif);
+    font-size: clamp(4rem, 10.5vw, 10rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 0.92;
+    opacity: 0;
+  }
+
+  /* BIZ — sky blue gradient */
+  .ble-heading__word--biz {
+    background: linear-gradient(135deg, #fff 0%, #38bdf8 55%, #93c5fd 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation:
+      bleFadeUp 0.75s 0.18s ease both,
+      bleShimmer 7s 1s linear infinite;
+  }
+
+  /* LIFE — teal gradient */
+  .ble-heading__word--life {
+    background: linear-gradient(135deg, #3ee8a4 0%, #fff 45%, #3ee8a4 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation:
+      bleFadeUp 0.75s 0.3s ease both,
+      bleShimmer 9s 1.4s linear infinite;
+  }
+
+  /* EDU — gold gradient */
+  .ble-heading__word--edu {
+    background: linear-gradient(135deg, #e8c47a 0%, #fff 45%, #c9973a 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation:
+      bleFadeUp 0.75s 0.42s ease both,
+      bleShimmer 8s 1.8s linear infinite;
+  }
+
+  @keyframes bleShimmer {
+    0% {
+      background-position: 0% center;
+    }
+    100% {
+      background-position: 200% center;
+    }
+  }
+
+  /* ══════════════════════════
+     PILLAR PILLS
+  ══════════════════════════ */
+  .ble-pillars {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 3px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 860px;
+  }
+
+  .ble-pillar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    padding: 1.1rem 1.25rem 1.2rem;
+    background: rgba(255, 255, 255, 0.025);
+    position: relative;
+    cursor: default;
+    transition: background 0.35s ease;
+    opacity: 0;
+    animation: bleFadeUp 0.65s calc(0.62s + var(--p-delay, 0s)) ease both;
+  }
+  .ble-pillar:not(:last-child) {
+    border-right: 1px solid rgba(255, 255, 255, 0.07);
+  }
+  .ble-pillar:hover {
+    background: rgba(var(--p-rgb, 62, 232, 164), 0.06);
+  }
+
+  /* accent top bar on each pillar */
+  .ble-pillar::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--p-accent, #3ee8a4);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .ble-pillar:hover::before {
+    transform: scaleX(1);
+  }
+
+  .ble-pillar__word {
+    font-family: var(--font-ui, "Barlow Condensed", sans-serif);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--p-accent, #3ee8a4);
+  }
+
+  .ble-pillar__divider {
+    width: 20px;
+    height: 1px;
+    background: rgba(var(--p-rgb, 62, 232, 164), 0.25);
+  }
+
+  .ble-pillar__sub {
+    font-family: var(--font-body, "Barlow", sans-serif);
+    font-size: 0.78rem;
+    font-weight: 300;
+    line-height: 1.5;
+    color: var(--muted, #7a8fa6);
+    text-align: center;
+    transition: color 0.3s ease;
+  }
+  .ble-pillar:hover .ble-pillar__sub {
+    color: rgba(var(--p-rgb, 62, 232, 164), 0.8);
+  }
+
+  /* ══════════════════════════
+     BOTTOM FADE
+  ══════════════════════════ */
+  .ble-fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      var(--bg-primary, #0b1120)
+    );
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  /* ══════════════════════════
+     ANIMATIONS
+  ══════════════════════════ */
+  @keyframes bleFadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(22px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ══════════════════════════
+     RESPONSIVE
+  ══════════════════════════ */
+  @media (max-width: 640px) {
+    .ble-hero {
+      min-height: 320px;
+    }
+    .ble-heading {
+      gap: 0;
+    }
+    .ble-pillars {
+      flex-direction: column;
+      max-width: 360px;
+    }
+    .ble-pillar:not(:last-child) {
+      border-right: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    }
+    .ble-eyebrow__text {
+      display: none;
+    }
+    .ble-eyebrow__line,
+    .ble-eyebrow__line--rev {
+      max-width: 40px;
+    }
+  }
+</style>
+
+<script>
+  function initBleHero() {
+    const els = document.querySelectorAll<HTMLElement>(
+      ".ble-eyebrow, .ble-heading__word, .ble-heading__sep, .ble-pillar",
+    );
+    els.forEach((el) => {
+      el.style.animation = "none";
+      void el.offsetHeight;
+      el.style.animation = "";
+    });
+  }
+
+  document.addEventListener("astro:page-load", initBleHero);
+</script>
